@@ -241,14 +241,3 @@ For detailed explanation of each experiments, refer `README.md` of `ExperiementV
 
 
 <!-- CONTACT -->
-## Contact
-
-Joohyung Yun - jhyun@dblab.postech.ac.kr
-
-Byunchul Tak - bctak@knu.ac.kr
-
-Wook-Shin Han - wshan@dblab.postech.ac.kr
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
