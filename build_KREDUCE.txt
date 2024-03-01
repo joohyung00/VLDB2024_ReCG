@@ -1,0 +1,8 @@
+name := "jsonSchemaInferenceLight"
+version := "1.0"
+
+ThisBuild / scalaVersion := "2.11.12"
+ThisBuild / organization := "su.lip6"
+
+libraryDependencies += "com.typesafe.play" %% "play-json" % "2.7.4"
+libraryDependencies += "org.slf4j" % "slf4j-api" % "1.7.25"
