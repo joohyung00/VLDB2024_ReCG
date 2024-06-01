@@ -1,6 +1,11 @@
 #include "Cost.hpp"
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////// MDL COST ///////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////// Hom Obj Cost ////////////////////////////////////////
@@ -13,7 +18,7 @@ MDLCost homObjSRC(InstanceCluster& hom_obj_cluster, CostParameters& cost_paramet
 
     // 2. Number of symbols
     int labels_num = hom_obj_cluster.getLabelsToSchemas()->size();
-    int symbol_num = 1 + 4 * labels_num;    
+    int symbol_num = 1 + 4 * labels_num;
     
     return symbol_bitsize * symbol_num;
 }
@@ -185,4 +190,96 @@ MDLCost anyOfDRC(SchemaNode* any_of, CostParameters& cost_parameters, int instan
     BitSize choice_size = bitSize( any_of->getChildrenNum() );
 
     return instance_num * choice_size;
+}
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////// KSE COST ///////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+MDLCost homObjKSE(SchemaNode* schema, InstanceCluster& cluster, CostParameters& cost_parameters)
+{
+    // 1. Initiate a vector that counts each label
+    strInt distinct_labels_num = cost_parameters.getDistinctLabelsNum();
+    vector<Count> label_to_count(distinct_labels_num, 0);
+    Count kleene_count = 0;
+
+    // 2. Count the number of each label
+    for(auto& instance : *cluster.getInstanceForest())
+    {
+        for(auto& label : instance->getStringLabels())
+        { label_to_count[label]++; }
+        if(roaring_bitmap_get_cardinality(instance->getKleenedLabels()))
+        { kleene_count++; }
+    }
+
+    // 3. Calculate entropy
+    MDLCost entropy = 0;
+    for(auto& label : schema->getStringLabels())
+    {
+        if(label_to_count[label] != 0)
+        {
+            double p = (double)label_to_count[label] / cluster.getForestSize();
+            entropy += p * log2(p);
+        }
+    }
+    if(schema->getKleeneChild() != nullptr)
+    {
+        double p = (double)kleene_count / cluster.getForestSize();
+        entropy += -p * log2(p);
+    }
+
+    return entropy;
+}
+
+MDLCost hetObjKSE(SchemaNode* schema, InstanceCluster& cluster, CostParameters& cost_parameters)
+{
+    return homObjKSE(schema, cluster, cost_parameters);
+}
+
+MDLCost comObjKSE(SchemaNode* schema, InstanceCluster& cluster, CostParameters& cost_parameters)
+{
+    return homObjKSE(schema, cluster, cost_parameters);
+}
+
+MDLCost homArrKSE(SchemaNode* schema, InstanceCluster& cluster, CostParameters& cost_parameters)
+{
+    if(schema->getKleeneChild() != nullptr)
+    { return 0; }
+
+    // 1. Initiate a vector that counts each length
+    strInt max_arr_len = cost_parameters.getMaxArrLen();
+    vector<Count> arr_len_to_count(max_arr_len + 1, 0);
+
+    // 2. Count the number of each length
+    for(auto& instance : *cluster.getInstanceForest())
+    { arr_len_to_count[instance->getChildrenNum()]++; }
+
+    // 3. Calculate entropy
+    MDLCost entropy = 0;
+    for(auto& count : arr_len_to_count)
+    {
+        if(count != 0)
+        {
+            double p = (double)count / cluster.getForestSize();
+            entropy += -p * log2(p);
+        }
+    }
+
+    return entropy;
+}
+
+MDLCost hetArrKSE(SchemaNode* schema, InstanceCluster& cluster, CostParameters& cost_parameters)
+{
+    return homArrKSE(schema, cluster, cost_parameters);
+}
+
+MDLCost anyOfKSE(SchemaNode* any_of, int instance_num)
+{
+    return 0;
 }

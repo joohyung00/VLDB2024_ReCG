@@ -3,134 +3,227 @@ import numpy as np
 from colorama import Fore, Style
 
 import sys
-sys.path.insert(1, '/root/jsdReCG/Experiment')
+sys.path.insert(1, '/root/JsonExplorerSpark/Experiment')
 from load_json import load_dataset, load_schema, count_lines, unreference_schema
-sys.path.insert(2, "/root/jsdReCG/Experiment/utils")
+sys.path.insert(2, "/root/JsonExplorerSpark/Experiment/utils")
 from dataset_metadata import dataset_ids, dataset_fullnames, possible_algorithms_list
 
-from aggregateExpResults import *
+from aggregateExpResults import getMDLForAlgPerc, getAccForAlgPerc, getAccForAlgPercDataset, getMDLForAlgPercDataset
 
-print("<< MDL EXPERIMENT SUMMARY >>")
 print()
-
-recg_avg_src, recg_avg_drc, recg_avg_mdl = getMDLForAlgPerc("ReCG", 10)
-jxplain_avg_src, jxplain_avg_drc, jxplain_avg_mdl = getMDLForAlgPerc("jxplain", 10)
-kreduce_avg_src, kreduce_avg_drc, kreduce_avg_mdl = getMDLForAlgPerc("kreduce", 10)
-gt_avg_src, gt_avg_drc, gt_avg_mdl = getMDLForAlgPerc("groundtruth", 10)
-recg_to_jxplain = "%.1f"%(jxplain_avg_mdl / recg_avg_mdl)
-recg_to_kreduce = "%.1f"%(kreduce_avg_mdl / recg_avg_mdl)
-recg_diff_gt = "%.1f"%(100 * (1 - recg_avg_mdl/gt_avg_mdl))
-print("ReCG's MDL cost is ", end = "")
-print(Fore.GREEN + recg_to_jxplain, end = "")
-print(Style.RESET_ALL, end = "")
-print(" times smaller than Jxplain")
-print()
-print("ReCG's MDL cost is ", end = "")
-print(Fore.GREEN + recg_to_kreduce, end = "")
-print(Style.RESET_ALL, end = "")
-print(" times smaller than KReduce")
-print()
-print("The difference of ReCG's MDL cost is within ", end = "")
-print(Fore.RED + recg_diff_gt, end = "")
-print(Style.RESET_ALL, end = "")
-print(" difference compared to the ground truth")
-print()
-
-recg_to_jxplain = "%.2f"%(jxplain_avg_src / recg_avg_src)
-recg_to_kreduce = "%.2f"%(kreduce_avg_src / recg_avg_src)
-print("ReCG's SRC is ", end = "")
-print(Fore.GREEN + recg_to_jxplain, end = "")
-print(Style.RESET_ALL, end = "")
-print(" times smaller than Jxplain")
-print()
-print("ReCG's SRC is ", end = "")
-print(Fore.GREEN + recg_to_kreduce, end = "")
-print(Style.RESET_ALL, end = "")
-print(" times smaller than KReduce")
+print("<< SUMMARY >>")
 print()
 
 
-print("ReCG's found schemas show lower MDL cost than groundtruth in the datasets of: ")
 
-df = pd.DataFrame(columns=["src_gt_ratio", "drc_gt_ratio", "mdl_gt_ratio", "recall", "precision", "f1"])
+# 1. Set metadata
+MDL = "mdl"
+SRC = "src"
+DRC = "drc"
+F1 = "f1"
+RECALL = "recall"
+PRECISION = "precision"
 
-for dataset_fullname in dataset_fullnames:
-    # 1. Get MDL Ratios
-    gt_src, gt_drc, gt_mdl = getMDLForAlgPercDataset("groundtruth", 10, dataset_fullname)
-    gt_gt_src_ratio = 1.0
-    gt_gt_drc_ratio = 1.0
-    gt_gt_mdl_ratio = 1.0
-    gt_f1, gt_recall, gt_precision = 1.0, 1.0, 1.0
+GT = "groundtruth"
+RECG = "ReCG"
+JXPLAIN = "jxplain"
+KREDUCE = "kreduce"
+LREDUCE = "lreduce"
+KLETTKE = "klettke"
+FROZZA = "frozza"
+
+
+def main():
+    algorithms = [GT, RECG, JXPLAIN, KREDUCE, LREDUCE, KLETTKE, FROZZA]
     
-    recg_src, recg_drc, recg_mdl = getMDLForAlgPercDataset("ReCG", 10, dataset_fullname)
-    recg_gt_src_ratio = recg_src / gt_src
-    recg_gt_drc_ratio = recg_drc / gt_drc
-    recg_gt_mdl_ratio = recg_mdl / gt_mdl
-    recg_f1, _, recg_recall, _, recg_precision, _ = getAccForAlgPercDataset("ReCG", 10, dataset_fullname)
-    df.loc[len(df.index)] = [recg_gt_src_ratio, recg_gt_drc_ratio, recg_gt_mdl_ratio,
-                             recg_recall, recg_precision, recg_f1]
+    # 1. Fill in results
+    results_per_algorithm = {}
+    for algorithm in algorithms:
+        results_per_algorithm[algorithm] = {
+            SRC: -1,
+            DRC: -1,
+            MDL: -1,
+            RECALL: -1,
+            PRECISION: -1,
+            F1: -1
+        }
+    for algorithm in algorithms:
+        src, drc, mdl = getMDLForAlgPerc(algorithm, 10)
+        results_per_algorithm[algorithm][SRC] = src
+        results_per_algorithm[algorithm][DRC] = drc
+        results_per_algorithm[algorithm][MDL] = mdl
+        if algorithm == GT:
+            results_per_algorithm[algorithm][RECALL] = 1.0
+            results_per_algorithm[algorithm][PRECISION] = 1.0
+            results_per_algorithm[algorithm][F1] = 1.0
+        else:
+            f1, recall, precision = getAccForAlgPerc(algorithm, 10)
+            results_per_algorithm[algorithm][RECALL] = recall
+            results_per_algorithm[algorithm][PRECISION] = precision
+            results_per_algorithm[algorithm][F1] = f1
+    RPA = results_per_algorithm
     
-    if recg_gt_mdl_ratio < 1:
-        print(Fore.GREEN + dataset_fullname, end = ", ")
+    results_per_algorithm_dataset = {}
+    for algorithm in algorithms:
+        results_per_algorithm_dataset[algorithm] = {}
+        for dataset in dataset_fullnames:
+            results_per_algorithm_dataset[algorithm][dataset] = {
+                SRC: -1,
+                DRC: -1,
+                MDL: -1,
+                RECALL: -1,
+                PRECISION: -1,
+                F1: -1
+            }
+    for algorithm in algorithms:
+        for dataset in dataset_fullnames:
+            src, drc, mdl = getMDLForAlgPercDataset(algorithm, 10, dataset)
+            results_per_algorithm_dataset[algorithm][dataset][SRC] = src
+            results_per_algorithm_dataset[algorithm][dataset][DRC] = drc
+            results_per_algorithm_dataset[algorithm][dataset][MDL] = mdl
+            if algorithm == GT:
+                results_per_algorithm_dataset[algorithm][dataset][RECALL] = 1.0
+                results_per_algorithm_dataset[algorithm][dataset][PRECISION] = 1.0
+                results_per_algorithm_dataset[algorithm][dataset][F1] = 1.0
+            else:
+                f1, _, recall, _, precision, _ = getAccForAlgPercDataset(algorithm, 10, dataset)
+                results_per_algorithm_dataset[algorithm][dataset][RECALL] = recall
+                results_per_algorithm_dataset[algorithm][dataset][PRECISION] = precision
+                results_per_algorithm_dataset[algorithm][dataset][F1] = f1
+    RPAD = results_per_algorithm_dataset
+
+    print(RPAD[RECG]["23_MoviesInThailand"][SRC], RPAD[RECG]["23_MoviesInThailand"][DRC])
+    print(RPAD[LREDUCE]["23_MoviesInThailand"][SRC], RPAD[LREDUCE]["23_MoviesInThailand"][DRC])
     
-    jxplain_src, jxplain_drc, jxplain_mdl = getMDLForAlgPercDataset("jxplain", 10, dataset_fullname)
-    jxplain_gt_src_ratio = jxplain_src / gt_src
-    jxplain_gt_drc_ratio = jxplain_drc / gt_drc
-    jxplain_gt_mdl_ratio = jxplain_mdl / gt_mdl
-    jxplain_f1, _, jxplain_recall, _, jxplain_precision, _ = getAccForAlgPercDataset("jxplain", 10, dataset_fullname)
-    if jxplain_f1 != -1:
-        df.loc[len(df.index)] = [jxplain_gt_src_ratio, jxplain_gt_drc_ratio, jxplain_gt_mdl_ratio,
-                                jxplain_recall, jxplain_precision, jxplain_f1]
     
-    kreduce_src, kreduce_drc, kreduce_mdl = getMDLForAlgPercDataset("kreduce", 10, dataset_fullname)
-    kreduce_gt_src_ratio = kreduce_src / gt_src
-    kreduce_gt_drc_ratio = kreduce_drc / gt_drc
-    kreduce_gt_mdl_ratio = kreduce_mdl / gt_mdl
-    kreduce_f1, _, kreduce_recall, _, kreduce_precision, _ = getAccForAlgPercDataset("kreduce", 10, dataset_fullname)
-    df.loc[len(df.index)] = [kreduce_gt_src_ratio, kreduce_gt_drc_ratio, kreduce_gt_mdl_ratio,
-                             kreduce_recall, kreduce_precision, kreduce_f1]
+    #2. Print how much ReCG's MDL cost is within the ground truth
+    print("The difference of ReCG's MDL cost is within ", end = "")
+    print(Fore.RED + "%.1f"%(100 * (1 - RPA[RECG][MDL] / RPA[GT][MDL])) + r"%", end = "")
+    print(Style.RESET_ALL, end = "")
+    print(r" difference compared to the ground truth")
+    print()
+    for algorithm in algorithms:
+        if algorithm in ["groundtruth", "ReCG"]: continue
+        print("ReCG's MDL is ", end = "")
+        print(Fore.GREEN + "%.1f"%(RPA[algorithm][MDL] / RPA[RECG][MDL]) + "x", end = "")
+        print(Style.RESET_ALL, end = "")
+        print(" times smaller than " + algorithmToPrintName(algorithm))
+        print("ReCG's SRC is ", end = "")
+        print(Fore.GREEN + "%.2f"%(RPA[algorithm][SRC] / RPA[RECG][SRC]) + "x", end = "")
+        print(Style.RESET_ALL, end = "")
+        print(" times smaller than " + algorithmToPrintName(algorithm))
+        print("ReCG's DRC is ", end = "")
+        print(Fore.GREEN + "%.2f"%(RPA[algorithm][DRC] / RPA[RECG][DRC]) + "x", end = "")
+        print(Style.RESET_ALL, end = "")
+        print(" times smaller than " + algorithmToPrintName(algorithm))
+        print()
+
+
+    #3. Print whether there were cases where other algorithms showed lower MDL cost than ReCG
+    for algorithm in algorithms:
+        for dataset in dataset_fullnames:
+            if algorithm == GT: continue
+            if algorithm == RECG: continue
+            if RPAD[algorithm][dataset][MDL] < 0: continue
+            if RPAD[algorithm][dataset][MDL] < RPAD[RECG][dataset][MDL]:
+                print(algorithmToPrintName(algorithm) + " showed lower MDL cost than ReCG in " + dataset)
+    print()
+
+    print("ReCG's found schemas show lower MDL cost than groundtruth in the datasets of: ")
+
+    df = pd.DataFrame(columns=["src_gt_ratio", "drc_gt_ratio", "mdl_gt_ratio", RECALL, PRECISION, F1])
+
+    for dataset_fullname in dataset_fullnames:
+        # 1. Get MDL Ratios
+        gt_src, gt_drc, gt_mdl = getMDLForAlgPercDataset("groundtruth", 10, dataset_fullname)
+        
+        gt_gt_src_ratio = 1.0
+        gt_gt_drc_ratio = 1.0
+        gt_gt_mdl_ratio = 1.0
+        gt_f1, gt_recall, gt_precision = 1.0, 1.0, 1.0
+        
+        for algorithm in algorithms:
+            if algorithm == GT: continue
+            # if algorithm == KLETTKE: continue
+            # if algorithm == FROZZA: continue
+            # if algorithm == LREDUCE: continue
+            
+            src, drc, mdl = getMDLForAlgPercDataset(algorithm, 10, dataset_fullname)
+            gt_src_ratio = src / gt_src
+            gt_drc_ratio = drc / gt_drc
+            gt_mdl_ratio = mdl / gt_mdl
+            f1, _, recall, _, precision, _ = getAccForAlgPercDataset(algorithm, 10, dataset_fullname)
+            if f1 == -1: continue
+            df.loc[len(df.index)] = [gt_src_ratio, gt_drc_ratio, gt_mdl_ratio, recall, precision, f1]
+            
+            if algorithm == RECG:
+                if gt_mdl_ratio < 1:
+                    print(Fore.GREEN + dataset_fullname, end = ", ")
+                    
+    for dataset_fullame in dataset_fullnames:
+        df.loc[len(df.index)] = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+
+        
+    print(Style.RESET_ALL, end = "")
+    print()
+    print()
+
+    print("<< Correlation Summary >>")
+    print()
+    corr_frame = df.corr()
+
+    src_recall      = corr_frame["src_gt_ratio"][RECALL]
+    src_precision   = corr_frame["src_gt_ratio"][PRECISION]
+    src_f1          = corr_frame["src_gt_ratio"][F1]
+    drc_recall      = corr_frame["drc_gt_ratio"][RECALL]
+    drc_precision   = corr_frame["drc_gt_ratio"][PRECISION]
+    drc_f1          = corr_frame["drc_gt_ratio"][F1]
+    mdl_recall      = corr_frame["mdl_gt_ratio"][RECALL]
+    mdl_precision   = corr_frame["mdl_gt_ratio"][PRECISION]
+    mdl_f1          = corr_frame["mdl_gt_ratio"][F1]
+    src_recall      = "%.2f"%(src_recall)
+    src_precision   = "%.2f"%(src_precision)
+    src_f1          = "%.2f"%(src_f1)
+    drc_recall      = "%.2f"%(drc_recall)
+    drc_precision   = "%.2f"%(drc_precision)
+    drc_f1          = "%.2f"%(drc_f1)
+    mdl_recall      = "%.2f"%(mdl_recall)
+    mdl_precision   = "%.2f"%(mdl_precision)
+    mdl_f1          = "%.2f"%(mdl_f1)
+
+
+    line1 = "    \t& Recall        & Precision     & F1 score \t \\\\ \\hline \\hline"
+    line2 = "% ============================================================== % "
+    line3 = f"SRC \t& {src_recall} \t& {src_precision} \t& {src_f1} \t \\\\ \\hline"
+    line4 = f"DRC \t& {drc_recall} \t& {drc_precision} \t& {drc_f1} \t \\\\ \\hline"
+    line5 = f"MDL \t& {mdl_recall} \t& {mdl_precision} \t& {mdl_f1} \t \\\\ \\hline"
+
+    print(line1)
+    print(line2)
+    print(line3)
+    print(line4)
+    print(line5)
     
-print(Style.RESET_ALL, end = "")
-print()
-print()
-
-print("  [ Correlation Summary ]")
-print()
-# print(df.corr())
-corr_frame = df.corr()
-
-src_recall      = corr_frame["src_gt_ratio"]["recall"]
-src_precision   = corr_frame["src_gt_ratio"]["precision"]
-src_f1          = corr_frame["src_gt_ratio"]["f1"]
-drc_recall      = corr_frame["drc_gt_ratio"]["recall"]
-drc_precision   = corr_frame["drc_gt_ratio"]["precision"]
-drc_f1          = corr_frame["drc_gt_ratio"]["f1"]
-mdl_recall      = corr_frame["mdl_gt_ratio"]["recall"]
-mdl_precision   = corr_frame["mdl_gt_ratio"]["precision"]
-mdl_f1          = corr_frame["mdl_gt_ratio"]["f1"]
-src_recall      = "%.2f"%(src_recall)
-src_precision   = "%.2f"%(src_precision)
-src_f1          = "%.2f"%(src_f1)
-drc_recall      = "%.2f"%(drc_recall)
-drc_precision   = "%.2f"%(drc_precision)
-drc_f1          = "%.2f"%(drc_f1)
-mdl_recall      = "%.2f"%(mdl_recall)
-mdl_precision   = "%.2f"%(mdl_precision)
-mdl_f1          = "%.2f"%(mdl_f1)
-
-
-line1 = "    & Recall        & Precision     & F1 score \\\\ \\hline \\hline"
-line2 = "% ================================================ % "
-line3 = f"SRC & {src_recall} & {src_precision} & {src_f1} \\\\ \\hline"
-line4 = f"DRC & {drc_recall} & {drc_precision} & {drc_f1} \\\\ \\hline"
-line5 = f"MDL & {mdl_recall} & {mdl_precision} & {mdl_f1} \\\\ \\hline"
-
-print(line1)
-print(line2)
-print(line3)
-print(line4)
-print(line5)
-
-print()
-print()
-print()
+    
+def algorithmToPrintName(algorithm):
+    if algorithm == GT:
+        return "GroundTruth"
+    elif algorithm == RECG:
+        return "ReCG"
+    elif algorithm == JXPLAIN:
+        return "Jxplain"
+    elif algorithm == KREDUCE:
+        return "KReduce"
+    elif algorithm == LREDUCE:
+        return "LReduce"
+    elif algorithm == KLETTKE:
+        return "Klettke"
+    elif algorithm == FROZZA:
+        return "Frozza"
+    else:
+        raise ValueError("Algorithm not found: " + algorithm)
+    
+    
+    
+if __name__ == "__main__":
+    main()

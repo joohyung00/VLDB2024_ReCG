@@ -2,32 +2,32 @@
 
 
 
-SchemaNode* deriveSchemaFromCluster(InstanceCluster& instance_cluster, CostParameters& cost_parameters)
+SchemaNode* deriveSchemaFromCluster(InstanceCluster& instance_cluster, CostParameters& cost_parameters, Parameters* recg_parameters)
 {
     SchemaNode* derived_schema = nullptr;
 
     switch(instance_cluster.getClusterType())
     {
         case kHomObjC:
-            derived_schema = deriveHomObjNode(instance_cluster, cost_parameters);
+            derived_schema = deriveHomObjNode(instance_cluster, cost_parameters, recg_parameters);
             break;
         case kHetObjC:
-            derived_schema = deriveHetObjNode(instance_cluster, cost_parameters);
+            derived_schema = deriveHetObjNode(instance_cluster, cost_parameters, recg_parameters);
             break;
         case kComObjC:
-            derived_schema = deriveComObjNode(instance_cluster, cost_parameters);
+            derived_schema = deriveComObjNode(instance_cluster, cost_parameters, recg_parameters);
             break;
         case kEmptyObjC:
-            derived_schema = deriveHomObjNode(instance_cluster, cost_parameters);
+            derived_schema = deriveHomObjNode(instance_cluster, cost_parameters, recg_parameters);
             break;
         case kHomArrC:
-            derived_schema = deriveHomArrNode(instance_cluster, cost_parameters);
+            derived_schema = deriveHomArrNode(instance_cluster, cost_parameters, recg_parameters);
             break;
         case kHetArrC:
-            derived_schema = deriveHetArrNode(instance_cluster, cost_parameters);
+            derived_schema = deriveHetArrNode(instance_cluster, cost_parameters, recg_parameters);
             break;
         case kEmptyArrC:
-            derived_schema = deriveHomArrNode(instance_cluster, cost_parameters);
+            derived_schema = deriveHomArrNode(instance_cluster, cost_parameters, recg_parameters);
             break;
         default:
             IllegalBehaviorError("deriveSchemaFromCluster - unexpected cluster type");
@@ -54,7 +54,7 @@ SchemaNode* deriveSchemaFromCluster(InstanceCluster& instance_cluster, CostParam
 //////////////////////////////////////// Hom Obj Node ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
 
-SchemaNode* deriveHomObjNode(InstanceCluster& hom_obj_cluster, CostParameters& cost_parameters)
+SchemaNode* deriveHomObjNode(InstanceCluster& hom_obj_cluster, CostParameters& cost_parameters, Parameters* recg_parameters)
 {
     if(!hom_obj_cluster.getUpToDateBit())
     {
@@ -82,7 +82,7 @@ SchemaNode* deriveHomObjNode(InstanceCluster& hom_obj_cluster, CostParameters& c
     for(auto& key_schemas_pair : *labels_to_schemas)
     {
         strInt key = key_schemas_pair.first;
-        SchemaNode* child_schema = deriveAnyOfNode(key_schemas_pair.second, cost_parameters, label_count->at(key));
+        SchemaNode* child_schema = deriveAnyOfNode(key_schemas_pair.second, cost_parameters, recg_parameters, label_count->at(key));
 
         hom_obj_node->addChild(key, child_schema);
         if(label_count->at(key) == forest_size) 
@@ -97,10 +97,22 @@ SchemaNode* deriveHomObjNode(InstanceCluster& hom_obj_cluster, CostParameters& c
 
     // 3. Calculate MDL Cost
         // n
-        // optional_num
-    hom_obj_node->setSRC( homObjSRC(hom_obj_cluster, cost_parameters) );
-    hom_obj_node->setDRC( homObjDRC(hom_obj_cluster, cost_parameters) );
-    hom_obj_node->aggregateAnyOfChildrenCost();
+        // optional_num 
+    switch(recg_parameters->getCostModel())
+    {
+        case kMDL:
+            hom_obj_node->setSRC( homObjSRC(hom_obj_cluster, cost_parameters) );
+            hom_obj_node->setDRC( homObjDRC(hom_obj_cluster, cost_parameters) );
+            hom_obj_node->aggregateAnyOfChildrenCost();
+            break;
+        case kKeySpaceEntropy:
+            hom_obj_node->setSRC( homObjKSE(hom_obj_node, hom_obj_cluster, cost_parameters) );
+            hom_obj_node->setDRC( 0 );
+            break;
+        default:
+            IllegalBehaviorError("deriveHomObjNode - unexpected cost model");
+    }
+    
 
     // 4. Set derived schema as Cluster's schema
     hom_obj_cluster.setDerivedSchema(hom_obj_node);
@@ -113,7 +125,7 @@ SchemaNode* deriveHomObjNode(InstanceCluster& hom_obj_cluster, CostParameters& c
 //////////////////////////////////////// Het Obj Node ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
 
-SchemaNode* deriveHetObjNode(InstanceCluster& het_obj_cluster, CostParameters& cost_parameters)
+SchemaNode* deriveHetObjNode(InstanceCluster& het_obj_cluster, CostParameters& cost_parameters, Parameters* recg_parameters)
 {
     if(!het_obj_cluster.getUpToDateBit())
     {
@@ -133,14 +145,26 @@ SchemaNode* deriveHetObjNode(InstanceCluster& het_obj_cluster, CostParameters& c
 
     int m = het_obj_cluster.getChildrenNum();
 
-    het_obj_node->setKleeneChild( deriveAnyOfNode(het_obj_cluster.getChildrenSchemaSet(), cost_parameters, m) );
+    het_obj_node->setKleeneChild( deriveAnyOfNode(het_obj_cluster.getChildrenSchemaSet(), cost_parameters, recg_parameters, m) );
 
     // 3. Calculate MDL Cost
         // n
         // m
-    het_obj_node->setSRC( hetObjSRC(het_obj_cluster, cost_parameters) );
-    het_obj_node->setDRC( hetObjDRC(het_obj_cluster, cost_parameters) );
-    het_obj_node->aggregateAnyOfChildrenCost();
+    switch(recg_parameters->getCostModel())
+    {
+        case kMDL:
+            het_obj_node->setSRC( hetObjSRC(het_obj_cluster, cost_parameters) );
+            het_obj_node->setDRC( hetObjDRC(het_obj_cluster, cost_parameters) );
+            het_obj_node->aggregateAnyOfChildrenCost();
+            break;
+        case kKeySpaceEntropy:
+            het_obj_node->setSRC( hetObjKSE(het_obj_node, het_obj_cluster, cost_parameters) );
+            het_obj_node->setDRC( 0 );
+            break;
+        default:
+            IllegalBehaviorError("deriveHetObjNode - unexpected cost model");
+    }
+
 
     // 4. Set derived schema as Cluster's schema
     het_obj_cluster.setDerivedSchema(het_obj_node);
@@ -153,7 +177,7 @@ SchemaNode* deriveHetObjNode(InstanceCluster& het_obj_cluster, CostParameters& c
 //////////////////////////////////////// Com Obj Node ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
 
-SchemaNode* deriveComObjNode(InstanceCluster& com_obj_cluster, CostParameters& cost_parameters)
+SchemaNode* deriveComObjNode(InstanceCluster& com_obj_cluster, CostParameters& cost_parameters, Parameters* recg_parameters)
 {
     if(!com_obj_cluster.getUpToDateBit())
     {
@@ -181,7 +205,7 @@ SchemaNode* deriveComObjNode(InstanceCluster& com_obj_cluster, CostParameters& c
     for(auto& key_schemas_pair : *(com_obj_cluster.getLabelsToSchemas()))
     {
         strInt key = key_schemas_pair.first;
-        SchemaNode* child_schema = deriveAnyOfNode(key_schemas_pair.second, cost_parameters, label_count->at(key));
+        SchemaNode* child_schema = deriveAnyOfNode(key_schemas_pair.second, cost_parameters, recg_parameters, label_count->at(key));
 
         com_obj_node->addChild(key, child_schema);
         if(label_count->at(key) == forest_size) 
@@ -197,15 +221,28 @@ SchemaNode* deriveComObjNode(InstanceCluster& com_obj_cluster, CostParameters& c
     int m = com_obj_cluster.getChildrenNumForCom();
 
         // 2.2. Derive Hetero Part
-    com_obj_node->setKleeneChild( deriveAnyOfNode(com_obj_cluster.getChildrenSchemaForCom(), cost_parameters, m) );
+    com_obj_node->setKleeneChild( deriveAnyOfNode(com_obj_cluster.getChildrenSchemaForCom(), cost_parameters, recg_parameters, m) );
 
     // 3. Calculate MDL Cost
         // n
         // m
         // label_count
-    com_obj_node->setSRC( comObjSRC(com_obj_cluster, cost_parameters) );
-    com_obj_node->setDRC( comObjDRC(com_obj_cluster, cost_parameters) );
-    com_obj_node->aggregateAnyOfChildrenCost();
+
+    switch(recg_parameters->getCostModel())
+    {
+        case kMDL:
+            com_obj_node->setSRC( comObjSRC(com_obj_cluster, cost_parameters) );
+            com_obj_node->setDRC( comObjDRC(com_obj_cluster, cost_parameters) );
+            com_obj_node->aggregateAnyOfChildrenCost();
+            break;
+        case kKeySpaceEntropy:
+            com_obj_node->setSRC( comObjKSE(com_obj_node, com_obj_cluster, cost_parameters) );
+            com_obj_node->setDRC( 0 );
+            break;
+        default:
+            IllegalBehaviorError("deriveComObjNode - unexpected cost model");
+    }
+
 
     // 4. Set derived schema as Cluster's schema
     com_obj_cluster.setDerivedSchema(com_obj_node);
@@ -221,7 +258,7 @@ SchemaNode* deriveComObjNode(InstanceCluster& com_obj_cluster, CostParameters& c
 //////////////////////////////////////// Hom Arr Derivation ////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-SchemaNode* deriveHomArrNode(InstanceCluster& hom_arr_cluster, CostParameters& cost_parameters)
+SchemaNode* deriveHomArrNode(InstanceCluster& hom_arr_cluster, CostParameters& cost_parameters, Parameters* recg_parameters)
 {
     if(!hom_arr_cluster.getUpToDateBit())
     {
@@ -240,9 +277,21 @@ SchemaNode* deriveHomArrNode(InstanceCluster& hom_arr_cluster, CostParameters& c
     { hom_arr_node->addChild(child_schema); }
 
     // 3. Calculate MDL Cost
-    hom_arr_node->setSRC( homArrSRC(hom_arr_cluster, cost_parameters) );
-    hom_arr_node->setDRC( homArrDRC(hom_arr_cluster, cost_parameters) );
-    hom_arr_node->aggregateAnyOfChildrenCost();
+    switch(recg_parameters->getCostModel())
+    {
+        case kMDL:
+            hom_arr_node->setSRC( homArrSRC(hom_arr_cluster, cost_parameters) );
+            hom_arr_node->setDRC( homArrDRC(hom_arr_cluster, cost_parameters) );
+            hom_arr_node->aggregateAnyOfChildrenCost();
+            break;
+        case kKeySpaceEntropy:
+            hom_arr_node->setSRC( homArrKSE(hom_arr_node, hom_arr_cluster, cost_parameters) );
+            hom_arr_node->setDRC( 0 );
+            break;
+        default:
+            IllegalBehaviorError("deriveHomArrNode - unexpected cost model");
+    }
+
 
     // 4. Set derived schema as Cluster's schema
     hom_arr_cluster.setDerivedSchema(hom_arr_node);
@@ -255,7 +304,7 @@ SchemaNode* deriveHomArrNode(InstanceCluster& hom_arr_cluster, CostParameters& c
 //////////////////////////////////////// Het Arr Derivation ////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-SchemaNode* deriveHetArrNode(InstanceCluster& het_arr_cluster, CostParameters& cost_parameters)
+SchemaNode* deriveHetArrNode(InstanceCluster& het_arr_cluster, CostParameters& cost_parameters, Parameters* recg_parameters)
 {
     if(!het_arr_cluster.getUpToDateBit())
     {
@@ -267,13 +316,25 @@ SchemaNode* deriveHetArrNode(InstanceCluster& het_arr_cluster, CostParameters& c
     SchemaNode* het_arr_node = new SchemaNode(kHetArr);
     int m = het_arr_cluster.getChildrenNum();
 
-    het_arr_node->setKleeneChild( deriveAnyOfNode(het_arr_cluster.getChildrenSchemaSet(), cost_parameters, m) );
+    het_arr_node->setKleeneChild( deriveAnyOfNode(het_arr_cluster.getChildrenSchemaSet(), cost_parameters, recg_parameters, m) );
 
     // 3. Calculate MDL Cost
         // n
-    het_arr_node->setSRC( hetArrSRC(het_arr_cluster, cost_parameters) );
-    het_arr_node->setDRC( hetArrDRC(het_arr_cluster, cost_parameters) );
-    het_arr_node->aggregateAnyOfChildrenCost();
+    switch(recg_parameters->getCostModel())
+    {
+        case kMDL:
+            het_arr_node->setSRC( hetArrSRC(het_arr_cluster, cost_parameters) );
+            het_arr_node->setDRC( hetArrDRC(het_arr_cluster, cost_parameters) );
+            het_arr_node->aggregateAnyOfChildrenCost();
+            break;
+        case kKeySpaceEntropy:
+            het_arr_node->setSRC( hetArrKSE(het_arr_node, het_arr_cluster, cost_parameters) );
+            het_arr_node->setDRC( 0 );
+            break;
+        default:
+            IllegalBehaviorError("deriveHetArrNode - unexpected cost model");
+    }
+    
 
     // 4. Set derived schema as Cluster's schema
     het_arr_cluster.setDerivedSchema(het_arr_node);
@@ -302,7 +363,7 @@ SchemaNode* deriveHetArrNode(InstanceCluster& het_arr_cluster, CostParameters& c
 //////////////////////////////////////// AnyOf Derivation ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-SchemaNode* deriveAnyOfNode(SchemaSet& children_set, CostParameters& cost_parameters, int data_num)
+SchemaNode* deriveAnyOfNode(SchemaSet& children_set, CostParameters& cost_parameters, Parameters* recg_parameters, int data_num)
 {
     // [Error check] None to union
     if(children_set.size() == 0)
@@ -330,46 +391,69 @@ SchemaNode* deriveAnyOfNode(SchemaSet& children_set, CostParameters& cost_parame
     { 
         if((*(filtered_children_set.begin()))->getType() == kHomArr && empty_array_schema != nullptr)
         {
-            SchemaNode* union_schema = new SchemaNode(kAnyOf);
-            union_schema->addChild(*(filtered_children_set.begin()));
-            union_schema->addChild(empty_array_schema);
-            union_schema->sortChildren();
-            union_schema->setSRC( anyOfSRC(union_schema, cost_parameters, data_num) );
-            union_schema->setDRC( anyOfDRC(union_schema, cost_parameters, data_num) );
-            return union_schema;
+            SchemaNode* anyof_schema = new SchemaNode(kAnyOf);
+            anyof_schema->addChild(*(filtered_children_set.begin()));
+            anyof_schema->addChild(empty_array_schema);
+            anyof_schema->sortChildren();
+            switch(recg_parameters->getCostModel())
+            {
+                case kMDL:
+                    anyof_schema->setSRC( anyOfSRC(anyof_schema, cost_parameters, data_num) );
+                    anyof_schema->setDRC( anyOfDRC(anyof_schema, cost_parameters, data_num) );
+                    break;
+                case kKeySpaceEntropy:
+                    anyof_schema->setSRC( anyOfKSE(anyof_schema, data_num) );
+                    anyof_schema->setDRC( 0 );
+                    break;
+                default:
+                    IllegalBehaviorError("deriveAnyOfNode - unexpected cost model");
+            }
+            return anyof_schema;
         }
         return *(filtered_children_set.begin()); 
     }
 
     // 4. Generate anyOf node
-    SchemaNode* union_schema = new SchemaNode(kAnyOf);
+    SchemaNode* anyof_schema = new SchemaNode(kAnyOf);
     for(auto schema_node : filtered_children_set)
-    { union_schema->addChild(schema_node); }
+    { anyof_schema->addChild(schema_node); }
 
     // 5. Sort children schemas physical ID
     //  - For distance calculation optimization
-    union_schema->sortChildren();
+    anyof_schema->sortChildren();
 
     // 6. Calculate MDL Cost
-    union_schema->setSRC( anyOfSRC(union_schema, cost_parameters, data_num) );
-    union_schema->setDRC( anyOfDRC(union_schema, cost_parameters, data_num) );
+    switch(recg_parameters->getCostModel())
+    {
+        case kMDL:
+            anyof_schema->setSRC( anyOfSRC(anyof_schema, cost_parameters, data_num) );
+            anyof_schema->setDRC( anyOfDRC(anyof_schema, cost_parameters, data_num) );
+            break;
+        case kKeySpaceEntropy:
+            anyof_schema->setSRC( anyOfKSE(anyof_schema, data_num) );
+            anyof_schema->setDRC( 0 );
+            break;
+        default:
+            IllegalBehaviorError("deriveAnyOfNode - unexpected cost model");
+    }
+
 
     // 7. Optimize mdlCost
-    // mdlCostOptimizationAtAnyOf(union_schema); 
+    // mdlCostOptimizationAtAnyOf(anyof_schema); 
 
-    return union_schema;
+    return anyof_schema;
 }
 
-SchemaNode* deriveAnyOfNode(SchemaSet* children_set, CostParameters& cost_parameters, int data_num)
+SchemaNode* deriveAnyOfNode(SchemaSet* children_set, CostParameters& cost_parameters, Parameters* recg_parameters, int data_num)
 {
     SchemaSet children_set_ = *children_set;
-    return deriveAnyOfNode(children_set_, cost_parameters, data_num);
+    return deriveAnyOfNode(children_set_, cost_parameters, recg_parameters, data_num);
 }
 
-SchemaNode* deriveAnyOfNode(SchemaVec& children_forest, CostParameters& cost_parameters, int data_num)
+SchemaNode* deriveAnyOfNode(SchemaVec& children_forest, CostParameters& cost_parameters, Parameters* recg_parameters, int data_num)
 {
     SchemaSet children_set_(children_forest.begin(), children_forest.end());
-    return deriveAnyOfNode(children_set_, cost_parameters, data_num);
+    return deriveAnyOfNode(children_set_, cost_parameters, recg_parameters, data_num);
 }
 
 
@@ -393,114 +477,114 @@ SchemaNode* deriveAnyOfNode(SchemaVec& children_forest, CostParameters& cost_par
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-void mdlCostOptimizationAtAnyOf(SchemaNode* any_of_node)
-{
+// void mdlCostOptimizationAtAnyOf(SchemaNode* any_of_node)
+// {
     
-}
+// }
 
 
-void schemaConsicificationAtAnyOf(SchemaNode* any_of_node)
-{
-    // [Case 1] Het이 존재.
-    SchemaVec target_schemas;
+// void schemaConsicificationAtAnyOf(SchemaNode* any_of_node)
+// {
+//     // [Case 1] Het이 존재.
+//     SchemaVec target_schemas;
 
-    for(auto& child : any_of_node->getChildren())
-    {
-        if(TO_SCHEMA_NODE(child)->getType() == kHetObj)
-        {
-            target_schemas.push_back(TO_SCHEMA_NODE(child)->getKleeneChild());
-        }
-    }
+//     for(auto& child : any_of_node->getChildren())
+//     {
+//         if(TO_SCHEMA_NODE(child)->getType() == kHetObj)
+//         {
+//             target_schemas.push_back(TO_SCHEMA_NODE(child)->getKleeneChild());
+//         }
+//     }
 
-    for(auto& target_schema : target_schemas)
-    {
-        auto it = any_of_node->getChildren().begin();
-        for( ; it != any_of_node->getChildren().end(); )
-        {
-            bool condition = true;
+//     for(auto& target_schema : target_schemas)
+//     {
+//         auto it = any_of_node->getChildren().begin();
+//         for( ; it != any_of_node->getChildren().end(); )
+//         {
+//             bool condition = true;
 
-            if(TO_SCHEMA_NODE(*it)->getType() == kHomObj)
-            {
-                for(auto& subschema : (*it)->getChildren())
-                {
-                    if(target_schema == subschema) continue;
-                    else condition = false;
-                }
-            }
-            else if(TO_SCHEMA_NODE(*it)->getType() == kComObj)
-            {
-                for(auto& subschema : (*it)->getChildren())
-                {
-                    if(target_schema == subschema) continue;
-                    else condition = false;
-                }
-                if(TO_SCHEMA_NODE(*it)->getKleeneChild() != target_schema)
-                { condition = false; }
-            }
-            else condition = false;
+//             if(TO_SCHEMA_NODE(*it)->getType() == kHomObj)
+//             {
+//                 for(auto& subschema : (*it)->getChildren())
+//                 {
+//                     if(target_schema == subschema) continue;
+//                     else condition = false;
+//                 }
+//             }
+//             else if(TO_SCHEMA_NODE(*it)->getType() == kComObj)
+//             {
+//                 for(auto& subschema : (*it)->getChildren())
+//                 {
+//                     if(target_schema == subschema) continue;
+//                     else condition = false;
+//                 }
+//                 if(TO_SCHEMA_NODE(*it)->getKleeneChild() != target_schema)
+//                 { condition = false; }
+//             }
+//             else condition = false;
             
 
-            if(condition) 
-            {
-                it = any_of_node->getChildren().erase(it);
-            }
-            else it++;
-        }
-    }
+//             if(condition) 
+//             {
+//                 it = any_of_node->getChildren().erase(it);
+//             }
+//             else it++;
+//         }
+//     }
 
-    // [Case 2] Com + 다 똑같이 생김 + No required -> Pruning 가능
-    target_schemas.clear();
-    for(auto& child : any_of_node->getChildren())
-    {
-        if(TO_SCHEMA_NODE(child)->getType() == kComObj)
-        {
-            bool condition = true;
+//     // [Case 2] Com + 다 똑같이 생김 + No required -> Pruning 가능
+//     target_schemas.clear();
+//     for(auto& child : any_of_node->getChildren())
+//     {
+//         if(TO_SCHEMA_NODE(child)->getType() == kComObj)
+//         {
+//             bool condition = true;
 
-            SchemaNode* kleene_child = TO_SCHEMA_NODE(child)->getKleeneChild();
-            for(auto& subschema : TO_SCHEMA_NODE(child)->getChildren())
-            { if(kleene_child != subschema) condition = false; }
+//             SchemaNode* kleene_child = TO_SCHEMA_NODE(child)->getKleeneChild();
+//             for(auto& subschema : TO_SCHEMA_NODE(child)->getChildren())
+//             { if(kleene_child != subschema) condition = false; }
 
-            if(condition) target_schemas.push_back(kleene_child);
-        }
-    }
+//             if(condition) target_schemas.push_back(kleene_child);
+//         }
+//     }
 
-    for(auto& target_schema : target_schemas)
-    {
-        auto it = any_of_node->getChildren().begin();
-        for( ; it != any_of_node->getChildren().end(); )
-        {
-            bool condition = true;
+//     for(auto& target_schema : target_schemas)
+//     {
+//         auto it = any_of_node->getChildren().begin();
+//         for( ; it != any_of_node->getChildren().end(); )
+//         {
+//             bool condition = true;
 
-            if(TO_SCHEMA_NODE(*it)->getType() == kHomObj)
-            {
-                for(auto& subschema : (*it)->getChildren())
-                {
-                    if(target_schema == subschema) continue;
-                    else condition = false;
-                }
-            }
-            else if(TO_SCHEMA_NODE(*it)->getType() == kComObj)
-            {
-                for(auto& subschema : (*it)->getChildren())
-                {
-                    if(target_schema == subschema) continue;
-                    else condition = false;
-                }
-                if(TO_SCHEMA_NODE(*it)->getKleeneChild() != target_schema)
-                { condition = false; }
-            }
-            else condition = false;
+//             if(TO_SCHEMA_NODE(*it)->getType() == kHomObj)
+//             {
+//                 for(auto& subschema : (*it)->getChildren())
+//                 {
+//                     if(target_schema == subschema) continue;
+//                     else condition = false;
+//                 }
+//             }
+//             else if(TO_SCHEMA_NODE(*it)->getType() == kComObj)
+//             {
+//                 for(auto& subschema : (*it)->getChildren())
+//                 {
+//                     if(target_schema == subschema) continue;
+//                     else condition = false;
+//                 }
+//                 if(TO_SCHEMA_NODE(*it)->getKleeneChild() != target_schema)
+//                 { condition = false; }
+//             }
+//             else condition = false;
             
 
-            if(condition) 
-            {
-                it = any_of_node->getChildren().erase(it);
-            }
-            else it++;
-        }
+//             if(condition) 
+//             {
+//                 it = any_of_node->getChildren().erase(it);
+//             }
+//             else it++;
+//         }
 
-        SchemaNode* het = new SchemaNode(kHetObj);
-        het->setKleeneChild(target_schema);
-        any_of_node->addChild(het);
-    }
-}
+//         SchemaNode* het = new SchemaNode(kHetObj);
+//         het->setKleeneChild(target_schema);
+//         any_of_node->addChild(het);
+//     }
+// }

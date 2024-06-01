@@ -18,7 +18,7 @@
 
 StateNode* greedySearch(StateNode* start_state);
 
-StateNode* branchAndBoundSearch(StateNode* start_state, int beam_size);
+StateNode* branchAndBoundSearch(StateNode* start_state, int beam_width);
 
 StateNode* kBeamSearch(StateNode* start_state, int beam_width);
 

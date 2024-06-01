@@ -5,68 +5,80 @@ import numpy as np
 import sys
 
 from pltUtils import dataset_nums, dataset_to_name, dataset_to_print_name, target_percs
-sys.path.insert(1, "/root/jsdReCG/Experiment/utils")
-from dataset_metadata import num_to_name
-from aggregateExpResults import *
+sys.path.insert(1, "/root/JsonExplorerSpark/Experiment/utils")
+from dataset_metadata import dataset_fullnames
+from aggregateExpResults import getRuntimeForAlgPerc
 
 
-print("<< PERFORMANCE EXPERIMENT SUMMARY >>")
-print()
 
-recg_10_mean, recg_10_stdev = getRuntimeForAlgPerc("ReCG", 10)
-recg_50_mean, recg_50_stdev = getRuntimeForAlgPerc("ReCG", 50)
-recg_100_mean, recg_100_stdev = getRuntimeForAlgPerc("ReCG", 100)
+RECG = "ReCG"
+JXPLAIN = "jxplain"
+KREDUCE = "kreduce"
+LREDUCE = "lreduce"
+KLETTKE = "klettke"
+FROZZA = "frozza"
 
-jxplain_10_mean, jxplain_10_stdev = getRuntimeForAlgPerc("jxplain", 10)
-jxplain_recg_10 = jxplain_10_mean / recg_10_mean
-jxplain_50_mean, jxplain_50_stdev = getRuntimeForAlgPerc("jxplain", 50)
-jxplain_recg_50 = jxplain_50_mean / recg_50_mean
-jxplain_100_mean, jxplain_100_stdev = getRuntimeForAlgPerc("jxplain", 100)
-jxplain_recg_100 = jxplain_100_mean / recg_100_mean
+ALGORITHMS  = [RECG, JXPLAIN, KREDUCE, LREDUCE, KLETTKE, FROZZA]
+TRAIN_PERCS = [10, 50, 100]
 
-kreduce_10_mean, kreduce_10_stdev = getRuntimeForAlgPerc("kreduce", 10)
-kreduce_recg_10 = kreduce_10_mean / recg_10_mean
-kreduce_50_mean, kreduce_50_stdev = getRuntimeForAlgPerc("kreduce", 50)
-kreduce_recg_50 = kreduce_50_mean / recg_50_mean
-kreduce_100_mean, kreduce_100_stdev = getRuntimeForAlgPerc("kreduce", 100)
-kreduce_recg_100 = kreduce_100_mean / recg_100_mean
+RUNTIME_MEAN = "runtime_mean"
+RUNTIME_STDEV = "runtime_stdev"
 
 
-recg_10_mean = "%.2f"%(recg_10_mean)
-recg_10_stdev = "%.2f"%(recg_10_stdev)
-recg_50_mean = "%.2f"%(recg_50_mean)
-recg_50_stdev = "%.2f"%(recg_50_stdev)
-recg_100_mean = "%.2f"%(recg_100_mean)
-recg_100_stdev = "%.2f"%(recg_100_stdev)
-jxplain_10_mean = "%.2f"%(jxplain_10_mean)
-jxplain_10_stdev = "%.2f"%(jxplain_10_stdev)
-jxplain_50_mean = "%.2f"%(jxplain_50_mean)
-jxplain_50_stdev = "%.2f"%(jxplain_50_stdev)
-jxplain_100_mean = "%.2f"%(jxplain_100_mean)
-jxplain_100_stdev = "%.2f"%(jxplain_100_stdev)
-kreduce_10_mean = "%.2f"%(kreduce_10_mean)
-kreduce_10_stdev = "%.2f"%(kreduce_10_stdev)
-kreduce_50_mean = "%.2f"%(kreduce_50_mean)
-kreduce_50_stdev = "%.2f"%(kreduce_50_stdev)
-kreduce_100_mean = "%.2f"%(kreduce_100_mean)
-kreduce_100_stdev = "%.2f"%(kreduce_100_stdev)
-jxplain_recg_10 = "%.2f"%(jxplain_recg_10)
-jxplain_recg_50 = "%.2f"%(jxplain_recg_50)
-jxplain_recg_100 = "%.2f"%(jxplain_recg_100)
-kreduce_recg_10 = "%.2f"%(kreduce_recg_10)
-kreduce_recg_50 = "%.2f"%(kreduce_recg_50)
-kreduce_recg_100 = "%.2f"%(kreduce_recg_100)
+def main():
+    
+    # 1. Aggregate data 
+    result_per_alg_perc = {}
+    for algorithm in ALGORITHMS:
+        result_per_alg_perc[algorithm] = {}
+        for percent in TRAIN_PERCS:
+            result_per_alg_perc[algorithm][percent] = {
+                RUNTIME_MEAN: -1,
+                RUNTIME_STDEV: -1
+            }
+    RPAP = result_per_alg_perc
+    
+    for alg in ALGORITHMS:
+        for perc in TRAIN_PERCS:
+            RPAP[alg][perc][RUNTIME_MEAN], RPAP[alg][perc][RUNTIME_STDEV] = getRuntimeForAlgPerc(alg, perc)
 
 
-line1 = f"10\% & {recg_10_mean} ms & {recg_10_stdev} & {jxplain_10_mean} ms &	{jxplain_10_stdev} &	{jxplain_recg_10} &	{kreduce_10_mean} ms &	{kreduce_10_stdev} &	{kreduce_recg_10} \\\\ \hline"
-line2 = f"50\% & {recg_50_mean} ms & {recg_50_stdev} & {jxplain_50_mean} ms &	{jxplain_50_stdev} &	{jxplain_recg_50} &	{kreduce_50_mean} ms &	{kreduce_50_stdev} &	{kreduce_recg_50} \\\\ \hline"
-line3 = f"100\% & {recg_100_mean} ms & {recg_100_stdev} & {jxplain_100_mean} ms &	{jxplain_100_stdev} &	{jxplain_recg_100} &	{kreduce_100_mean} ms &	{kreduce_100_stdev} &	{kreduce_recg_100} \\\\ \hline"
+    for target_perc in TRAIN_PERCS:
+        print(str(target_perc) + "\\% & ", end = "")
+        
+        for alg in ALGORITHMS:
+            print("%.2f"%RPAP[alg][target_perc][RUNTIME_MEAN] + " ms & " + "%.2f"%RPAP[alg][target_perc][RUNTIME_STDEV] + " & " + \
+                    "%.2f"%(RPAP[RECG][target_perc][RUNTIME_MEAN] / RPAP[alg][target_perc][RUNTIME_MEAN]), end = "")
+            if alg != ALGORITHMS[-1]:
+                print(" & ", end = "")
+            else:
+                print(" \\\\ \hline")        
+                
+                
+                
+    RECG_REL_JXPLAIN_MAX = -1
+    RECG_REL_JXPLAIN_MIN = 1000000
+    
+    for target_perc in TRAIN_PERCS:
+        RECG_REL_JXPLAIN_MAX = max(RECG_REL_JXPLAIN_MAX, RPAP[JXPLAIN][target_perc][RUNTIME_MEAN] / RPAP[RECG][target_perc][RUNTIME_MEAN])
+        RECG_REL_JXPLAIN_MIN = min(RECG_REL_JXPLAIN_MIN, RPAP[JXPLAIN][target_perc][RUNTIME_MEAN] / RPAP[RECG][target_perc][RUNTIME_MEAN])
+    
+    RECG_REL_KREDUCE_MEAN = 0
+    
+    for target_perc in TRAIN_PERCS:
+        RECG_REL_KREDUCE_MEAN += RPAP[RECG][target_perc][RUNTIME_MEAN] / RPAP[KREDUCE][target_perc][RUNTIME_MEAN]
+    RECG_REL_KREDUCE_MEAN /= len(TRAIN_PERCS)
+    
+    print()
+    print("ReCG outperformed Jxplain by a significant margin (" + "%.2f"%RECG_REL_JXPLAIN_MIN + "× to " + "%.2f"%RECG_REL_JXPLAIN_MAX + "×)")
+    print()
+    print("KReduce was faster than ReCG by about " + "%.2f"%((RECG_REL_KREDUCE_MEAN - 1) * 100) +"%.")
+    
 
 
-print(line1)
-print(line2)
-print(line3)
 
-print()
-print()
-print()
+    
+    
+    
+if __name__ == "__main__":
+    main()

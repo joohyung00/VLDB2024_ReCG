@@ -9,7 +9,7 @@ from copy import deepcopy
 from art import *
 import statistics
 
-sys.path.insert(1, '/root/jsdReCG/Experiment')
+sys.path.insert(1, '/root/JsonExplorerSpark/Experiment')
 from load_json import load_dataset, load_schema, count_lines, unreference_schema
 
 from concurrent.futures import ProcessPoolExecutor
@@ -20,8 +20,8 @@ import traceback
 from typing import Callable
 
 
-out_path = "../exp_f1.txt"
-
+out_path = "../exp1_accuracy.txt"
+out_path_2 = "../exp1_accuracy_2.txt"
 
 
 
@@ -35,7 +35,7 @@ def main(argv):
     parser.add_argument("--exp_num")
     parser.add_argument("--schema_path")
     parser.add_argument("--test_path")
-    parser.add_argument("--param")
+    parser.add_argument("--operation_num", type = int)
 
     args = parser.parse_args(argv)
     print(args)
@@ -53,8 +53,15 @@ def main(argv):
 
     print("[RESULT]")
     print("Recall: ", recall, "\tPrecision: ", precision, "\tF1: ", f1_score)
-    with open(out_path, "a") as file:
-        file.write(out_str)
+    
+    if args.operation_num == 1:
+        with open(out_path, "a") as file:
+            file.write(out_str)
+    elif args.operation_num == 2:
+        with open(out_path_2, "a") as file:
+            file.write(out_str)
+    else:
+        raise ValueError("")
 
 
 
@@ -285,6 +292,9 @@ def validateCustom(instance, schema, original_schema):
                     return False
                 
             return True
+        
+        elif isObjectSchemaWithNoKeys(schema):
+            return True
             
         else:
             print(json.dumps(schema))
@@ -329,10 +339,14 @@ def validateCustom(instance, schema, original_schema):
             
             return True
         
+        elif isArraySchemaWithNoKeys(schema):
+            return True
+        
         else:
             print(json.dumps(schema))
             print(json.dumps(instance))
-            raise Exception("Error 4")
+            print("")
+            raise Exception("validateCustom: Undefined array schema")
     
     else:
         print(json.dumps(schema))
@@ -377,6 +391,11 @@ def isEmptyObjectSchema(schema):
             return True
     return False
 
+def isObjectSchemaWithNoKeys(schema):
+    if "type" in schema and schema["type"] == "object":
+        if len(schema.keys()) == 1:
+            return True
+
 def isHomArraySchema(schema):
     if "type" in schema and schema["type"] == "array":
         if "items" in schema and type(schema["items"]) is list:
@@ -396,6 +415,11 @@ def isEmptyArraySchema(schema):
         return True
     return False
 
+
+def isArraySchemaWithNoKeys(schema):
+    if "type" in schema and schema["type"] == "array":
+        if len(schema.keys()) == 1:
+            return True
 
 
 #####################################################

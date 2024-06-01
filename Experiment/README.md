@@ -23,7 +23,7 @@ If you want a more fine-grained manner of running the experiments or more detail
 ## Description of Each Experiment
 
 
-### (A) Accuracy Experiment (Section 5.2)
+### (A) Accuracy Comparison (Section 5.2)
 
 Run accuracy experiment and return to this directory.
 ```bash
@@ -40,7 +40,7 @@ Non-overlapping `10%` of $D^+$ and `90%` of $D^-$ are drawn to from the test dat
 The JSON documents in the test datasets are validated against the schema discovered by each algorithm.
 
 
-### (B) MDL Experiment (Section 5.3)
+### (B) MDL Cost Analysis (Section 5.3)
 
 Run MDL experiment and return to this directory.
 ```bash
@@ -52,7 +52,7 @@ cd ..
 The MDL experiment measures the SRC, DRC for the schemas found by each algorithm, and for the ground truth schema.
 The lower the MDL (i.e., SRC + MDL), the better the discovered schema.
 
-### (C) Performance Experiment (Section 5.4)
+### (C) Scalability with Dataset Size (Section 5.4)
 
 Run performance experiment and return to this directory.
 ```bash
@@ -64,3 +64,14 @@ cd ..
 The performance experiment measures the runtime of each algorithms for each dataset.
 
 We use all 20 datasets, and sample `10%`, `20%` $\dots$, `100%` of JSON documents for each dataset and see how the runtime increases for each algorithm.
+
+
+### (D) Parameter Sensitivity (Section 5.5)
+
+Run performance experiment and return to this directory.
+```bash
+cd 4.1_Parameters
+python3 run_param_exp.py
+cd ..
+
+```

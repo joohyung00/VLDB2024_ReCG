@@ -12,7 +12,7 @@ from jsonschema import validate
 import jsonschema
 from jsonschema.exceptions import ValidationError
 
-sys.path.insert(1, '/root/jsdReCG/Experiment')
+sys.path.insert(1, '/root/JsonExplorerSpark/Experiment')
 from load_json import load_dataset, load_schema, count_lines, unreference_schema
 
 from sklearn.metrics import recall_score, precision_score, f1_score
@@ -26,7 +26,7 @@ from copy import deepcopy
 # TODO: Checking if all instances were labelled
 
 
-out_path = "../exp_mdl.txt"
+out_path = "../exp2_mdl.txt"
 
 datasets = \
 {
@@ -250,7 +250,7 @@ def MDLExperiment(schema_path, instance_path):
 def runner(inp):
     instance, schema, original_schema, distinct_labels_num, max_obj_len, max_array_len = inp
 
-    success, drc = calculateDRCRecursive(instance, schema, original_schema, bitSize(distinct_labels_num), bitSize(max_obj_len), bitSize(max_array_len))
+    success, drc = calculateDRCRecursive(instance, schema, original_schema, bitSize(distinct_labels_num), bitSize(max_obj_len), bitSize(max_array_len), distinct_labels_num)
 
     if success:
         return success, drc
@@ -315,6 +315,11 @@ def calculateSRCRecursive(schema, distinct_labels_num):
             src += calculateSRCRecursive(schema["additionalProperties"], distinct_labels_num)
     
             return src
+        
+        elif isObjectSchemaWithNoKeys(schema):
+            symbol_num = 3
+            src = bit_size * symbol_num
+            return src
 
         else:
             print(json.dumps(schema))
@@ -345,6 +350,10 @@ def calculateSRCRecursive(schema, distinct_labels_num):
             
             src += calculateSRCRecursive(schema["items"], distinct_labels_num)
             
+            return src
+        
+        elif isArraySchemaWithNoKeys(schema):
+            src = 3 * bit_size
             return src
 
         
@@ -396,7 +405,7 @@ def calculateSRCRecursive(schema, distinct_labels_num):
 #                                                   #
 #####################################################
 
-def calculateDRCRecursive(instance, schema, original_schema, kleene_bits, obj_length_bits, arr_length_bits):
+def calculateDRCRecursive(instance, schema, original_schema, kleene_bits, obj_length_bits, arr_length_bits, distinct_labels_num):
     
     # Case A. $ref -> unref
     if "$ref" in schema:
@@ -410,7 +419,7 @@ def calculateDRCRecursive(instance, schema, original_schema, kleene_bits, obj_le
         success = False
         
         for subschema in schema["anyOf"]:
-            subschema_success, subschema_drc = calculateDRCRecursive(instance, subschema, original_schema, kleene_bits, obj_length_bits, arr_length_bits)
+            subschema_success, subschema_drc = calculateDRCRecursive(instance, subschema, original_schema, kleene_bits, obj_length_bits, arr_length_bits, distinct_labels_num)
             success |= subschema_success
             
             if subschema_success and subschema_drc < smallest_drc:
@@ -478,7 +487,7 @@ def calculateDRCRecursive(instance, schema, original_schema, kleene_bits, obj_le
             drc = len(schema_optional_keys)
             success = True
             for key in instance.keys():
-                sub_success, sub_drc = calculateDRCRecursive(instance[key], schema["properties"][key], original_schema, kleene_bits, obj_length_bits, arr_length_bits)
+                sub_success, sub_drc = calculateDRCRecursive(instance[key], schema["properties"][key], original_schema, kleene_bits, obj_length_bits, arr_length_bits, distinct_labels_num)
                 success &= sub_success
                 drc += sub_drc
             
@@ -504,11 +513,11 @@ def calculateDRCRecursive(instance, schema, original_schema, kleene_bits, obj_le
             success = True
             for key in instance.keys():
                 if key in kleene_keys:
-                    sub_success, sub_drc = calculateDRCRecursive(instance[key], schema["additionalProperties"], original_schema, kleene_bits, obj_length_bits, arr_length_bits)
+                    sub_success, sub_drc = calculateDRCRecursive(instance[key], schema["additionalProperties"], original_schema, kleene_bits, obj_length_bits, arr_length_bits, distinct_labels_num)
                     success &= sub_success
                     drc += sub_drc
                 else:
-                    sub_success, sub_drc = calculateDRCRecursive(instance[key], schema["properties"][key], original_schema, kleene_bits, obj_length_bits, arr_length_bits)
+                    sub_success, sub_drc = calculateDRCRecursive(instance[key], schema["properties"][key], original_schema, kleene_bits, obj_length_bits, arr_length_bits, distinct_labels_num)
                     success &= sub_success
                     drc += sub_drc
             
@@ -519,16 +528,19 @@ def calculateDRCRecursive(instance, schema, original_schema, kleene_bits, obj_le
             drc = obj_length_bits + len(instance) * kleene_bits
             
             for key in instance:
-                sub_success, sub_drc = calculateDRCRecursive(instance[key], schema["additionalProperties"], original_schema, kleene_bits, obj_length_bits, arr_length_bits)
+                sub_success, sub_drc = calculateDRCRecursive(instance[key], schema["additionalProperties"], original_schema, kleene_bits, obj_length_bits, arr_length_bits, distinct_labels_num)
                 success &= sub_success
                 drc += sub_drc
                 
             return success, drc
+        
+        elif isObjectSchemaWithNoKeys(schema):
+            return True, calculateUnacceptedInstanceDRC(instance, distinct_labels_num)
             
         else:
             print(json.dumps(schema))
             print(json.dumps(instance))
-            raise Exception("Error 3")
+            raise Exception("calculateDRCRecursive: Undefined object schema!")
     
     
     elif type(instance) is list:
@@ -546,7 +558,7 @@ def calculateDRCRecursive(instance, schema, original_schema, kleene_bits, obj_le
             success = True
             drc = 0
             for i, _ in enumerate(instance):
-                sub_success, sub_drc = calculateDRCRecursive(instance[i], schema["prefixItems"][i], original_schema, kleene_bits, obj_length_bits, arr_length_bits)
+                sub_success, sub_drc = calculateDRCRecursive(instance[i], schema["prefixItems"][i], original_schema, kleene_bits, obj_length_bits, arr_length_bits, distinct_labels_num)
                 success &= sub_success
                 drc += sub_drc
         
@@ -556,7 +568,7 @@ def calculateDRCRecursive(instance, schema, original_schema, kleene_bits, obj_le
             success = True
             drc = arr_length_bits
             for subinstance in instance:
-                sub_success, sub_drc = calculateDRCRecursive(subinstance, schema["items"], original_schema, kleene_bits, obj_length_bits, arr_length_bits)
+                sub_success, sub_drc = calculateDRCRecursive(subinstance, schema["items"], original_schema, kleene_bits, obj_length_bits, arr_length_bits, distinct_labels_num)
                 success &= sub_success
                 drc += sub_drc
                 
@@ -567,6 +579,9 @@ def calculateDRCRecursive(instance, schema, original_schema, kleene_bits, obj_le
                 return True, 0
             else:
                 return False, 0
+            
+        elif isArraySchemaWithNoKeys(schema):
+            return True, calculateUnacceptedInstanceDRC(instance, distinct_labels_num)
         
         else:
             print(json.dumps(schema))
@@ -693,6 +708,11 @@ def isEmptyObjectSchema(schema):
             return True
     return False
 
+def isObjectSchemaWithNoKeys(schema):
+    if "type" in schema and schema["type"] == "object":
+        if len(schema.keys()) == 1:
+            return True
+
 def isHomArraySchema(schema):
     if "type" in schema and schema["type"] == "array":
         if "items" in schema and type(schema["items"]) is list:
@@ -711,6 +731,12 @@ def isEmptyArraySchema(schema):
     if "maxItems" in schema and schema["maxItems"] == 0:
         return True
     return False
+
+
+def isArraySchemaWithNoKeys(schema):
+    if "type" in schema and schema["type"] == "array":
+        if len(schema.keys()) == 1:
+            return True
 
 
 

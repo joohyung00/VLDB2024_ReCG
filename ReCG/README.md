@@ -26,10 +26,14 @@ You can run `ReCG` in release mode with the following command:
 ./root/jsdReCG/ReCG/build/ReCG
     --in_path [pathToInputFile (.jsonl)]
     --out_path [pathToOutputSchema (.json)]
-    --mode kbeam
-    --beam [int]
-    --sample_size [int | x > 0]
+    --search_alg kbeam
+    --beam_width [int]
     --epsilon [float | 0 < x && x <= 1]
+    --min_pts_perc [int | 0 < x && x <= 100]
+    --sample_size [int | x > 0]
+    --src_weight [float | 0 <= src_weight && src_weight <= 1.0 && src_weight + drc_weight == 1]
+    --drc_weight [float | 0 <= drc_weight && src_weight <= 1.0 && src_weight + drc_weight == 1]
+    --cost_model [{mdl, kse}]
 ```
 
 You may also run it in the debugging mode with the following command:
@@ -37,22 +41,28 @@ You may also run it in the debugging mode with the following command:
 ./root/jsdReCG/ReCG/build-debug/ReCG
     --in_path [pathToInputFile (.jsonl)]
     --out_path [pathToOutputSchema (.json)]
-    --mode kbeam
-    --beam [int]
-    --sample_size [int | x > 0]
+    --search_alg kbeam
+    --beam_width [int]
     --epsilon [float | 0 < x && x <= 1]
+    --min_pts_perc [int | 0 < x && x <= 100]
+    --sample_size [int | x > 0]
+    --src_weight [float | 0 <= src_weight && src_weight <= 1.0 && src_weight + drc_weight == 1]
+    --drc_weight [float | 0 <= drc_weight && src_weight <= 1.0 && src_weight + drc_weight == 1]
+    --cost_model [{mdl, kse}]
 ```
 
 Example code: try out this one!
 
 ```bash
 ./root/jsdReCG/ReCG/build/ReCG
-    --in_path ../data/ckg_node_Amino_acid_sequence.jsonl 
-    --out_path ../something.json 
-    --mode kbeam 
-    --beam 3 
-    --sample_size 500 
-    --epsilon 0.5
+    --in_path test_data/ckg_node_Amino_acid_sequence.jsonl \
+    --out_path something.json \
+    --search_alg kbeam \
+    --beam_width 3 \
+    --sample_size 1000 \
+    --epsilon 0.5 \
+    --src_weight 0.5 \
+    --drc_weight 0.5
 ```
 
 ## Explanation About Implementation

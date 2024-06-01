@@ -4,7 +4,7 @@ import os
 import random
 import sys
 
-sys.path.insert(1, '/root/jsdReCG/Experiment')
+sys.path.insert(1, '/root/JsonExplorerSpark/Experiment')
 from load_json import load_dataset, load_schema, count_lines
 
 
@@ -57,6 +57,7 @@ def generate_dataset(mode, test_iter, positive_path, negative_path, train_percen
     print(negative_path)
 
     num_pos_sample = count_lines(positive_path)
+    num_pos_sample = min(10000, num_pos_sample)
     print(f"num_pos_sample={num_pos_sample}")
 
     # Negative sample
@@ -66,6 +67,7 @@ def generate_dataset(mode, test_iter, positive_path, negative_path, train_percen
     #   "data": (data)
     # }
     num_neg_sample = count_lines(negative_path)
+    num_neg_sample = min(10000, num_neg_sample)
     print(f"num_neg_sample={num_neg_sample}")
     
     # Split positive data into train and test dataset
@@ -76,28 +78,42 @@ def generate_dataset(mode, test_iter, positive_path, negative_path, train_percen
     num_test_pos = min(num_pos_sample - num_train_pos, int(num_pos_sample * float(test_percent) / 100))
     print("Train Num: ", num_train_pos)
     
+    # HERE 0
+        # phase -> seed value
     random.seed(test_iter)
+    # HERE 0
 
+    # HERE 1
+        # train_indices -> train_positive_indices
     train_pos_ind = random.sample(range(num_pos_sample), k = num_train_pos)
     train_pos_ind.sort()
     # print(train_pos_ind)
-
+    # HERE 1
     
     print("Train Dataset Indices: [", train_pos_ind[0], train_pos_ind[-1], "]")
 
     
     print("Test Positive Num: ", num_test_pos)
     
+    # HERE 2
+        # positive_indices -> test_positive_indices
     pool = list(set(range(num_pos_sample)) - set(train_pos_ind))
     test_pos_ind = random.sample(pool, k=num_test_pos)
     test_pos_ind.sort()
+    # print(test_pos_ind)
+    # HERE 2
     
+
     num_test_neg = num_test_pos * POS_NEG_RATIO
     
     print(f"num_test_neg={num_test_neg}")
     
+    # HERE 3
+        # negative_indices -> test_negative_indices
     test_neg_ind = random.sample(range(num_neg_sample), k=num_test_neg)
     test_neg_ind.sort()
+    # print(test_neg_ind)
+    # HERE 3
 
     print("[Train Samples : Sampling...]")
     

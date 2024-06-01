@@ -1,0 +1,31 @@
+{
+    "type": "array",
+    "items": {
+        "anyOf": [
+            {
+                "type": "object",
+                "properties": {
+                    "HELLO": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "HELLO"
+                ],
+                "additionalProperties": false
+            },
+            {
+                "type": "number"
+            },
+            {
+                "type": "string"
+            },
+            {
+                "type": "boolean"
+            },
+            {
+                "type": "null"
+            }
+        ]
+    }
+}

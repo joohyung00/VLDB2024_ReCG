@@ -10,9 +10,6 @@ void BottomUpSchemaGenerator::generalizeAndClusterArrays()
 
     clusterCDArrays(mask, unmasked_num);
     findHomArrayCluster();
-    
-    // generalizeOutlierObjects(mask, unmasked_num);
-    // clusterGeneralizedOutlierObjects(mask, unmasked_num);
 }
 
 
@@ -57,7 +54,7 @@ void BottomUpSchemaGenerator::clusterCDArrays(vector<bool>& mask, int& instance_
         // Perform clustering
         InstanceForest biggest_cluster;
 
-        Dbscan dbscan(samples, ARRAY_EPSILON, min_points_, "leq");
+        Dbscan dbscan(samples, ARRAY_EPSILON, samples.size() * min_pts_perc_ / 100, "leq");
         dbscan.cluster();
         dbscan.getBiggestCluster(biggest_cluster);
 
@@ -92,7 +89,7 @@ void BottomUpSchemaGenerator::clusterCDArrays(vector<bool>& mask, int& instance_
         }
 
         // 3.2. Perform DBSCAN
-        Dbscan dbscan(leftovers, ARRAY_EPSILON, min_points_, "leq");
+        Dbscan dbscan(leftovers, ARRAY_EPSILON, leftovers.size() * min_pts_perc_ / 100, "leq");
         dbscan.cluster();
         int max_label;
         vector<int> labels = dbscan.getLabels(max_label);

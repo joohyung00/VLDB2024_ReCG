@@ -130,7 +130,7 @@ Please download from docker cloud.
 
 1. Download our image from docker cloud
     ```bash
-    docker pull joohyungyun/recg-vldb-2024-3:1.0
+    docker pull joohyungyun/vldb-recg-revision:1.0
     ```
 
 ### Create Docker Container
@@ -139,15 +139,15 @@ Create a docker container named `recg-image` (this may change!) using the downlo
 
 1. Docker run
     ```bash
-    docker run -itd --name recg-vldb-2024-3 joohyungyun/recg-vldb-2024-3:1.0 /bin/bash
+    docker run -itd --name vldb-recg-revision joohyungyun/vldb-recg-revision:1.0 /bin/bash
     ```
 2. Docker start
     ```bash
-    docker start recg-vldb-2024-3
+    docker start vldb-recg-revision
     ```
 3. Docker init
     ```bash
-    docker init recg-vldb-2024-3
+    docker init vldb-recg-revision
     ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

@@ -56,7 +56,7 @@ object mainInference {
                 .asInstanceOf[countingType]
         )
         val result: countingType =
-        types.reduce((t, u) => reducer.Reduce(t, u, order))
+            types.reduce((t, u) => reducer.Reduce(t, u, order))
 
         val formatted = formatter.typeToJsonMD(result, nbParsed, Map())
         // println(s"$formatted")

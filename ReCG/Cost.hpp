@@ -33,7 +33,15 @@ MDLCost homArrDRC(InstanceCluster& hom_arr_cluster, CostParameters& cost_paramet
 MDLCost hetArrSRC(InstanceCluster& het_arr_cluster, CostParameters& cost_parameters);
 MDLCost hetArrDRC(InstanceCluster& het_arr_cluster, CostParameters& cost_parameters);
 
-MDLCost anyOfSRC(SchemaNode* any_of, CostParameters& cost_parameters, int instance_num);
-MDLCost anyOfDRC(SchemaNode* any_of, CostParameters& cost_parameters, int instance_num);
+MDLCost anyOfSRC(SchemaNode* any_of,                CostParameters& cost_parameters, int instance_num);
+MDLCost anyOfDRC(SchemaNode* any_of,                CostParameters& cost_parameters, int instance_num);
+
+
+MDLCost homObjKSE(SchemaNode* schema, InstanceCluster& hom_obj_cluster, CostParameters& cost_parameters);
+MDLCost hetObjKSE(SchemaNode* schema, InstanceCluster& het_obj_cluster, CostParameters& cost_parameters);
+MDLCost comObjKSE(SchemaNode* schema, InstanceCluster& com_obj_cluster, CostParameters& cost_parameters);
+MDLCost homArrKSE(SchemaNode* schema, InstanceCluster& hom_arr_cluster, CostParameters& cost_parameters);
+MDLCost hetArrKSE(SchemaNode* schema, InstanceCluster& het_arr_cluster, CostParameters& cost_parameters);
+MDLCost anyOfKSE(SchemaNode* any_of, int instance_num);
 
 #endif

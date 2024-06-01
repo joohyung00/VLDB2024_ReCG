@@ -29,8 +29,7 @@ vector<StateNode*> StateNode::transitions()
                 max_depth_,
                 cost_parameters_,
                 instance_manager_,
-                sample_size_,
-                epsilon_
+                recg_parameters_
             );
 
             if(current_depth_ == 0)
@@ -41,10 +40,19 @@ vector<StateNode*> StateNode::transitions()
             }
 
             // 2.2.3. Calculate Cost
-            new_state->setCost(getCost() + bottomUpSchemaGenerator.getSRC() + bottomUpSchemaGenerator.getDRC());
-
+            new_state->setWeightedMDLCost(
+                getWeightedMDLCost() +
+                src_weight_ * bottomUpSchemaGenerator.getSRC() +
+                drc_weight_ * bottomUpSchemaGenerator.getDRC()
+            );
             printHeaderTab();
-            cout << "## " << "SRC: " << bottomUpSchemaGenerator.getSRC() << ", DRC: " << bottomUpSchemaGenerator.getDRC() << endl;
+            if(recg_parameters_->getCostModel() == kMDL)
+                cout << "## " << 
+                "SRC: " << (int)(src_weight_ * bottomUpSchemaGenerator.getSRC()) << ", " << 
+                "DRC: " << (int)(drc_weight_ * bottomUpSchemaGenerator.getDRC()) << " || " << "TOTAL: " << new_state->getWeightedMDLCost() << endl;
+            else if(recg_parameters_->getCostModel() == kKeySpaceEntropy)
+                cout << "## " << "KSE: " << src_weight_ * bottomUpSchemaGenerator.getSRC() << 
+                " || " << "TOTAL: " << new_state->getWeightedMDLCost() << endl;
 
             // 2.2.4. Append to `children_states`
             children_states_.push_back(new_state);
@@ -52,7 +60,6 @@ vector<StateNode*> StateNode::transitions()
         else break;
     }
     cout << endl;
-    // TODO 4: Cut the number of transitions to some threshold
 
     return children_states_;
 }
@@ -66,11 +73,11 @@ void StateNode::printInfo()
     cout << "------------------------" << endl;
     printHeader();
     cout << "<< Depth : " << current_depth_ << " | State #" << state_id_ << " >>" << endl;
-    // printHeader();
-    // cout << "[Cost] " << bottomUpSchemaGenerator.getSRC() + bottomUpSchemaGenerator.getDRC()
-    //     << " (" << bottomUpSchemaGenerator.getSRC() << ", " << bottomUpSchemaGenerator.getDRC() << ")" << endl;
     printHeader();
-    cout << "[Entire Cost] " << getCost() << endl;
+    if(recg_parameters_->getCostModel() == kMDL)
+        cout << "[Entire Cost] " << (int)getWeightedMDLCost() << endl;
+    else if(recg_parameters_->getCostModel() == kKeySpaceEntropy)
+        cout << "[Entire Cost] " << getWeightedMDLCost() << endl;
 }
 
 

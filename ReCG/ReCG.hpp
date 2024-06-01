@@ -6,7 +6,7 @@
 #include <chrono>
 
 
-// [ReCG.hpp]
+// [Klettke.hpp]
 #include "Search.hpp"
 #include "StateNode.hpp"
 // BottomUpSchemaGenerator.hpp
@@ -21,15 +21,19 @@
 // utils.hpp
 // simdjson.h
 
-class ReCG
+class Klettke
 {
     private:
         string input_filepath_;
         string output_filepath_;
-        SearchMode search_mode_;
-        int beam_size_;
-        int sample_size_;
-        float epsilon_;
+        parameters_ search_alg_;
+        int beam_width_;
+        // int sample_size_;
+        // float epsilon_;
+        // int min_pts_perc_;
+        // float src_weight_;
+        // float drc_weight_;
+        Parameters* recg_parameters_;
 
         Initiator initiator_;
         
@@ -37,25 +41,30 @@ class ReCG
 
 
     public:
-        ReCG(
-            string input_filepath, 
-            string output_filepath, 
-            SearchMode search_mode, 
-            int beam_size, 
-            int sample_size, 
-            float epsilon
-        )
-        : input_filepath_(input_filepath), 
-        output_filepath_(output_filepath), 
-        search_mode_(search_mode),
-        beam_size_(beam_size),
-        sample_size_(sample_size),
-        epsilon_(epsilon)
-        { discovered_schema_ = new string(); }
+        Klettke(Parameters* parameters)
+        : recg_parameters_(parameters)
+        // : input_filepath_(input_filepath), 
+        // output_filepath_(output_filepath), 
+        // search_alg_(search_mode),
+        // beam_width_(beam_width),
+        // sample_size_(sample_size),
+        // epsilon_(epsilon),
+        // min_pts_perc_(min_pts_perc),
+        // src_weight_(src_weight),
+        // drc_weight_(drc_weight)
+        { 
+            discovered_schema_ = new string(); 
+            input_filepath_ = recg_parameters_->getInPath();
+            output_filepath_ = recg_parameters_->getOutPath();
+            search_alg_ = recg_parameters_->getSearchMode();
+            beam_width_ = recg_parameters_->getBeamWidth();
+        }
 
         void run();
 
     private:
+
+        void printParameters();
 
         void runInitiator();
 
@@ -63,6 +72,8 @@ class ReCG
             void searchKBeam();
             void searchBranchAndBound();
             void searchGreedy();
+
+            StateNode* setInitialState();
             
 
         void printSchema() const;

@@ -20,7 +20,7 @@ class StateNode
 
         bool is_leaf_;
 
-        long cost_; 
+        MDLCost cost_; 
 
         SchemaNode*                 final_schema_;
         
@@ -28,9 +28,15 @@ class StateNode
         BottomUpSchemaGenerator     bottomUpSchemaGenerator;
             // Parameters for bottom-up schema generator
         DepthToGroupedInstances&    instance_manager_;
+        Parameters*                 recg_parameters_;
         CostParameters              cost_parameters_;
+
+
         int                         sample_size_;
         float                       epsilon_;
+        int                         min_pts_perc_;
+        float                       src_weight_;
+        float                       drc_weight_;
 
 
     public:
@@ -41,18 +47,25 @@ class StateNode
             int max_depth,
             CostParameters cost_parameters,
             DepthToGroupedInstances& instance_manager,
-            int sample_size,
-            float epsilon
+
+            Parameters* recg_parameters
         )
         : state_id_(state_id),
         current_depth_(current_depth), 
         max_depth_(max_depth), 
         cost_parameters_(cost_parameters),
         instance_manager_(instance_manager),
-        sample_size_(sample_size),
-        epsilon_(epsilon)
+        recg_parameters_(recg_parameters)
+
         {
             is_leaf_ = (current_depth_ == -1);
+
+            sample_size_ = recg_parameters_->getSampleSize();
+            epsilon_ = recg_parameters_->getEpsilon();
+            min_pts_perc_ = recg_parameters_->getMinPtsPerc();
+            src_weight_ = recg_parameters_->getSrcWeight();
+            drc_weight_ = recg_parameters_->getDrcWeight();
+
 
             if(!is_leaf_)
             {
@@ -62,8 +75,7 @@ class StateNode
                     current_depth_,
                     max_depth_,
                     cost_parameters_,
-                    sample_size_,
-                    epsilon_
+                    recg_parameters_
                 );
             }
         }
@@ -74,10 +86,10 @@ class StateNode
         bool isLeafState()
         { return is_leaf_; }
 
-        void setCost(MDLCost cost)
+        void setWeightedMDLCost(MDLCost cost)
         { cost_ = cost; }
 
-        MDLCost getCost()
+        MDLCost getWeightedMDLCost()
         { return cost_; }
 
         vector<StateNode*> transitions();
@@ -108,7 +120,6 @@ class StateNode
         void printHeader();
 
         void printHeaderTab();
-    
 };
 
 

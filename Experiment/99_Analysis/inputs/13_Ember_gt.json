@@ -1,0 +1,291 @@
+{
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "sha256",
+        "appeared",
+        "label",
+        "histogram",
+        "byteentropy",
+        "strings",
+        "general",
+        "header",
+        "section",
+        "imports",
+        "exports"
+    ],
+    "properties": {
+        "sha256": {
+            "type": "string"
+        },
+        "appeared": {
+            "type": "string"
+        },
+        "label": {
+            "type": "integer"
+        },
+        "histogram": {
+            "type": "array",
+            "items": {
+                "type": "integer"
+            }
+        },
+        "byteentropy": {
+            "type": "array",
+            "items": {
+                "type": "integer"
+            }
+        },
+        "strings": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "numstrings": {
+                    "type": "integer"
+                },
+                "avlength": {
+                    "type": "number"
+                },
+                "printabledist": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
+                },
+                "printables": {
+                    "type": "integer"
+                },
+                "entropy": {
+                    "type": "number"
+                },
+                "paths": {
+                    "type": "integer"
+                },
+                "urls": {
+                    "type": "integer"
+                },
+                "registry": {
+                    "type": "integer"
+                },
+                "MZ": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "numstrings",
+                "avlength",
+                "printabledist",
+                "printables",
+                "entropy",
+                "paths",
+                "urls",
+                "registry",
+                "MZ"
+            ]
+        },
+        "general": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "numstrings": {
+                    "type": "integer"
+                },
+                "vsize": {
+                    "type": "integer"
+                },
+                "size": {
+                    "type": "integer"
+                },
+                "has_debug": {
+                    "type": "integer"
+                },
+                "exports": {
+                    "type": "integer"
+                },
+                "imports": {
+                    "type": "integer"
+                },
+                "has_relocations": {
+                    "type": "integer"
+                },
+                "has_resources": {
+                    "type": "integer"
+                },
+                "has_signature": {
+                    "type": "integer"
+                },
+                "has_tls": {
+                    "type": "integer"
+                },
+                "symbols": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "vsize",
+                "has_debug",
+                "exports",
+                "imports",
+                "has_relocations",
+                "has_resources",
+                "has_signature",
+                "has_tls",
+                "symbols"
+            ]
+        },
+        "header": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "coff": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "timestamp": {
+                            "type": "integer"
+                        },
+                        "machine": {
+                            "type": "string"
+                        },
+                        "characteristics": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "required": [
+                        "timestamp",
+                        "machine",
+                        "characteristics"
+                    ]
+                },
+                "optional": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "subsystem": {
+                            "type": "string"
+                        },
+                        "dll_characteristics": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "magic": {
+                            "type": "string"
+                        },
+                        "major_image_version": {
+                            "type": "integer"
+                        },
+                        "minor_image_version": {
+                            "type": "integer"
+                        },
+                        "major_linker_version": {
+                            "type": "integer"
+                        },
+                        "minor_linker_version": {
+                            "type": "integer"
+                        },
+                        "major_operating_system_version": {
+                            "type": "integer"
+                        },
+                        "minor_operating_system_version": {
+                            "type": "integer"
+                        },
+                        "major_subsystem_version": {
+                            "type": "integer"
+                        },
+                        "minor_subsystem_version": {
+                            "type": "integer"
+                        },
+                        "sizeof_code": {
+                            "type": "integer"
+                        },
+                        "sizeof_headers": {
+                            "type": "integer"
+                        },
+                        "sizeof_heap_commit": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "subsystem",
+                        "dll_characteristics",
+                        "magic",
+                        "major_image_version",
+                        "minor_image_version",
+                        "major_linker_version",
+                        "minor_linker_version",
+                        "major_operating_system_version",
+                        "minor_operating_system_version",
+                        "major_subsystem_version",
+                        "minor_subsystem_version",
+                        "sizeof_code",
+                        "sizeof_headers",
+                        "sizeof_heap_commit"
+                    ]
+                }
+            }
+        },
+        "section": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "entry": {
+                    "type": "string"
+                },
+                "sections": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "size": {
+                                "type": "integer"
+                            },
+                            "entropy": {
+                                "type": "number"
+                            },
+                            "vsize": {
+                                "type": "integer"
+                            },
+                            "props": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "required": [
+                            "name",
+                            "size",
+                            "entropy",
+                            "vsize",
+                            "props"
+                        ]
+                    }
+                }
+            }
+        },
+        "imports": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            }
+        },
+        "exports": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    }
+}

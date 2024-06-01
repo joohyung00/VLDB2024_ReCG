@@ -42,4 +42,4 @@ include(CPack)
 # cmake -DCMAKE_BUILD_TYPE=Debug ..
 # make -j10
 
-# ./ReCG --in_path ../data/ckg_node_Amino_acid_sequence.jsonl --out_path ../something.json --mode kbeam --beam 3 --sample_size 500 --epsilon 0.5
+# ./ReCG --in_path ../data/ckg_node_Amino_acid_sequence.jsonl --out_path ../something.json --search_alg kbeam --beam_width 3 --sample_size 500 --epsilon 0.5

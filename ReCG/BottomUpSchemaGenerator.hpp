@@ -24,29 +24,19 @@ class StateMaterials
     public:
         
         StateMaterials()
-        {
-            derived_schemas_ = vector<SchemaNode*>();
-        }
+        { derived_schemas_ = vector<SchemaNode*>(); }
             
         void setDerivationResult(DerivationResult result)
-        {
-            result_ = result;
-        }        
+        { result_ = result; }        
 
         void setStateId(stateId state_id)
-        {
-            state_id_ = state_id;
-        }
+        { state_id_ = state_id; }
             
         DerivationResult getDerivationResult()
-        {
-            return result_;
-        }
+        { return result_; }
 
         stateId getStateId()
-        {
-            return state_id_;
-        }
+        { return state_id_; }
 };
 
 
@@ -154,19 +144,17 @@ class BottomUpSchemaGenerator
         int                         current_depth_;
         GroupedInstances*           grouped_instances_;
 
-        // <\mathcal{I}> ///////////////////////////////////////
         CostParameters              cost_parameters_;
-        ////////////////////////////////////////////////////////
 
         // User input //////////////////////////////////////////
+        Parameters*                 recg_parameters_;
         int                         sample_size_;
         float                       epsilon_;
+        int                         min_pts_perc_;
         ////////////////////////////////////////////////////////
 
         // Heuristic values ////////////////////////////////////
         int                         generalizing_threshold_;
-        int                         min_points_;
-        // float                       epsilon_;
         ////////////////////////////////////////////////////////
 
         // [Clusters]
@@ -194,21 +182,26 @@ class BottomUpSchemaGenerator
             int current_depth, 
             int max_depth, 
             CostParameters cost_parameters,
-            int sample_size,
-            float epsilon
+            // int sample_size,
+            // float epsilon,
+            // int min_pts_perc
+            Parameters* recg_paramters
         )
         : working_state_id_(state_id),
         current_depth_(current_depth), 
         max_depth_(max_depth), 
         grouped_instances_(grouped_instances), 
         cost_parameters_(cost_parameters),
-        sample_size_(sample_size),
-        epsilon_(epsilon)
+        recg_parameters_(recg_paramters)
+        // sample_size_(sample_size),
+        // epsilon_(epsilon),
+        // min_pts_perc_(min_pts_perc)
         {
             derivation_phase_ = kClusteringPhase;
 
-            epsilon_ = 0.5;
-            min_points_ = 10;
+            sample_size_ = recg_parameters_->getSampleSize();
+            epsilon_ = recg_parameters_->getEpsilon();
+            min_pts_perc_ = recg_parameters_->getMinPtsPerc();
 
             generalizing_threshold_ = 5;
         }
@@ -247,7 +240,7 @@ class BottomUpSchemaGenerator
             total_num += grouped_instances_->getInstanceForestByType(kBoolean).size();
             total_num += grouped_instances_->getInstanceForestByType(kNull_).size();
 
-            return deriveAnyOfNode(derived_schemas_, cost_parameters_, total_num);
+            return deriveAnyOfNode(derived_schemas_, cost_parameters_, recg_parameters_, total_num);
         }
 
         MDLCost getSRC()
@@ -256,7 +249,8 @@ class BottomUpSchemaGenerator
             for(auto& derived_schema : derived_schemas_)
             { schema_cost += derived_schema->getSRC(); }
 
-            schema_cost += grouped_instances_->getInstanceForestByType(kObject).size() * derived_schemas_.size();
+            if(recg_parameters_->getCostModel() == kMDL)
+            { schema_cost += grouped_instances_->getInstanceForestByType(kObject).size() * derived_schemas_.size(); }
 
             return schema_cost;
         }

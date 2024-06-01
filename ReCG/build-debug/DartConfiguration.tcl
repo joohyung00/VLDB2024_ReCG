@@ -4,14 +4,14 @@
 
 
 # Configuration directories and files
-SourceDirectory: /root/jsdReCG/ReCG
-BuildDirectory: /root/jsdReCG/ReCG/build-debug
+SourceDirectory: /root/JsonExplorerSpark/ReCG
+BuildDirectory: /root/JsonExplorerSpark/ReCG/build-debug
 
 # Where to place the cost data store
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: 8e9926954e00
+Site: 09cfc5619979
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
 BuildName: Linux-c++
@@ -36,7 +36,7 @@ ScpCommand: /usr/bin/scp
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/usr/bin/cmake" "/root/jsdReCG/ReCG"
+ConfigureCommand: "/usr/bin/cmake" "/root/JsonExplorerSpark/ReCG"
 MakeCommand: /usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}" -- -i
 DefaultCTestConfigurationType: Release
 

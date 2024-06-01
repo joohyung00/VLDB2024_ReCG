@@ -134,3 +134,24 @@ int bitSize(int num)
 
 int encodeLength(int length)
 { return 2 * bitSize(length) + 1; }
+
+string searchAlgToString(parameters_ search_mode)
+{
+    switch(search_mode)
+    {
+        case kGreedy: return "Greedy Search";
+        case kBranchAndBound: return "Branch&Bound Search";
+        case kKBeam: return "Beam Search";
+        default: throw IllegalBehaviorError("Invalid search mode");
+    }
+}
+
+string costModelToString(CostModel cost_model)
+{
+    switch(cost_model)
+    {
+        case kMDL: return "MDL";
+        case kKeySpaceEntropy: return "Key-Space Entropy";
+        default: throw IllegalBehaviorError("Invalid cost model");
+    }
+}

@@ -10,9 +10,11 @@ It would not be a problem as long as you have not modified any directory structu
 2. It is necessary for the user to build all implementations of `ReCG`, `Jxplain` and `KReduce` (refer to `build` files in the upper directory) before running the experiments.
 
 3. It is necessary for the user to run all the experiments listed below.
-    - Accuracy experiment
-    - MDL experiment
-    - Performance experiment
+    - Accuracy Comparison
+    - MDL Cost Analysis
+    - Scalability with Dataset Size
+    - Parameter Sensitivity
+    - Impact of Design Factors to Accuracy
 
 ## Quick Usage
 
@@ -22,7 +24,7 @@ runAllExperimentVisualizations.sh
 
 ## Description of Each Visualization
 
-### (A) Visualizing Accuracy Experiment (Section 5.2)
+### (A) Visualizing 'Accuracy Comparison' (Section 5.2)
 
 
 ```bash
@@ -34,7 +36,7 @@ Your results are saved at the `Accuracy` directory.
 Here is an example of your result:
 
 <p align = "center">
-<img src="images/accuracy_experiment_example.png" alt="drawing" width="400"/>
+<img src="images/1_precision.png" alt="drawing" width="400"/>
 </p>
 
 ```bash
@@ -48,7 +50,7 @@ python3 1.3_AccExperimentTab.py
 ```
 This code generates the latex code for Table 2 of the paper "ReCG: Bottom-Up JSON Schema Discovery Using a Repetitive Cluster-and-Generalize Framework".
 
-### (B) Visualizing MDL Experiment (Section 5.3)
+### (B) Visualizing 'MDL Cost Analysis' (Section 5.3)
 
 ```bash
 python3 2.1_MdlExperimentVis.py
@@ -62,7 +64,7 @@ It also shows the accuracies alongside, enabling one to recognize the negative r
 Here is an example of the output: 
 
 <p align = "center">
-<img src="images/mdl_experiment_example.png" alt="drawing" width="400"/>
+<img src="images/2_mdl.png" alt="drawing" width="400"/>
 </p>
 
 ```bash
@@ -73,7 +75,7 @@ This code shows the followings on the console:
 - The relationship between the MDL costs of schemas found by `ReCG`, `Jxplain`, `KReduce` and the `ground truth schema`s.
 - The correlation between `MDL`, `SRC`, `DRC` and `F1 score`, `recall`, `precision`.
 
-### (C) Visualizing Performance Experiment (Section 5.4)
+### (C) Visualizing 'Scalability with Dataset Size' (Section 5.4)
 
 ```bash
 python3 3.1_PerformanceExperimentVis.py
@@ -84,7 +86,7 @@ This code shows the runtime of each algorithm for each dataset, when the proport
 Here is an example of the output: 
 
 <p align = "center">
-<img src="images/performance_experiment_example.png" alt="drawing" width="400"/>
+<img src="images/3_runtime.png" alt="drawing" width="400"/>
 </p>
 
 
@@ -93,3 +95,71 @@ python3 3.2_PerformanceExperimentAgg.py
 ```
 
 This code generates the latex code for Table 4 of the paper "ReCG: Bottom-Up JSON Schema Discovery Using a Repetitive Cluster-and-Generalize Framework".
+
+
+
+### (D) Visualizing 'Parameter Sensitivity' (Section 5.5)
+
+```bash
+python3 4.1_ParamExperimentVis.py --exp BeamWidth
+python3 4.1_ParamExperimentVis.py --exp Epsilon
+python3 4.1_ParamExperimentVis.py --exp MinPtsPerc
+python3 4.1_ParamExperimentVis.py --exp MDLWeights
+```
+
+This plots the accuracies of the disovered schemas for each algorithm.
+
+Here is an example of the output: 
+
+<p align = "center">
+<img src="images/4_param.png" alt="drawing" width="400"/>
+</p>
+
+
+```bash
+python3 4.2_ParamExperimentAgg.py
+```
+
+This prints the values that we used in our paper.
+
+
+
+
+### (E) Visualizing 'Impact of Design Factors to Accuracy' (Section 5.6)
+
+```bash
+python3 6.2_AblationStudyAgg.py
+```
+
+This prints the latex table and the values that we used in our paper.
+
+
+
+
+
+### (F) Visualizing the Impact of Easier Negative Samples
+
+```bash
+python3 7_checkDifferenceForEasierNegatives.py
+```
+
+This prints the values, for the accuracies that we get if we use an easier negative sample set.
+
+
+
+### (G) Analyzing the Correlation between Jxplain's Runtime & Number of Distinct Keys in the Dataset
+
+```bash
+python3 8_jxplainRuntimeKeysAnalysis.py
+```
+This prints the correlation between Jxplain's runtime and the total number of distinct keys.
+
+
+
+### (H) Analyzing Runtime Bottleneck of Jxplain
+
+```bash
+python3 9_analyzeRuntimeOfJxplain.py
+```
+This prints the value for how much percentage of total Jxplain's time is consumed by its heterogeneity determination and clustering.
+

@@ -10,14 +10,14 @@ class Inference extends  Serializable{
 
 
   def inferStructType(parsed: JsValue,
-                      f: (countingType, countingType, (structuralType,structuralType)=>Int) => countingType,
-                      order:(structuralType,structuralType)=>Int):structuralType = parsed match {
+                      f: (countingType, countingType, (structuralType,structuralType) => Int) => countingType,
+                      order:(structuralType,structuralType) => Int):structuralType = parsed match {
     case JsNull => Null(1)
     case boolean: JsBoolean => Bool(1)
     case JsNumber(_) => Numb(1)
     case JsString(_) => Str(1)
-    case JsArray(value) => ArrayType(value.map(inferStructType(_,f,order)).fold(Empty())((T1,T2)=> f(T1,T2,order)),1)
-    case JsObject(underlying) => RecordType(underlying.map{case (k,v) => new fieldType(k,inferStructType(v,f,order))}.toList.sorted,1)
+    case JsArray(value) => ArrayType(value.map(inferStructType(_, f, order)).fold(Empty())((T1, T2)=> f(T1, T2, order)), 1)
+    case JsObject(underlying) => RecordType(underlying.map{case (k, v) => new fieldType(k, inferStructType(v, f, order))}.toList.sorted, 1)
   }
 
 //  def inferStructType(json: JSValue,

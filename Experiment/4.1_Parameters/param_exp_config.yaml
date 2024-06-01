@@ -1,0 +1,347 @@
+##########################
+# Beam width
+##########################
+
+- 
+    exp_types:
+        - Accuracy
+    target_percents:
+        - 10
+    target_dataset_ids:
+        - 1
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 12
+        - 13
+        - 21
+        - 22
+        - 23
+        - 31
+        - 32
+        - 33
+        - 34
+        - 35
+        - 41
+        - 43
+        - 44
+    beam_widths:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+    epsilons:
+        - 0.1
+        # - 0.3
+        # - 0.5
+        # - 0.7
+        # - 0.9
+    min_pts_percs:
+        - 1
+        # - 3
+        # - 5
+        # - 10
+        # - 20
+        # - 30
+        # - 90
+    sample_sizes:
+        # - 15
+        # - 20
+        # - 25
+        # - 30
+        # - 50
+        # - 100
+        # - 250
+        - 500
+        # - 1000
+        # - 2000
+    mdl_weights:
+        # - 0.01,0.99
+        # - 0.1,0.9
+        # - 0.3,0.7
+        - 0.5,0.5
+        # - 0.7,0.3
+        # - 0.9,0.1
+        # - 0.99,0.01
+    exp_nums:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+    iteration_order:
+        - exp_nums
+        - exp_types
+        - target_percents
+        - mdl_weights
+        - sample_sizes
+        - epsilons
+        - min_pts_percs
+        - beam_widths
+        - target_dataset_ids
+
+
+##########################
+# Epsilon - Accuracy
+##########################
+
+
+- 
+    exp_types:
+        - Accuracy
+    target_percents:
+        - 10
+    target_dataset_ids:
+        - 1
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 12
+        - 13
+        - 21
+        - 22
+        - 23
+        - 31
+        - 32
+        - 33
+        - 34
+        - 35
+        - 41
+        - 43
+        - 44
+    beam_widths:
+        # - 1
+        # - 2
+        - 3
+        # - 4
+        # - 5
+    epsilons:
+        - 0.1
+        - 0.3
+        - 0.5
+        - 0.7
+        - 0.9
+    min_pts_percs:
+        # - 1
+        - 5
+        # - 10
+        # - 20
+        # - 30
+        # - 90
+    sample_sizes:
+        # - 15
+        # - 20
+        # - 25
+        # - 30
+        # - 50
+        # - 100
+        # - 250
+        - 500
+        # - 1000
+        # - 2000
+    mdl_weights:
+        # - 0.01,0.99
+        # - 0.1,0.9
+        # - 0.3,0.7
+        - 0.5,0.5
+        # - 0.7,0.3
+        # - 0.9,0.1
+        # - 0.99,0.01
+    exp_nums:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+    iteration_order:
+        - exp_nums
+        - exp_types
+        - target_percents
+        - mdl_weights
+        - sample_sizes
+        - epsilons
+        - min_pts_percs
+        - beam_widths
+        - target_dataset_ids
+
+
+
+
+##########################
+# MinPtsPerc - Accuracy
+##########################
+
+
+- 
+    exp_types:
+        - Accuracy
+    target_percents:
+        - 10
+    target_dataset_ids:
+        - 1
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 12
+        - 13
+        - 21
+        - 22
+        - 23
+        - 31
+        - 32
+        - 33
+        - 34
+        - 35
+        - 41
+        - 43
+        - 44
+    beam_widths:
+        # - 1
+        # - 2
+        - 3
+        # - 4
+        # - 5
+    epsilons:
+        # - 0.1
+        # - 0.3
+        - 0.5
+        # - 0.7
+        # - 0.9
+    min_pts_percs:
+        - 1
+        - 3
+        - 5
+        - 10
+        - 20
+        - 30
+    sample_sizes:
+        # - 15
+        # - 20
+        # - 25
+        # - 30
+        # - 50
+        # - 100
+        # - 250
+        - 500
+        # - 1000
+        # - 2000
+    mdl_weights:
+        # - 0.01,0.99
+        # - 0.1,0.9
+        # - 0.3,0.7
+        - 0.5,0.5
+        # - 0.7,0.3
+        # - 0.9,0.1
+        # - 0.99,0.01
+    exp_nums:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+    iteration_order:
+        - exp_nums
+        - exp_types
+        - target_percents
+        - mdl_weights
+        - sample_sizes
+        - epsilons
+        - min_pts_percs
+        - beam_widths
+        - target_dataset_ids
+
+    
+
+
+
+##########################
+# MDLWeights - Accuracy
+##########################
+
+
+- 
+    exp_types:
+        - Accuracy
+    target_percents:
+        - 10
+    target_dataset_ids:
+        - 1
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 12
+        - 13
+        - 21
+        - 22
+        - 23
+        - 31
+        - 32
+        - 33
+        - 34
+        - 35
+        - 41
+        - 43
+        - 44
+    beam_widths:
+        # - 1
+        # - 2
+        - 3
+        # - 4
+        # - 5
+    epsilons:
+        # - 0.1
+        # - 0.3
+        - 0.5
+        # - 0.7
+        # - 0.9
+    min_pts_percs:
+        # - 1
+        - 5
+        # - 10
+        # - 20
+        # - 30
+        # - 90
+    sample_sizes:
+        # - 25
+        # - 50
+        # - 100
+        # - 250
+        - 500
+        # - 1000
+    mdl_weights:
+        - 0.01,0.99
+        - 0.1,0.9
+        - 0.3,0.7
+        - 0.5,0.5
+        - 0.7,0.3
+        - 0.9,0.1
+        - 0.99,0.01
+    exp_nums:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+    iteration_order:
+        - exp_nums
+        - exp_types
+        - target_percents
+        - mdl_weights
+        - sample_sizes
+        - epsilons
+        - min_pts_percs
+        - beam_widths
+        - target_dataset_ids

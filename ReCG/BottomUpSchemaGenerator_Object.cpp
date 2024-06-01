@@ -23,11 +23,6 @@ void BottomUpSchemaGenerator::clusterAndGeneralizeObjects()
 
     // 4. Update metadata
     updateClustersMetadata();
-
-    // 5. Filter out false(?) homogeneous clusters using metadata
-    // cout << "HERE" << endl;
-    // filterHeterogeneousClusters();
-    // cout << "HERE2" << endl;
 }
 
 
@@ -38,6 +33,7 @@ void BottomUpSchemaGenerator::clusterAndGeneralizeObjects()
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////// Cluster & Generalize /////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
 void BottomUpSchemaGenerator::preprocessInstances(vector<bool>& mask, int& instance_num)
@@ -61,135 +57,124 @@ void BottomUpSchemaGenerator::preprocessInstances(vector<bool>& mask, int& insta
     { object_clusters_.clear(); }
 
     // 2. Filter out heterogeneous objects
-    filterHeterogeneousObjects(mask, instance_num);
+    // filterHeterogeneousObjects(mask, instance_num);
 }
 
-void BottomUpSchemaGenerator::filterHeterogeneousObjects(vector<bool>& mask, int& instance_num)
-{
-    // Get object instances
-    // printHeader();
-    // cout << "   [Filtering Hetero Objects]" << endl;
+// void BottomUpSchemaGenerator::filterHeterogeneousObjects(vector<bool>& mask, int& instance_num)
+// {
+//     // Get object instances
+//     // printHeader();
+//     // cout << "   [Filtering Hetero Objects]" << endl;
 
-    InstanceForest& object_forest = grouped_instances_->getInstanceForestByType(kObject);
+//     InstanceForest& object_forest = grouped_instances_->getInstanceForestByType(kObject);
 
-    unordered_map<hash32, roaring_bitmap_t*> children_hash_to_set_bitmap;
+//     unordered_map<hash32, roaring_bitmap_t*> children_hash_to_set_bitmap;
 
-    for(int i = 0; i < mask.size(); i++)
-    {
-        if(!mask[i]) continue;
-        // 1. Find an instance with only `*`
-        if( roaring_bitmap_get_cardinality(object_forest[i]->getUnkleenedLabelBitmap()) == 0 )
-        {
-                // Heuristic!
-                // There might be homogeneous objects that only have primitive schemas that are existent in heterogeneous objects!
-            // + check if there is at least one or more non-primitive schemas
-            vector<Node*>& children = object_forest[i]->getChildren();
-            bool all_primitives = true;
-            hash32 hash_val = 0;
-            SchemaSet children_set;
-            for(int i = 0; i < children.size(); i++)
-            {
-                SchemaNode* derived_schema = TO_SCHEMA_NODE(TO_INSTANCE_NODE(children[i])->getDerivedSchema());
-                children_set.insert(derived_schema);
+//     for(int i = 0; i < mask.size(); i++)
+//     {
+//         if(!mask[i]) continue;
+//         // 1. Find an instance with only `*`
+//         if( roaring_bitmap_get_cardinality(object_forest[i]->getUnkleenedLabelBitmap()) == 0 )
+//         {
+//                 ////
+//             // + check if there is at least one or more non-primitive schemas
+//             vector<Node*>& children = object_forest[i]->getChildren();
+//             bool all_primitives = true;
+//             hash32 hash_val = 0;
+//             SchemaSet children_set;
+//             for(int i = 0; i < children.size(); i++)
+//             {
+//                 SchemaNode* derived_schema = TO_SCHEMA_NODE(TO_INSTANCE_NODE(children[i])->getDerivedSchema());
+//                 children_set.insert(derived_schema);
 
-                if(!isPrimitive(derived_schema->getType()))
-                { 
-                    all_primitives = false;
-                    break;
-                }
-            }
+//                 if(!isPrimitive(derived_schema->getType()))
+//                 { 
+//                     all_primitives = false;
+//                     break;
+//                 }
+//             }
 
-            // If not all_primitives, then add it to the map
-                // TOCHECK: May have error here
-            if(!all_primitives)
-            {
-                // CAN BE IMPROVED: direct hashing from roaring_bitmap_t
-                for(auto schema_ptr : children_set)
-                { 
-                    hash_val ^= schema_ptr->getId(); 
-                }
+//             // If not all_primitives, then add it to the map
+//                 ////
+//             if(!all_primitives)
+//             {
+//                 // CAN BE IMPROVED: direct hashing from roaring_bitmap_t
+//                 for(auto schema_ptr : children_set)
+//                 {
+//                     hash_val ^= schema_ptr->getId(); 
+//                 }
 
-                auto it = children_hash_to_set_bitmap.find(hash_val);
-                if(it == children_hash_to_set_bitmap.end())
-                {
-                    children_hash_to_set_bitmap.insert( {hash_val, object_forest[i]->getChildrenSchemasBitmap()} ); 
-                }
-            }
-        }
-    }
-    // 1.1. Return if none exists
-    if(children_hash_to_set_bitmap.size() == 0) 
-    {
-        // printHeader();
-        // cout << "   [None were found]" << endl;
-        return;
-    }
+//                 auto it = children_hash_to_set_bitmap.find(hash_val);
+//                 if(it == children_hash_to_set_bitmap.end())
+//                 {
+//                     children_hash_to_set_bitmap.insert( {hash_val, object_forest[i]->getChildrenSchemasBitmap()} ); 
+//                 }
+//             }
+//         }
+//     }
+//     // 1.1. Return if none exists
+//     if(children_hash_to_set_bitmap.size() == 0) 
+//     {
+//         // printHeader();
+//         // cout << "   [None were found]" << endl;
+//         return;
+//     }
 
-    // for(auto hash_bitmap_pair : children_hash_to_set_bitmap)
-    // {
-    //     cout << hash_bitmap_pair.first << ": " << endl;
-    //     roaring_bitmap_printf(hash_bitmap_pair.second);
-    //     cout << endl << endl;
-    // }
+//     // for(auto hash_bitmap_pair : children_hash_to_set_bitmap)
+//     // {
+//     //     cout << hash_bitmap_pair.first << ": " << endl;
+//     //     roaring_bitmap_printf(hash_bitmap_pair.second);
+//     //     cout << endl << endl;
+//     // }
 
-    while(children_hash_to_set_bitmap.size())
-    {
-        // 2. Pick the one with the least number of distinct children schemas
-        Count min_sch_num = 10000;
-        hash32 target_hash;
-        roaring_bitmap_t* target_bitmap;
-        for(auto it = children_hash_to_set_bitmap.begin(); it != children_hash_to_set_bitmap.end(); it++)
-        {
-            if(roaring_bitmap_get_cardinality(it->second) < min_sch_num) 
-            {
-                min_sch_num = roaring_bitmap_get_cardinality(it->second);
-                target_hash = it->first;
-                target_bitmap = it->second;
-            }
-        }
-        children_hash_to_set_bitmap.erase(target_hash);
-        // 3. Filter each out as a cluster
+//     while(children_hash_to_set_bitmap.size())
+//     {
+//         // 2. Pick the one with the least number of distinct children schemas
+//         Count min_sch_num = 10000;
+//         hash32 target_hash;
+//         roaring_bitmap_t* target_bitmap;
+//         for(auto it = children_hash_to_set_bitmap.begin(); it != children_hash_to_set_bitmap.end(); it++)
+//         {
+//             if(roaring_bitmap_get_cardinality(it->second) < min_sch_num) 
+//             {
+//                 min_sch_num = roaring_bitmap_get_cardinality(it->second);
+//                 target_hash = it->first;
+//                 target_bitmap = it->second;
+//             }
+//         }
+//         children_hash_to_set_bitmap.erase(target_hash);
+//         // 3. Filter each out as a cluster
 
-        // 3.1. Generate a heterogeneous object cluster
-        object_clusters_.push_back(InstanceCluster(kHetObjC));
+//         // 3.1. Generate a heterogeneous object cluster
+//         object_clusters_.push_back(InstanceCluster(kHetObjC));
 
-        // 3.2. Check whether another instance can be expressed with that pattern        
-        for(int i = 0; i < object_forest.size(); i++)
-        {
-            if(!mask[i]) continue; 
+//         // 3.2. Check whether another instance can be expressed with that pattern        
+//         for(int i = 0; i < object_forest.size(); i++)
+//         {
+//             if(!mask[i]) continue; 
 
-            roaring_bitmap_t* children_schema_ids = object_forest[i]->getChildrenSchemasBitmap();
+//             roaring_bitmap_t* children_schema_ids = object_forest[i]->getChildrenSchemasBitmap();
 
-            if( roaring_bitmap_equals(target_bitmap, children_schema_ids) )
-            {
-                object_clusters_.back().addInstance(object_forest[i]);
-                mask[i] = false;
-                instance_num--;
-            }
-        }
-            // 
-            // 
-        if(object_clusters_.back().getForestSize() == 0)
-        { object_clusters_.pop_back(); }
-        // cout << roaring_bitmap_get_cardinality(target_bitmap) << endl;
-        // cout << instance_num << endl << endl;
-        // roaring_bitmap_printf(target_bitmap);
-        // cout << endl;
-    }
-    // printHeader();
-    // cout << "[Some found]" << endl;
-    return;
-}
-
-
-
-
-
-
-
-
-
-
+//             if( roaring_bitmap_equals(target_bitmap, children_schema_ids) )
+//             {
+//                 object_clusters_.back().addInstance(object_forest[i]);
+//                 mask[i] = false;
+//                 instance_num--;
+//             }
+//         }
+//             // 
+//             // 
+//         if(object_clusters_.back().getForestSize() == 0)
+//         { object_clusters_.pop_back(); }
+//         // cout << roaring_bitmap_get_cardinality(target_bitmap) << endl;
+//         // cout << instance_num << endl << endl;
+//         // roaring_bitmap_printf(target_bitmap);
+//         // cout << endl;
+//     }
+//     // printHeader();
+//     // cout << "[Some found]" << endl;
+//     return;
+// }
 
 
 
@@ -223,7 +208,7 @@ void BottomUpSchemaGenerator::clusterCDObjects(vector<bool>& mask, int& instance
         // 1.2. Perform clustering
         InstanceForest biggest_cluster;
 
-        Dbscan dbscan(samples, epsilon_, min_points_, "l");
+        Dbscan dbscan(samples, epsilon_, samples.size() * min_pts_perc_ / 100, "l");
         dbscan.cluster();
         dbscan.getBiggestCluster(biggest_cluster);
 
@@ -258,7 +243,7 @@ void BottomUpSchemaGenerator::clusterCDObjects(vector<bool>& mask, int& instance
         }
 
         // 2.2. Perform DBSCAN
-        Dbscan dbscan(leftovers, epsilon_, min_points_, "l");
+        Dbscan dbscan(leftovers, epsilon_, leftovers.size() * min_pts_perc_ / 100, "l");
         dbscan.cluster();
         int max_label;
         vector<int> labels = dbscan.getLabels(max_label);
@@ -350,7 +335,7 @@ void BottomUpSchemaGenerator::clusterGeneralizedOutlierObjects(vector<bool>& mas
         // 1.2. Perform clustering with Sampled Instances
         InstanceForest biggest_cluster;
 
-        Dbscan dbscan(samples, epsilon_, min_points_, "leq");
+        Dbscan dbscan(samples, epsilon_, samples.size() * min_pts_perc_ / 100, "leq");
         dbscan.cluster();
         dbscan.getBiggestCluster(biggest_cluster);
 
@@ -363,7 +348,6 @@ void BottomUpSchemaGenerator::clusterGeneralizedOutlierObjects(vector<bool>& mas
     }
 
     // if(instance_num == 0) return;
-    
 }
 
 
@@ -390,7 +374,7 @@ void BottomUpSchemaGenerator::treatEdgeCases(vector<bool>& mask, int& instance_n
     {
         // (a).1. Perform Naive DBSCAN
         int max_label;
-        Dbscan dbscan(leftovers, epsilon_, min_points_, "leq");
+        Dbscan dbscan(leftovers, epsilon_, leftovers.size() * min_pts_perc_ / 100, "leq");
         dbscan.cluster();
         vector<int> labels = dbscan.getLabels(max_label);
 
@@ -537,9 +521,6 @@ void BottomUpSchemaGenerator::treatEdgeCases(vector<bool>& mask, int& instance_n
 
         // if(instance_num == 0) return;
     }
-    
-
-    
 }
 
 
@@ -635,6 +616,9 @@ void BottomUpSchemaGenerator::updateClustersMetadata()
         cluster.updateClusterMetadata(cost_parameters_); 
     }
 }
+
+
+
 
 
 

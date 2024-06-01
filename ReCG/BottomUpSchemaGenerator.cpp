@@ -127,7 +127,7 @@ void BottomUpSchemaGenerator::deriveSchemasFromClusters()
 
     for(auto& object_cluster : object_clusters_)
     {
-        SchemaNode* derived_schema = deriveSchemaFromCluster(object_cluster, cost_parameters_);
+        SchemaNode* derived_schema = deriveSchemaFromCluster(object_cluster, cost_parameters_, recg_parameters_);
         assert(derived_schema != nullptr);
 
         mapInstancesForState(unique_state_id_, object_cluster.getInstanceForest(), derived_schema);
@@ -177,7 +177,7 @@ void BottomUpSchemaGenerator::deriveSchemasFromClusters()
 
     for(auto& array_cluster : array_clusters_)
     {
-        SchemaNode* derived_schema = deriveSchemaFromCluster(array_cluster, cost_parameters_);
+        SchemaNode* derived_schema = deriveSchemaFromCluster(array_cluster, cost_parameters_, recg_parameters_);
         assert(derived_schema != nullptr);
 
         mapInstancesForState(unique_state_id_, array_cluster.getInstanceForest(), derived_schema);

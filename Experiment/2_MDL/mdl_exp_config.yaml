@@ -4,6 +4,9 @@
         - ReCG
         - jxplain
         - kreduce
+        - lreduce
+        - klettke
+        - frozza
     target_dataset_ids:
         - 1
         - 3

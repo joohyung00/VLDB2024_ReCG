@@ -13,9 +13,21 @@ bool BottomUpSchemaGenerator::mergeToGeneralize()
         {
             if(i == target_idx) continue;
 
-            mergeInfo merge_info = clusterDistance(object_clusters_[i], object_clusters_[target_idx], cost_parameters_);
+            mergeInfo merge_info;
+            switch(recg_parameters_->getCostModel())
+            {
+                case kMDL:
+                    merge_info = clusterDistance(object_clusters_[i], object_clusters_[target_idx], cost_parameters_);
+                    break;
+                case kKeySpaceEntropy:
+                    merge_info = KSEDistance(object_clusters_[i], object_clusters_[target_idx], cost_parameters_);
+                    break;
+                default:
+                    throw UnimplementedError();
+            }
+            
 
-            if(merge_info.getMeaningfulBit())
+            if(merge_info.getViableBit())
             {
                 merge_candidates_.push_back(
                     MergeCandidate(

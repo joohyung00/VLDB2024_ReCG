@@ -27,9 +27,9 @@
 
 
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////// Instance-Related Distances /////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////// Instance Distances /////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 float jaccardDistance(InstanceNode* inode_a, InstanceNode* inode_b)
 {
@@ -123,9 +123,21 @@ float weightedJaccardDistance(InstanceNode* inode_a, InstanceNode* inode_b)
 
 
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////// Instance Cluster-Related Distances /////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////// Cluster Distances (MDL) /////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 mergeInfo clusterDistance(InstanceCluster& cluster_a, InstanceCluster& cluster_b, CostParameters& cost_parameters)
@@ -196,21 +208,21 @@ mergeInfo clusterDistance(InstanceCluster& cluster_a, InstanceCluster& cluster_b
 
 int homHomClusterDist(InstanceCluster& a_hom, InstanceCluster& b_hom, CostParameters& cost_parameters, mergeInfo& merge_info)
 {
-    // 1. Check if merging is a meaningful one
+    // 1. Check if merging is a viable one
     roaring_bitmap_t* a_labels = a_hom.getDistinctLabels();
     roaring_bitmap_t* b_labels = b_hom.getDistinctLabels();
 
-        // Meaningful: Are there any common labels?
+        // Viable: Are there any common labels?
     int and_result = roaring_bitmap_and_cardinality(a_labels, b_labels);
 
     if(!and_result)
     {
-        merge_info.setMeaningfulBit(false);
+        merge_info.setViableBit(false);
         return 1;
     }
     
-    // 2. If meaningful, then calculate delta(MDL)
-    merge_info.setMeaningfulBit(true);
+    // 2. If viable, then calculate delta(MDL)
+    merge_info.setViableBit(true);
 
     // 3. Delta SRC
     MDLCost src_delta = 0;
@@ -257,19 +269,19 @@ int homHomClusterDist(InstanceCluster& a_hom, InstanceCluster& b_hom, CostParame
 
 int homHetClusterDist(InstanceCluster& a_hom, InstanceCluster& b_het, CostParameters& cost_parameters, mergeInfo& merge_info)
 {
-    // 1. Check if merging is a meaningful one
+    // 1. Check if merging is a viable one
     SchemaSet* a_children_schemas = a_hom.getChildrenSchemaSet();
     SchemaSet* b_children_schemas = b_het.getChildrenSchemaSet();
 
-        // Meaningful: Are the children schemas same?
+        // viable: Are the children schemas same?
     if(!isEqual(a_children_schemas, b_children_schemas))
     {
-        merge_info.setMeaningfulBit(false);
+        merge_info.setViableBit(false);
         return 1;
     }
     
-    // 2. If meaningful, then calculate delta(MDL)
-    merge_info.setMeaningfulBit(true);
+    // 2. If viable, then calculate delta(MDL)
+    merge_info.setViableBit(true);
     
     // 3. Calculate decrease in SRC
         // 3.1. Decrease in SRC -> SRC of a_hom
@@ -304,19 +316,19 @@ int homHetClusterDist(InstanceCluster& a_hom, InstanceCluster& b_het, CostParame
 
 int hetHetClusterDist(InstanceCluster& a_het, InstanceCluster& b_het, CostParameters& cost_parameters, mergeInfo& merge_info)
 {
-    // 1. Check if merging is a meaningful one
+    // 1. Check if merging is a viable one
     SchemaSet* a_children_schemas = a_het.getChildrenSchemaSet();
     SchemaSet* b_children_schemas = b_het.getChildrenSchemaSet();
 
         // Are there any common children schemas?
     if(!hasConjunction(a_children_schemas, b_children_schemas))
     {
-        merge_info.setMeaningfulBit(false);
+        merge_info.setViableBit(false);
         return 1;
     }
 
-    // 2. If meaningful, then calculate delta(MDL)
-    merge_info.setMeaningfulBit(true);
+    // 2. If viable, then calculate delta(MDL)
+    merge_info.setViableBit(true);
 
     // 3. Calculate delta SRC
     MDLCost src_delta = 0;
@@ -361,7 +373,7 @@ int hetHetClusterDist(InstanceCluster& a_het, InstanceCluster& b_het, CostParame
 
 int homComClusterDist(InstanceCluster& a_hom, InstanceCluster& b_com, CostParameters& cost_parameters, mergeInfo& merge_info)
 {
-    // 1. Check if merging is a meaningful one
+    // 1. Check if merging is a viable one
     roaring_bitmap_t* a_labels = a_hom.getDistinctLabels();
     roaring_bitmap_t* b_labels = b_com.getDistinctLabels();
 
@@ -372,7 +384,7 @@ int homComClusterDist(InstanceCluster& a_hom, InstanceCluster& b_com, CostParame
 
     if(!and_result)
     {
-        merge_info.setMeaningfulBit(false);
+        merge_info.setViableBit(false);
         return 1;
     }
 
@@ -382,12 +394,12 @@ int homComClusterDist(InstanceCluster& a_hom, InstanceCluster& b_com, CostParame
 
     if(!hasConjunction(a_children_schemas, b_children_schemas))
     {
-        merge_info.setMeaningfulBit(false);
+        merge_info.setViableBit(false);
         return 1;
     }
 
-    // 2. If meaningful, then calculate delta(MDL)
-    merge_info.setMeaningfulBit(true);
+    // 2. If viable, then calculate delta(MDL)
+    merge_info.setViableBit(true);
 
     // 3. Aggregate metadata
     LabelToSchemaSet label_to_schemas = *a_hom.getLabelsToSchemas();
@@ -451,7 +463,7 @@ int homComClusterDist(InstanceCluster& a_hom, InstanceCluster& b_com, CostParame
 
 int comComClusterDist(InstanceCluster& a_com, InstanceCluster& b_com, CostParameters& cost_parameters, mergeInfo& merge_info)
 {
-    // 1. Check if merging is a meaningful one
+    // 1. Check if merging is a viable one
     SchemaSet* a_kleene_schemas = a_com.getChildrenSchemaForCom();
     SchemaSet* b_kleene_schemas = b_com.getChildrenSchemaForCom();
 
@@ -459,12 +471,12 @@ int comComClusterDist(InstanceCluster& a_com, InstanceCluster& b_com, CostParame
         // Maybe conjunction?
     if(!isEqual(a_kleene_schemas, b_kleene_schemas))
     {
-        merge_info.setMeaningfulBit(false);
+        merge_info.setViableBit(false);
         return 1;
     }
 
-    // 2. If meaningful, then calculate delta(MDL)
-    merge_info.setMeaningfulBit(true);
+    // 2. If viable, then calculate delta(MDL)
+    merge_info.setViableBit(true);
 
     // 3. Aggregate metadata
     LabelToSchemaSet label_to_schemas = *a_com.getLabelsToSchemas();
@@ -531,15 +543,15 @@ int comComClusterDist(InstanceCluster& a_com, InstanceCluster& b_com, CostParame
 
 int comHetClusterDist(InstanceCluster& a_com, InstanceCluster& b_het, CostParameters& cost_parameters, mergeInfo& merge_info)
 {   
-    // 1. Check if merging is a meaningful one
+    // 1. Check if merging is a viable one
     SchemaSet* a_children_schemas = a_com.getChildrenSchemaSet();
     SchemaSet* a_com_schemas = a_com.getChildrenSchemaForCom();
     SchemaSet* b_children_schemas = b_het.getChildrenSchemaSet();
 
-    // 2. Check if this merge is meaningful
+    // 2. Check if this merge is viable
     if(!hasConjunction(a_children_schemas, b_children_schemas))
     {
-        merge_info.setMeaningfulBit(false);
+        merge_info.setViableBit(false);
         return 1;
     }
         
@@ -642,10 +654,362 @@ int comHetClusterDist(InstanceCluster& a_com, InstanceCluster& b_het, CostParame
     }
     else
     {
-        merge_info.setMeaningfulBit(false);
+        merge_info.setViableBit(false);
         return 1;
     }
     
-    merge_info.setMeaningfulBit(true);
+    merge_info.setViableBit(true);
     return 1; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////// Cluster Distances (KSE) /////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+mergeInfo KSEDistance(InstanceCluster& cluster_a, InstanceCluster& cluster_b, CostParameters& cost_parameters)
+{
+    SchemaType a_type = cluster_a.getDerivedSchema()->getType();
+    SchemaType b_type = cluster_b.getDerivedSchema()->getType();
+
+    mergeInfo merge_info;
+    int return_value;
+
+    switch(a_type)
+    {
+        case kHomObj:
+            switch(b_type)
+            {
+                case kHomObj:
+                    return_value = homHomKSEClusterDist(cluster_a, cluster_b, cost_parameters, merge_info);
+                    break;
+                case kComObj:
+                    return_value = homComKSEClusterDist(cluster_a, cluster_b, cost_parameters, merge_info);
+                    break;
+                case kHetObj:
+                    return_value = homHetKSEClusterDist(cluster_a, cluster_b, cost_parameters, merge_info);
+                    break;
+            }
+            break;
+
+        case kComObj:
+            switch(b_type)
+            {
+                case kHomObj:
+                    return_value = homComKSEClusterDist(cluster_b, cluster_a, cost_parameters, merge_info);
+                    break;
+                case kComObj:
+                    return_value = comComKSEClusterDist(cluster_a, cluster_b, cost_parameters, merge_info);
+                    break;
+                case kHetObj:
+                    return_value = comHetKSEClusterDist(cluster_a, cluster_b, cost_parameters, merge_info);
+                    break;
+            }
+            break;
+
+        case kHetObj:
+            switch(b_type)
+            {
+                case kHomObj:
+                    return_value = homHetKSEClusterDist(cluster_b, cluster_a, cost_parameters, merge_info);
+                    break;
+                case kComObj:
+                    return_value = comHetKSEClusterDist(cluster_b, cluster_a, cost_parameters, merge_info);
+                    break;
+                case kHetObj:
+                    return_value = hetHetKSEClusterDist(cluster_a, cluster_b, cost_parameters, merge_info);
+                    break;
+            }
+            break;
+    }
+
+    if(return_value != 1)
+    { throw IllegalBehaviorError("clusterDistance - unexpected return"); }
+    
+
+    return merge_info;
+}
+
+
+/////////////////////////////////// Hom - Hom ///////////////////////////////////
+
+int homHomKSEClusterDist(InstanceCluster& a_hom, InstanceCluster& b_hom, CostParameters& cost_parameters, mergeInfo& merge_info)
+{
+    // 1. Check if merging is a viable one
+    roaring_bitmap_t* a_labels = a_hom.getDistinctLabels();
+    roaring_bitmap_t* b_labels = b_hom.getDistinctLabels();
+
+        // viable: Are there any common labels?
+    int and_result = roaring_bitmap_and_cardinality(a_labels, b_labels);
+
+    if(!and_result)
+    {
+        merge_info.setViableBit(false);
+        return 1;
+    }
+    
+    // 2. If viable, then calculate delta(MDL)
+    merge_info.setViableBit(true);
+
+    // TODO: Calculate delta SRC
+    MDLCost distance = calculateKSEForTwoClusters(a_hom, b_hom, cost_parameters);
+
+    merge_info.setDeltaMdl(abs(distance));
+    merge_info.setMergeClusterType(kHomObjC);
+
+    return 1;
+}
+
+
+
+
+/////////////////////////////////// Hom - Het ///////////////////////////////////
+
+int homHetKSEClusterDist(InstanceCluster& a_hom, InstanceCluster& b_het, CostParameters& cost_parameters, mergeInfo& merge_info)
+{
+    // 1. Check if merging is a viable one
+    SchemaSet* a_children_schemas = a_hom.getChildrenSchemaSet();
+    SchemaSet* b_children_schemas = b_het.getChildrenSchemaSet();
+
+        // viable: Are the children schemas same?
+    if(!isEqual(a_children_schemas, b_children_schemas))
+    {
+        merge_info.setViableBit(false);
+        return 1;
+    }
+    
+    // 2. If viable, then calculate delta(MDL)
+    merge_info.setViableBit(true);
+    
+    MDLCost distance = calculateKSEForTwoClusters(a_hom, b_het, cost_parameters);
+
+    merge_info.setDeltaMdl(abs(distance));
+    merge_info.setMergeClusterType(kHetObjC);
+    return 1;
+}
+
+
+
+
+
+/////////////////////////////////// Het - Het ///////////////////////////////////
+
+int hetHetKSEClusterDist(InstanceCluster& a_het, InstanceCluster& b_het, CostParameters& cost_parameters, mergeInfo& merge_info)
+{
+    // 1. Check if merging is a viable one
+    SchemaSet* a_children_schemas = a_het.getChildrenSchemaSet();
+    SchemaSet* b_children_schemas = b_het.getChildrenSchemaSet();
+
+        // Are there any common children schemas?
+    if(!hasConjunction(a_children_schemas, b_children_schemas))
+    {
+        merge_info.setViableBit(false);
+        return 1;
+    }
+
+    // 2. If viable, then calculate delta(MDL)
+    merge_info.setViableBit(true);
+
+    MDLCost distance = calculateKSEForTwoClusters(a_het, b_het, cost_parameters);
+
+    merge_info.setDeltaMdl(abs(distance));
+    merge_info.setMergeClusterType(kHetObjC);
+    return 1;
+}
+
+
+
+
+/////////////////////////////////// Hom - Com ///////////////////////////////////
+
+int homComKSEClusterDist(InstanceCluster& a_hom, InstanceCluster& b_com, CostParameters& cost_parameters, mergeInfo& merge_info)
+{
+    // 1. Check if merging is a viable one
+    roaring_bitmap_t* a_labels = a_hom.getDistinctLabels();
+    roaring_bitmap_t* b_labels = b_com.getDistinctLabels();
+
+    // TARGET: to COM
+
+        // Are there any common labels?
+    int and_result = roaring_bitmap_and_cardinality(a_labels, b_labels);
+
+    if(!and_result)
+    {
+        merge_info.setViableBit(false);
+        return 1;
+    }
+
+        // Are there any common children schemas?
+    SchemaSet* a_children_schemas = a_hom.getChildrenSchemaSet();
+    SchemaSet* b_children_schemas = b_com.getChildrenSchemaSet();
+
+    if(!hasConjunction(a_children_schemas, b_children_schemas))
+    {
+        merge_info.setViableBit(false);
+        return 1;
+    }
+
+    // 2. If viable, then calculate delta(MDL)
+    merge_info.setViableBit(true);
+
+    MDLCost distance = calculateKSEForTwoClusters(a_hom, b_com, cost_parameters);
+
+    merge_info.setDeltaMdl(abs(distance));
+    merge_info.setMergeClusterType(kComObjC); 
+    return 1;   
+}
+
+
+
+
+/////////////////////////////////// Com - Com ///////////////////////////////////
+
+int comComKSEClusterDist(InstanceCluster& a_com, InstanceCluster& b_com, CostParameters& cost_parameters, mergeInfo& merge_info)
+{
+    // 1. Check if merging is a viable one
+    SchemaSet* a_kleene_schemas = a_com.getChildrenSchemaForCom();
+    SchemaSet* b_kleene_schemas = b_com.getChildrenSchemaForCom();
+
+        // Children schemas?
+        // Maybe conjunction?
+    if(!isEqual(a_kleene_schemas, b_kleene_schemas))
+    {
+        merge_info.setViableBit(false);
+        return 1;
+    }
+
+    // 2. If viable, then calculate delta(MDL)
+    merge_info.setViableBit(true);
+
+    MDLCost distance = calculateKSEForTwoClusters(a_com, b_com, cost_parameters);
+
+    merge_info.setDeltaMdl(abs(distance));
+    merge_info.setMergeClusterType(kComObjC);
+    return 1;
+}
+
+
+
+
+/////////////////////////////////// Com - Het ///////////////////////////////////
+
+int comHetKSEClusterDist(InstanceCluster& a_com, InstanceCluster& b_het, CostParameters& cost_parameters, mergeInfo& merge_info)
+{   
+    // 1. Check if merging is a viable one
+    SchemaSet* a_children_schemas = a_com.getChildrenSchemaSet();
+    SchemaSet* a_com_schemas = a_com.getChildrenSchemaForCom();
+    SchemaSet* b_children_schemas = b_het.getChildrenSchemaSet();
+
+    // 2. Check if this merge is viable
+    if(!hasConjunction(a_children_schemas, b_children_schemas))
+    {
+        merge_info.setViableBit(false);
+        return 1;
+    }
+        
+    if(isEqual(a_children_schemas, b_children_schemas) || isSubset(b_children_schemas, a_com_schemas))
+    {
+        MDLCost distance = calculateKSEForTwoClusters(a_com, b_het, cost_parameters);
+        
+        merge_info.setDeltaMdl(abs(distance));
+        merge_info.setMergeClusterType(kHetObjC);
+    }
+    else
+    {
+        merge_info.setViableBit(false);
+        return 1;
+    }
+    
+    merge_info.setViableBit(true);
+    return 1; 
+}
+
+
+MDLCost calculateKSEForTwoClusters(InstanceCluster& a, InstanceCluster& b, CostParameters& cost_parameters)
+{
+    // 1. Initiate a vector that counts each label
+    strInt distinct_labels_num = cost_parameters.getDistinctLabelsNum();
+    vector<Count> label_to_count_a(distinct_labels_num, 0);
+    vector<Count> label_to_count_b(distinct_labels_num, 0);
+    vector<Count> label_to_count_both(distinct_labels_num, 0);
+
+    // 2. Count the number of each label
+    for(auto& instance : *a.getInstanceForest())
+    {
+        for(auto& label : instance->getStringLabels())
+        { 
+            label_to_count_a[label]++;
+            label_to_count_both[label]++;
+        }
+    }
+
+    for(auto& instance : *b.getInstanceForest())
+    {
+        for(auto& label : instance->getStringLabels())
+        { 
+            label_to_count_b[label]++;
+            label_to_count_both[label]++;
+        }
+    }
+
+    // 3. Calculate entropy
+    MDLCost entropy_a = 0;
+    MDLCost entropy_b = 0;
+    MDLCost entropy_both = 0;
+    for(auto& count : label_to_count_a)
+    {
+        if(count != 0)
+        {
+            double p = (double)count / a.getForestSize();
+            entropy_a += p * log2(p);
+        }
+    }
+    for(auto& count : label_to_count_b)
+    {
+        if(count != 0)
+        {
+            double p = (double)count / b.getForestSize();
+            entropy_b += p * log2(p);
+        }
+    }
+    for(auto& count : label_to_count_both)
+    {
+        if(count != 0)
+        {
+            double p = (double)count / (a.getForestSize() + b.getForestSize());
+            entropy_both += p * log2(p);
+        }
+    }
+
+    return entropy_a + entropy_b - entropy_both;
 }
