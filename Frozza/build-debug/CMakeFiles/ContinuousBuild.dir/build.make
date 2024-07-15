@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/JsonExplorerSpark/Frozza
+CMAKE_SOURCE_DIR = /root/VLDB2024_ReCG/Frozza
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/JsonExplorerSpark/Frozza/build-debug
+CMAKE_BINARY_DIR = /root/VLDB2024_ReCG/Frozza/build-debug
 
 # Utility rule file for ContinuousBuild.
 
@@ -71,6 +71,6 @@ CMakeFiles/ContinuousBuild.dir/clean:
 .PHONY : CMakeFiles/ContinuousBuild.dir/clean
 
 CMakeFiles/ContinuousBuild.dir/depend:
-	cd /root/JsonExplorerSpark/Frozza/build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/JsonExplorerSpark/Frozza /root/JsonExplorerSpark/Frozza /root/JsonExplorerSpark/Frozza/build-debug /root/JsonExplorerSpark/Frozza/build-debug /root/JsonExplorerSpark/Frozza/build-debug/CMakeFiles/ContinuousBuild.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/VLDB2024_ReCG/Frozza/build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/VLDB2024_ReCG/Frozza /root/VLDB2024_ReCG/Frozza /root/VLDB2024_ReCG/Frozza/build-debug /root/VLDB2024_ReCG/Frozza/build-debug /root/VLDB2024_ReCG/Frozza/build-debug/CMakeFiles/ContinuousBuild.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ContinuousBuild.dir/depend
 

@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 
 from pltUtils import dataset_nums, dataset_to_name
-sys.path.insert(2, "/root/JsonExplorerSpark/Experiment/utils")
+sys.path.insert(2, "/root/VLDB2024_ReCG/Experiment/utils")
 from dataset_metadata import dataset_ids, dataset_fullnames, possible_algorithms_list
 from aggregateExpResults import getAccForAlgPerc, getAccForAlgPercDataset
 

@@ -5,9 +5,9 @@ import argparse
 from colorama import Fore, Style
 from art import tprint
 
-sys.path.insert(1, "/root/JsonExplorerSpark/Experiment/utils")
+sys.path.insert(1, "/root/VLDB2024_ReCG/Experiment/utils")
 from dataset_metadata import num_to_name, isRunnableExperiment
-sys.path.insert(2, "/root/JsonExplorerSpark/ExperimentVisualization")
+sys.path.insert(2, "/root/VLDB2024_ReCG/ExperimentVisualization")
 from aggregateExpResults import getAccForAlgPercDatasetExpnum, \
                                 getMDLForAlgPercDatasetExpnum, \
                                 getRuntimeForAlgPercDatasetExpnum, \
@@ -27,13 +27,9 @@ line_separator = """ % ---------------------------------------------------------
 
 def main(argv):
     parser = argparse.ArgumentParser()
-    parser.add_argument('--exp', choices = ["acc", "mdl", "runtime", "memory", "param", "wmdl", "ALL"])
-    parser.add_argument('--subexp', choices = ["beam_width", "epsilon", "min_pts_perc", "sample_size", "mdl_weights"], default = "ALL")
-    ######
-    # parser.add_argument('--k')
-    # parser.add_argument('--sample_size')
-    # parser.add_argument("--epsilon")
-    # parser.add_argument('--mode', choices = ["allAccuracy", "allPerformance"])
+    parser.add_argument('--exp', choices = ["acc", "mdl", "runtime", "memory", "param", "ALL"])
+    parser.add_argument('--subexp', choices = ["beam_width", "epsilon", "min_pts_perc", "mdl_weights"], default = "ALL")
+
 
     args = parser.parse_args(argv)  
     print(args)
@@ -52,9 +48,6 @@ def main(argv):
         
     if(args.exp == "param" or args.exp == "ALL"):
         checkParamExperiment(args.subexp)
-        
-    if(args.exp == "wmdl" or args.exp == "ALL"):
-        checkWeightedMDLExperiment()
     
     return
     
@@ -200,24 +193,14 @@ def checkParamExperiment(target_subexp):
         "beam_width": [1, 2, 3, 4, 5],
         "epsilon": [0.1, 0.3, 0.5, 0.7, 0.9],
         "min_pts_perc": [1, 3, 5, 10, 20, 30],
-        "sample_size": [25, 50, 100, 250, 500, 1000],
         "mdl_weights": [(0.01, 0.99), (0.1, 0.9), (0.3, 0.7), (0.5, 0.5), (0.7, 0.3), (0.9, 0.1), (0.99, 0.01)]
     }
     beam_width_cvd = {
         "epsilon": 0.1,
         "min_pts_perc": 1,
-        "sample_size": 500,
-        # "mdl_weights": (0.01, 0.99)
-        # "mdl_weights": (0.1, 0.9)
-        # "mdl_weights": (0.3, 0.7)
-        # "mdl_weights": (0.5, 0.5)
+        "sample_size": 500
     }
-    beam_width_cvd = {
-        "epsilon": 0.3,
-        "min_pts_perc": 3,
-        "sample_size": 500,
-        "mdl_weights": (0.5, 0.5)
-    }
+
 
     acc_target_percents = [10]
     runtime_target_percents = [40, 60, 80, 100]
@@ -296,8 +279,6 @@ def checkParamExperiment(target_subexp):
             if param_name == "beam_width":
                 cvd = beam_width_cvd
                 cvd["mdl_weights"] = (0.5, 0.5)
-            elif param_name == "mdl_weights":
-                cvd = mdl_weight_cvd
             else:
                 cvd = None
             
@@ -309,14 +290,16 @@ def checkParamExperiment(target_subexp):
         tprint("EXP: PARAM - " + paramNameToPrintName(target_subexp))
         
         if target_subexp == "beam_width":
-            for mdl_weight in [(0.01, 0.99), (0.1, 0.9), (0.3, 0.7), (0.5, 0.5)]:
-                beam_width_cvd["mdl_weights"] = mdl_weight
-                for param_value in param_name_to_values[target_subexp]:
-                    visualizeSingleParamExp(target_subexp, param_value, acc_target_percents, runtime_target_percents, exp_nums, beam_width_cvd)
+            # for mdl_weight in [(0.01, 0.99), (0.1, 0.9), (0.3, 0.7), (0.5, 0.5)]:
+            mdl_weight = (0.5, 0.5)
+            beam_width_cvd["mdl_weights"] = mdl_weight
+            for param_value in param_name_to_values[target_subexp]:
+                visualizeSingleParamExp(target_subexp, param_value, acc_target_percents, runtime_target_percents, exp_nums, beam_width_cvd)
                 
         else:
-            if target_subexp == "mdl_weights": cvd = mdl_weight_cvd
-            else:                              cvd = None
+            # if target_subexp == "mdl_weights": cvd = mdl_weight_cvd
+            # else:                              cvd = None
+            cvd = None
             for param_value in param_name_to_values[target_subexp]:
                 visualizeSingleParamExp(target_subexp, param_value, acc_target_percents, runtime_target_percents, exp_nums, cvd)
     
@@ -334,8 +317,6 @@ def paramNameToPrintName(param_name):
         return "Epsilon"
     elif param_name == "min_pts_perc":
         return "MinPts Percentage"
-    elif param_name == "sample_size":
-        return "Sample Size"
     elif param_name == "mdl_weights":
         return "MDL Weights"
     else:
@@ -390,37 +371,6 @@ def checkMemoryExperiment():
 
 
 
-def checkWeightedMDLExperiment():
-    train_percents = [10, 50, 90]
-    mdl_weights = [(0.01, 0.99), (0.1, 0.9), (0.3, 0.7), (0.5, 0.5), (0.7, 0.3), (0.9, 0.1), (0.99, 0.01)]
-    exp_nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    
-    tprint("EXP: WEIGHTED MDL")
-    # for train_percent in train_percents:
-    #     print()
-    #     print("[[ Train Percent: ", train_percent, " % ]]")
-    #     print()
-    #     for mdl_weight in mdl_weights:
-    #         print("\t<< ",  mdl_weight, " >>" "\t\t", end = "")
-    #     print()
-    #     for num in num_to_name:
-            
-    #         for mdl_weight in mdl_weights:
-            
-    #             dataset_name = num_to_name[num][0][:2]
-    #             data_name = num_to_name[num][0]
-    #             print("\t", dataset_name, "\t", end = "")
-                
-    #             for exp_num in exp_nums:    
-    #                 if getAccForPercWeightDatasetExpnum(train_percent, mdl_weight, data_name, exp_num) != (-1, -1, -1):
-    #                     print(Fore.GREEN + 'O ', end = "")
-    #                 else:
-    #                     print(Fore.RED + "X ", end = "")
-                                
-    #             print(Style.RESET_ALL, end = "")
-    #             print("\t", end = "")
-                    
-    #         print()
 
     
     

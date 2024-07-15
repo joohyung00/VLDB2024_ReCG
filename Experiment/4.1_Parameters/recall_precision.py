@@ -9,7 +9,7 @@ from copy import deepcopy
 from art import *
 import statistics
 
-sys.path.insert(1, '/root/JsonExplorerSpark/Experiment')
+sys.path.insert(1, '/root/VLDB2024_ReCG/Experiment')
 from load_json import load_dataset, load_schema, count_lines, unreference_schema
 
 from concurrent.futures import ProcessPoolExecutor

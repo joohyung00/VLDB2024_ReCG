@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/JsonExplorerSpark/Klettke
+CMAKE_SOURCE_DIR = /root/VLDB2024_ReCG/Klettke
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/JsonExplorerSpark/Klettke/build-debug
+CMAKE_BINARY_DIR = /root/VLDB2024_ReCG/Klettke/build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Klettke.dir/depend.make
@@ -59,133 +59,133 @@ include CMakeFiles/Klettke.dir/flags.make
 
 CMakeFiles/Klettke.dir/main.cpp.o: CMakeFiles/Klettke.dir/flags.make
 CMakeFiles/Klettke.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/Klettke/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Klettke.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Klettke.dir/main.cpp.o -c /root/JsonExplorerSpark/Klettke/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/Klettke/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Klettke.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Klettke.dir/main.cpp.o -c /root/VLDB2024_ReCG/Klettke/main.cpp
 
 CMakeFiles/Klettke.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Klettke.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/Klettke/main.cpp > CMakeFiles/Klettke.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/Klettke/main.cpp > CMakeFiles/Klettke.dir/main.cpp.i
 
 CMakeFiles/Klettke.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Klettke.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/Klettke/main.cpp -o CMakeFiles/Klettke.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/Klettke/main.cpp -o CMakeFiles/Klettke.dir/main.cpp.s
 
 CMakeFiles/Klettke.dir/Klettke.cpp.o: CMakeFiles/Klettke.dir/flags.make
 CMakeFiles/Klettke.dir/Klettke.cpp.o: ../Klettke.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/Klettke/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Klettke.dir/Klettke.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Klettke.dir/Klettke.cpp.o -c /root/JsonExplorerSpark/Klettke/Klettke.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/Klettke/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Klettke.dir/Klettke.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Klettke.dir/Klettke.cpp.o -c /root/VLDB2024_ReCG/Klettke/Klettke.cpp
 
 CMakeFiles/Klettke.dir/Klettke.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Klettke.dir/Klettke.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/Klettke/Klettke.cpp > CMakeFiles/Klettke.dir/Klettke.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/Klettke/Klettke.cpp > CMakeFiles/Klettke.dir/Klettke.cpp.i
 
 CMakeFiles/Klettke.dir/Klettke.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Klettke.dir/Klettke.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/Klettke/Klettke.cpp -o CMakeFiles/Klettke.dir/Klettke.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/Klettke/Klettke.cpp -o CMakeFiles/Klettke.dir/Klettke.cpp.s
 
 CMakeFiles/Klettke.dir/Initiator.cpp.o: CMakeFiles/Klettke.dir/flags.make
 CMakeFiles/Klettke.dir/Initiator.cpp.o: ../Initiator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/Klettke/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Klettke.dir/Initiator.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Klettke.dir/Initiator.cpp.o -c /root/JsonExplorerSpark/Klettke/Initiator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/Klettke/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Klettke.dir/Initiator.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Klettke.dir/Initiator.cpp.o -c /root/VLDB2024_ReCG/Klettke/Initiator.cpp
 
 CMakeFiles/Klettke.dir/Initiator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Klettke.dir/Initiator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/Klettke/Initiator.cpp > CMakeFiles/Klettke.dir/Initiator.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/Klettke/Initiator.cpp > CMakeFiles/Klettke.dir/Initiator.cpp.i
 
 CMakeFiles/Klettke.dir/Initiator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Klettke.dir/Initiator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/Klettke/Initiator.cpp -o CMakeFiles/Klettke.dir/Initiator.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/Klettke/Initiator.cpp -o CMakeFiles/Klettke.dir/Initiator.cpp.s
 
 CMakeFiles/Klettke.dir/ReducedSGConstructor.cpp.o: CMakeFiles/Klettke.dir/flags.make
 CMakeFiles/Klettke.dir/ReducedSGConstructor.cpp.o: ../ReducedSGConstructor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/Klettke/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Klettke.dir/ReducedSGConstructor.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Klettke.dir/ReducedSGConstructor.cpp.o -c /root/JsonExplorerSpark/Klettke/ReducedSGConstructor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/Klettke/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Klettke.dir/ReducedSGConstructor.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Klettke.dir/ReducedSGConstructor.cpp.o -c /root/VLDB2024_ReCG/Klettke/ReducedSGConstructor.cpp
 
 CMakeFiles/Klettke.dir/ReducedSGConstructor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Klettke.dir/ReducedSGConstructor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/Klettke/ReducedSGConstructor.cpp > CMakeFiles/Klettke.dir/ReducedSGConstructor.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/Klettke/ReducedSGConstructor.cpp > CMakeFiles/Klettke.dir/ReducedSGConstructor.cpp.i
 
 CMakeFiles/Klettke.dir/ReducedSGConstructor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Klettke.dir/ReducedSGConstructor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/Klettke/ReducedSGConstructor.cpp -o CMakeFiles/Klettke.dir/ReducedSGConstructor.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/Klettke/ReducedSGConstructor.cpp -o CMakeFiles/Klettke.dir/ReducedSGConstructor.cpp.s
 
 CMakeFiles/Klettke.dir/Instance.cpp.o: CMakeFiles/Klettke.dir/flags.make
 CMakeFiles/Klettke.dir/Instance.cpp.o: ../Instance.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/Klettke/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Klettke.dir/Instance.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Klettke.dir/Instance.cpp.o -c /root/JsonExplorerSpark/Klettke/Instance.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/Klettke/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Klettke.dir/Instance.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Klettke.dir/Instance.cpp.o -c /root/VLDB2024_ReCG/Klettke/Instance.cpp
 
 CMakeFiles/Klettke.dir/Instance.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Klettke.dir/Instance.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/Klettke/Instance.cpp > CMakeFiles/Klettke.dir/Instance.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/Klettke/Instance.cpp > CMakeFiles/Klettke.dir/Instance.cpp.i
 
 CMakeFiles/Klettke.dir/Instance.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Klettke.dir/Instance.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/Klettke/Instance.cpp -o CMakeFiles/Klettke.dir/Instance.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/Klettke/Instance.cpp -o CMakeFiles/Klettke.dir/Instance.cpp.s
 
 CMakeFiles/Klettke.dir/Schema.cpp.o: CMakeFiles/Klettke.dir/flags.make
 CMakeFiles/Klettke.dir/Schema.cpp.o: ../Schema.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/Klettke/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Klettke.dir/Schema.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Klettke.dir/Schema.cpp.o -c /root/JsonExplorerSpark/Klettke/Schema.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/Klettke/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Klettke.dir/Schema.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Klettke.dir/Schema.cpp.o -c /root/VLDB2024_ReCG/Klettke/Schema.cpp
 
 CMakeFiles/Klettke.dir/Schema.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Klettke.dir/Schema.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/Klettke/Schema.cpp > CMakeFiles/Klettke.dir/Schema.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/Klettke/Schema.cpp > CMakeFiles/Klettke.dir/Schema.cpp.i
 
 CMakeFiles/Klettke.dir/Schema.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Klettke.dir/Schema.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/Klettke/Schema.cpp -o CMakeFiles/Klettke.dir/Schema.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/Klettke/Schema.cpp -o CMakeFiles/Klettke.dir/Schema.cpp.s
 
 CMakeFiles/Klettke.dir/EdgeLabelledTree.cpp.o: CMakeFiles/Klettke.dir/flags.make
 CMakeFiles/Klettke.dir/EdgeLabelledTree.cpp.o: ../EdgeLabelledTree.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/Klettke/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Klettke.dir/EdgeLabelledTree.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Klettke.dir/EdgeLabelledTree.cpp.o -c /root/JsonExplorerSpark/Klettke/EdgeLabelledTree.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/Klettke/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Klettke.dir/EdgeLabelledTree.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Klettke.dir/EdgeLabelledTree.cpp.o -c /root/VLDB2024_ReCG/Klettke/EdgeLabelledTree.cpp
 
 CMakeFiles/Klettke.dir/EdgeLabelledTree.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Klettke.dir/EdgeLabelledTree.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/Klettke/EdgeLabelledTree.cpp > CMakeFiles/Klettke.dir/EdgeLabelledTree.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/Klettke/EdgeLabelledTree.cpp > CMakeFiles/Klettke.dir/EdgeLabelledTree.cpp.i
 
 CMakeFiles/Klettke.dir/EdgeLabelledTree.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Klettke.dir/EdgeLabelledTree.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/Klettke/EdgeLabelledTree.cpp -o CMakeFiles/Klettke.dir/EdgeLabelledTree.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/Klettke/EdgeLabelledTree.cpp -o CMakeFiles/Klettke.dir/EdgeLabelledTree.cpp.s
 
 CMakeFiles/Klettke.dir/utils.cpp.o: CMakeFiles/Klettke.dir/flags.make
 CMakeFiles/Klettke.dir/utils.cpp.o: ../utils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/Klettke/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Klettke.dir/utils.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Klettke.dir/utils.cpp.o -c /root/JsonExplorerSpark/Klettke/utils.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/Klettke/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Klettke.dir/utils.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Klettke.dir/utils.cpp.o -c /root/VLDB2024_ReCG/Klettke/utils.cpp
 
 CMakeFiles/Klettke.dir/utils.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Klettke.dir/utils.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/Klettke/utils.cpp > CMakeFiles/Klettke.dir/utils.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/Klettke/utils.cpp > CMakeFiles/Klettke.dir/utils.cpp.i
 
 CMakeFiles/Klettke.dir/utils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Klettke.dir/utils.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/Klettke/utils.cpp -o CMakeFiles/Klettke.dir/utils.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/Klettke/utils.cpp -o CMakeFiles/Klettke.dir/utils.cpp.s
 
 CMakeFiles/Klettke.dir/simdjson.cpp.o: CMakeFiles/Klettke.dir/flags.make
 CMakeFiles/Klettke.dir/simdjson.cpp.o: ../simdjson.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/Klettke/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Klettke.dir/simdjson.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Klettke.dir/simdjson.cpp.o -c /root/JsonExplorerSpark/Klettke/simdjson.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/Klettke/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Klettke.dir/simdjson.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Klettke.dir/simdjson.cpp.o -c /root/VLDB2024_ReCG/Klettke/simdjson.cpp
 
 CMakeFiles/Klettke.dir/simdjson.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Klettke.dir/simdjson.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/Klettke/simdjson.cpp > CMakeFiles/Klettke.dir/simdjson.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/Klettke/simdjson.cpp > CMakeFiles/Klettke.dir/simdjson.cpp.i
 
 CMakeFiles/Klettke.dir/simdjson.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Klettke.dir/simdjson.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/Klettke/simdjson.cpp -o CMakeFiles/Klettke.dir/simdjson.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/Klettke/simdjson.cpp -o CMakeFiles/Klettke.dir/simdjson.cpp.s
 
 CMakeFiles/Klettke.dir/roaring.c.o: CMakeFiles/Klettke.dir/flags.make
 CMakeFiles/Klettke.dir/roaring.c.o: ../roaring.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/Klettke/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/Klettke.dir/roaring.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Klettke.dir/roaring.c.o   -c /root/JsonExplorerSpark/Klettke/roaring.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/Klettke/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/Klettke.dir/roaring.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Klettke.dir/roaring.c.o   -c /root/VLDB2024_ReCG/Klettke/roaring.c
 
 CMakeFiles/Klettke.dir/roaring.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Klettke.dir/roaring.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /root/JsonExplorerSpark/Klettke/roaring.c > CMakeFiles/Klettke.dir/roaring.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /root/VLDB2024_ReCG/Klettke/roaring.c > CMakeFiles/Klettke.dir/roaring.c.i
 
 CMakeFiles/Klettke.dir/roaring.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Klettke.dir/roaring.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /root/JsonExplorerSpark/Klettke/roaring.c -o CMakeFiles/Klettke.dir/roaring.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /root/VLDB2024_ReCG/Klettke/roaring.c -o CMakeFiles/Klettke.dir/roaring.c.s
 
 # Object files for target Klettke
 Klettke_OBJECTS = \
@@ -215,7 +215,7 @@ Klettke: CMakeFiles/Klettke.dir/simdjson.cpp.o
 Klettke: CMakeFiles/Klettke.dir/roaring.c.o
 Klettke: CMakeFiles/Klettke.dir/build.make
 Klettke: CMakeFiles/Klettke.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/root/JsonExplorerSpark/Klettke/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable Klettke"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/root/VLDB2024_ReCG/Klettke/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable Klettke"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Klettke.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -228,6 +228,6 @@ CMakeFiles/Klettke.dir/clean:
 .PHONY : CMakeFiles/Klettke.dir/clean
 
 CMakeFiles/Klettke.dir/depend:
-	cd /root/JsonExplorerSpark/Klettke/build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/JsonExplorerSpark/Klettke /root/JsonExplorerSpark/Klettke /root/JsonExplorerSpark/Klettke/build-debug /root/JsonExplorerSpark/Klettke/build-debug /root/JsonExplorerSpark/Klettke/build-debug/CMakeFiles/Klettke.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/VLDB2024_ReCG/Klettke/build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/VLDB2024_ReCG/Klettke /root/VLDB2024_ReCG/Klettke /root/VLDB2024_ReCG/Klettke/build-debug /root/VLDB2024_ReCG/Klettke/build-debug /root/VLDB2024_ReCG/Klettke/build-debug/CMakeFiles/Klettke.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Klettke.dir/depend
 

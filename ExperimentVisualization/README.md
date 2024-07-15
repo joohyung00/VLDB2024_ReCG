@@ -24,7 +24,34 @@ runAllExperimentVisualizations.sh
 
 ## Description of Each Visualization
 
-### (A) Visualizing 'Accuracy Comparison' (Section 5.2)
+
+
+### (A) Statistics of Datasets (Section 5.1.3)
+
+```bash
+python3 0_DatasetTab.py
+```
+Print the latex code for *Table 1: Statistics of 20 datasets used in experiments*.
+
+The output include the information about
+- Schema tree
+    - Height
+    - Number of nodes
+    - Number of nodes of each type
+- Instance trees
+    - Number of instances
+    - Average number of nodes
+
+This is an example output
+```txt
+ & NYT & 6 & 92 & 9 & 0 & 0 & 0 & 3 & 14 & 10000 & 85.21 \\ \cline{2-12}
+ & Twitter & \infty & \infty & 20 & 1 & 0 & 12 & 10 & 16 & 10000 & 206.17 \\ \cline{2-12}
+ & Github & 11 & 3471 & 171 & 0 & 3 & 0 & 29 & 335 & 10000 & 116.65 \\ \cline{2-12}
+ ...
+```
+
+
+### (B) Visualizing 'Accuracy Comparison' (Section 5.2)
 
 
 ```bash
@@ -50,7 +77,7 @@ python3 1.3_AccExperimentTab.py
 ```
 This code generates the latex code for Table 2 of the paper "ReCG: Bottom-Up JSON Schema Discovery Using a Repetitive Cluster-and-Generalize Framework".
 
-### (B) Visualizing 'MDL Cost Analysis' (Section 5.3)
+### (C) Visualizing 'MDL Cost Analysis' (Section 5.3)
 
 ```bash
 python3 2.1_MdlExperimentVis.py
@@ -75,7 +102,7 @@ This code shows the followings on the console:
 - The relationship between the MDL costs of schemas found by `ReCG`, `Jxplain`, `KReduce` and the `ground truth schema`s.
 - The correlation between `MDL`, `SRC`, `DRC` and `F1 score`, `recall`, `precision`.
 
-### (C) Visualizing 'Scalability with Dataset Size' (Section 5.4)
+### (D) Visualizing 'Scalability with Dataset Size' (Section 5.4)
 
 ```bash
 python3 3.1_PerformanceExperimentVis.py
@@ -98,7 +125,7 @@ This code generates the latex code for Table 4 of the paper "ReCG: Bottom-Up JSO
 
 
 
-### (D) Visualizing 'Parameter Sensitivity' (Section 5.5)
+### (E) Visualizing 'Parameter Sensitivity' (Section 5.5)
 
 ```bash
 python3 4.1_ParamExperimentVis.py --exp BeamWidth
@@ -107,12 +134,12 @@ python3 4.1_ParamExperimentVis.py --exp MinPtsPerc
 python3 4.1_ParamExperimentVis.py --exp MDLWeights
 ```
 
-This plots the accuracies of the disovered schemas for each algorithm.
+This code  plots the accuracies of the disovered schemas for each algorithm.
 
 Here is an example of the output: 
 
 <p align = "center">
-<img src="images/4_param.png" alt="drawing" width="400"/>
+    <img src="images/4_param.png" alt="drawing" width="400"/>
 </p>
 
 
@@ -120,46 +147,29 @@ Here is an example of the output:
 python3 4.2_ParamExperimentAgg.py
 ```
 
-This prints the values that we used in our paper.
+This code prints the values that we used in our paper.
 
 
-
-
-### (E) Visualizing 'Impact of Design Factors to Accuracy' (Section 5.6)
+### (F) Analyzing the Impact of Design Factors to Accuracy (Section 5.6)
 
 ```bash
-python3 6.2_AblationStudyAgg.py
+python3 6.2_DesignFactors.py
 ```
 
-This prints the latex table and the values that we used in our paper.
+This code prints the latex code for *Table 4: Impact of MDL cost model and bottom-up style to the overall accuracy of ReCG.*
 
+Here is an example and expected output.
 
-
-
-
-### (F) Visualizing the Impact of Easier Negative Samples
-
-```bash
-python3 7_checkDifferenceForEasierNegatives.py
+```text
+    \texttt{ReCG} (KSE as cost model)               & 1.00      & 0.83  & 0.89  \\\hline
+    \texttt{ReCG} (Top-down schema generation)      & 1.00      & 0.88  & 0.92  \\\specialrule{1.0pt}{0.5pt}{0.5pt}
+    \texttt{ReCG}                                   & 1.00      & 0.92  & 0.95  \\\hline
 ```
 
-This prints the values, for the accuracies that we get if we use an easier negative sample set.
 
-
-
-### (G) Analyzing the Correlation between Jxplain's Runtime & Number of Distinct Keys in the Dataset
+### (G) Analyzing the Correlation between Jxplain's Runtime & Number of Distinct Keys in the Dataset (Section 5.4, Paragraph 1)
 
 ```bash
 python3 8_jxplainRuntimeKeysAnalysis.py
 ```
-This prints the correlation between Jxplain's runtime and the total number of distinct keys.
-
-
-
-### (H) Analyzing Runtime Bottleneck of Jxplain
-
-```bash
-python3 9_analyzeRuntimeOfJxplain.py
-```
-This prints the value for how much percentage of total Jxplain's time is consumed by its heterogeneity determination and clustering.
-
+This code prints the correlation between Jxplain's runtime and the number of distinct keys within a dataset.

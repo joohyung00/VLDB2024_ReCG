@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/JsonExplorerSpark/ReCG
+CMAKE_SOURCE_DIR = /root/VLDB2024_ReCG/ReCG
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/JsonExplorerSpark/ReCG/build-debug
+CMAKE_BINARY_DIR = /root/VLDB2024_ReCG/ReCG/build-debug
 
 # Utility rule file for ExperimentalUpdate.
 
@@ -71,6 +71,6 @@ CMakeFiles/ExperimentalUpdate.dir/clean:
 .PHONY : CMakeFiles/ExperimentalUpdate.dir/clean
 
 CMakeFiles/ExperimentalUpdate.dir/depend:
-	cd /root/JsonExplorerSpark/ReCG/build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/JsonExplorerSpark/ReCG /root/JsonExplorerSpark/ReCG /root/JsonExplorerSpark/ReCG/build-debug /root/JsonExplorerSpark/ReCG/build-debug /root/JsonExplorerSpark/ReCG/build-debug/CMakeFiles/ExperimentalUpdate.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/VLDB2024_ReCG/ReCG/build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/VLDB2024_ReCG/ReCG /root/VLDB2024_ReCG/ReCG /root/VLDB2024_ReCG/ReCG/build-debug /root/VLDB2024_ReCG/ReCG/build-debug /root/VLDB2024_ReCG/ReCG/build-debug/CMakeFiles/ExperimentalUpdate.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ExperimentalUpdate.dir/depend
 

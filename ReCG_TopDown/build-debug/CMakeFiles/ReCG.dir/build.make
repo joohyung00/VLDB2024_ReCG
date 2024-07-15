@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/JsonExplorerSpark/ReCG_TopDown
+CMAKE_SOURCE_DIR = /root/VLDB2024_ReCG/ReCG_TopDown
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/JsonExplorerSpark/ReCG_TopDown/build-debug
+CMAKE_BINARY_DIR = /root/VLDB2024_ReCG/ReCG_TopDown/build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/ReCG.dir/depend.make
@@ -59,276 +59,276 @@ include CMakeFiles/ReCG.dir/flags.make
 
 CMakeFiles/ReCG.dir/main.cpp.o: CMakeFiles/ReCG.dir/flags.make
 CMakeFiles/ReCG.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ReCG.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/main.cpp.o -c /root/JsonExplorerSpark/ReCG_TopDown/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ReCG.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/main.cpp.o -c /root/VLDB2024_ReCG/ReCG_TopDown/main.cpp
 
 CMakeFiles/ReCG.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReCG.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/ReCG_TopDown/main.cpp > CMakeFiles/ReCG.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/ReCG_TopDown/main.cpp > CMakeFiles/ReCG.dir/main.cpp.i
 
 CMakeFiles/ReCG.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReCG.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/ReCG_TopDown/main.cpp -o CMakeFiles/ReCG.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/ReCG_TopDown/main.cpp -o CMakeFiles/ReCG.dir/main.cpp.s
 
 CMakeFiles/ReCG.dir/ReCG.cpp.o: CMakeFiles/ReCG.dir/flags.make
 CMakeFiles/ReCG.dir/ReCG.cpp.o: ../ReCG.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ReCG.dir/ReCG.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/ReCG.cpp.o -c /root/JsonExplorerSpark/ReCG_TopDown/ReCG.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ReCG.dir/ReCG.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/ReCG.cpp.o -c /root/VLDB2024_ReCG/ReCG_TopDown/ReCG.cpp
 
 CMakeFiles/ReCG.dir/ReCG.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReCG.dir/ReCG.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/ReCG_TopDown/ReCG.cpp > CMakeFiles/ReCG.dir/ReCG.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/ReCG_TopDown/ReCG.cpp > CMakeFiles/ReCG.dir/ReCG.cpp.i
 
 CMakeFiles/ReCG.dir/ReCG.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReCG.dir/ReCG.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/ReCG_TopDown/ReCG.cpp -o CMakeFiles/ReCG.dir/ReCG.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/ReCG_TopDown/ReCG.cpp -o CMakeFiles/ReCG.dir/ReCG.cpp.s
 
 CMakeFiles/ReCG.dir/Search.cpp.o: CMakeFiles/ReCG.dir/flags.make
 CMakeFiles/ReCG.dir/Search.cpp.o: ../Search.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ReCG.dir/Search.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/Search.cpp.o -c /root/JsonExplorerSpark/ReCG_TopDown/Search.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ReCG.dir/Search.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/Search.cpp.o -c /root/VLDB2024_ReCG/ReCG_TopDown/Search.cpp
 
 CMakeFiles/ReCG.dir/Search.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReCG.dir/Search.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/ReCG_TopDown/Search.cpp > CMakeFiles/ReCG.dir/Search.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/ReCG_TopDown/Search.cpp > CMakeFiles/ReCG.dir/Search.cpp.i
 
 CMakeFiles/ReCG.dir/Search.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReCG.dir/Search.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/ReCG_TopDown/Search.cpp -o CMakeFiles/ReCG.dir/Search.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/ReCG_TopDown/Search.cpp -o CMakeFiles/ReCG.dir/Search.cpp.s
 
 CMakeFiles/ReCG.dir/StateNode.cpp.o: CMakeFiles/ReCG.dir/flags.make
 CMakeFiles/ReCG.dir/StateNode.cpp.o: ../StateNode.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ReCG.dir/StateNode.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/StateNode.cpp.o -c /root/JsonExplorerSpark/ReCG_TopDown/StateNode.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ReCG.dir/StateNode.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/StateNode.cpp.o -c /root/VLDB2024_ReCG/ReCG_TopDown/StateNode.cpp
 
 CMakeFiles/ReCG.dir/StateNode.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReCG.dir/StateNode.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/ReCG_TopDown/StateNode.cpp > CMakeFiles/ReCG.dir/StateNode.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/ReCG_TopDown/StateNode.cpp > CMakeFiles/ReCG.dir/StateNode.cpp.i
 
 CMakeFiles/ReCG.dir/StateNode.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReCG.dir/StateNode.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/ReCG_TopDown/StateNode.cpp -o CMakeFiles/ReCG.dir/StateNode.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/ReCG_TopDown/StateNode.cpp -o CMakeFiles/ReCG.dir/StateNode.cpp.s
 
 CMakeFiles/ReCG.dir/TopDownSchemaGenerator.cpp.o: CMakeFiles/ReCG.dir/flags.make
 CMakeFiles/ReCG.dir/TopDownSchemaGenerator.cpp.o: ../TopDownSchemaGenerator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ReCG.dir/TopDownSchemaGenerator.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/TopDownSchemaGenerator.cpp.o -c /root/JsonExplorerSpark/ReCG_TopDown/TopDownSchemaGenerator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ReCG.dir/TopDownSchemaGenerator.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/TopDownSchemaGenerator.cpp.o -c /root/VLDB2024_ReCG/ReCG_TopDown/TopDownSchemaGenerator.cpp
 
 CMakeFiles/ReCG.dir/TopDownSchemaGenerator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReCG.dir/TopDownSchemaGenerator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/ReCG_TopDown/TopDownSchemaGenerator.cpp > CMakeFiles/ReCG.dir/TopDownSchemaGenerator.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/ReCG_TopDown/TopDownSchemaGenerator.cpp > CMakeFiles/ReCG.dir/TopDownSchemaGenerator.cpp.i
 
 CMakeFiles/ReCG.dir/TopDownSchemaGenerator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReCG.dir/TopDownSchemaGenerator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/ReCG_TopDown/TopDownSchemaGenerator.cpp -o CMakeFiles/ReCG.dir/TopDownSchemaGenerator.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/ReCG_TopDown/TopDownSchemaGenerator.cpp -o CMakeFiles/ReCG.dir/TopDownSchemaGenerator.cpp.s
 
 CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Array.cpp.o: CMakeFiles/ReCG.dir/flags.make
 CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Array.cpp.o: ../TopDownSchemaGenerator_Array.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Array.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Array.cpp.o -c /root/JsonExplorerSpark/ReCG_TopDown/TopDownSchemaGenerator_Array.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Array.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Array.cpp.o -c /root/VLDB2024_ReCG/ReCG_TopDown/TopDownSchemaGenerator_Array.cpp
 
 CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Array.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Array.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/ReCG_TopDown/TopDownSchemaGenerator_Array.cpp > CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Array.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/ReCG_TopDown/TopDownSchemaGenerator_Array.cpp > CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Array.cpp.i
 
 CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Array.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Array.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/ReCG_TopDown/TopDownSchemaGenerator_Array.cpp -o CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Array.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/ReCG_TopDown/TopDownSchemaGenerator_Array.cpp -o CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Array.cpp.s
 
 CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Object.cpp.o: CMakeFiles/ReCG.dir/flags.make
 CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Object.cpp.o: ../TopDownSchemaGenerator_Object.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Object.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Object.cpp.o -c /root/JsonExplorerSpark/ReCG_TopDown/TopDownSchemaGenerator_Object.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Object.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Object.cpp.o -c /root/VLDB2024_ReCG/ReCG_TopDown/TopDownSchemaGenerator_Object.cpp
 
 CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Object.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Object.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/ReCG_TopDown/TopDownSchemaGenerator_Object.cpp > CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Object.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/ReCG_TopDown/TopDownSchemaGenerator_Object.cpp > CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Object.cpp.i
 
 CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Object.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Object.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/ReCG_TopDown/TopDownSchemaGenerator_Object.cpp -o CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Object.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/ReCG_TopDown/TopDownSchemaGenerator_Object.cpp -o CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Object.cpp.s
 
 CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Merge.cpp.o: CMakeFiles/ReCG.dir/flags.make
 CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Merge.cpp.o: ../TopDownSchemaGenerator_Merge.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Merge.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Merge.cpp.o -c /root/JsonExplorerSpark/ReCG_TopDown/TopDownSchemaGenerator_Merge.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Merge.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Merge.cpp.o -c /root/VLDB2024_ReCG/ReCG_TopDown/TopDownSchemaGenerator_Merge.cpp
 
 CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Merge.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Merge.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/ReCG_TopDown/TopDownSchemaGenerator_Merge.cpp > CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Merge.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/ReCG_TopDown/TopDownSchemaGenerator_Merge.cpp > CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Merge.cpp.i
 
 CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Merge.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Merge.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/ReCG_TopDown/TopDownSchemaGenerator_Merge.cpp -o CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Merge.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/ReCG_TopDown/TopDownSchemaGenerator_Merge.cpp -o CMakeFiles/ReCG.dir/TopDownSchemaGenerator_Merge.cpp.s
 
 CMakeFiles/ReCG.dir/Clustering.cpp.o: CMakeFiles/ReCG.dir/flags.make
 CMakeFiles/ReCG.dir/Clustering.cpp.o: ../Clustering.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ReCG.dir/Clustering.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/Clustering.cpp.o -c /root/JsonExplorerSpark/ReCG_TopDown/Clustering.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ReCG.dir/Clustering.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/Clustering.cpp.o -c /root/VLDB2024_ReCG/ReCG_TopDown/Clustering.cpp
 
 CMakeFiles/ReCG.dir/Clustering.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReCG.dir/Clustering.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/ReCG_TopDown/Clustering.cpp > CMakeFiles/ReCG.dir/Clustering.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/ReCG_TopDown/Clustering.cpp > CMakeFiles/ReCG.dir/Clustering.cpp.i
 
 CMakeFiles/ReCG.dir/Clustering.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReCG.dir/Clustering.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/ReCG_TopDown/Clustering.cpp -o CMakeFiles/ReCG.dir/Clustering.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/ReCG_TopDown/Clustering.cpp -o CMakeFiles/ReCG.dir/Clustering.cpp.s
 
 CMakeFiles/ReCG.dir/SchemaNodeDeriver.cpp.o: CMakeFiles/ReCG.dir/flags.make
 CMakeFiles/ReCG.dir/SchemaNodeDeriver.cpp.o: ../SchemaNodeDeriver.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ReCG.dir/SchemaNodeDeriver.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/SchemaNodeDeriver.cpp.o -c /root/JsonExplorerSpark/ReCG_TopDown/SchemaNodeDeriver.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ReCG.dir/SchemaNodeDeriver.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/SchemaNodeDeriver.cpp.o -c /root/VLDB2024_ReCG/ReCG_TopDown/SchemaNodeDeriver.cpp
 
 CMakeFiles/ReCG.dir/SchemaNodeDeriver.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReCG.dir/SchemaNodeDeriver.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/ReCG_TopDown/SchemaNodeDeriver.cpp > CMakeFiles/ReCG.dir/SchemaNodeDeriver.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/ReCG_TopDown/SchemaNodeDeriver.cpp > CMakeFiles/ReCG.dir/SchemaNodeDeriver.cpp.i
 
 CMakeFiles/ReCG.dir/SchemaNodeDeriver.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReCG.dir/SchemaNodeDeriver.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/ReCG_TopDown/SchemaNodeDeriver.cpp -o CMakeFiles/ReCG.dir/SchemaNodeDeriver.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/ReCG_TopDown/SchemaNodeDeriver.cpp -o CMakeFiles/ReCG.dir/SchemaNodeDeriver.cpp.s
 
 CMakeFiles/ReCG.dir/Distance.cpp.o: CMakeFiles/ReCG.dir/flags.make
 CMakeFiles/ReCG.dir/Distance.cpp.o: ../Distance.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ReCG.dir/Distance.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/Distance.cpp.o -c /root/JsonExplorerSpark/ReCG_TopDown/Distance.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ReCG.dir/Distance.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/Distance.cpp.o -c /root/VLDB2024_ReCG/ReCG_TopDown/Distance.cpp
 
 CMakeFiles/ReCG.dir/Distance.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReCG.dir/Distance.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/ReCG_TopDown/Distance.cpp > CMakeFiles/ReCG.dir/Distance.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/ReCG_TopDown/Distance.cpp > CMakeFiles/ReCG.dir/Distance.cpp.i
 
 CMakeFiles/ReCG.dir/Distance.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReCG.dir/Distance.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/ReCG_TopDown/Distance.cpp -o CMakeFiles/ReCG.dir/Distance.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/ReCG_TopDown/Distance.cpp -o CMakeFiles/ReCG.dir/Distance.cpp.s
 
 CMakeFiles/ReCG.dir/Cost.cpp.o: CMakeFiles/ReCG.dir/flags.make
 CMakeFiles/ReCG.dir/Cost.cpp.o: ../Cost.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ReCG.dir/Cost.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/Cost.cpp.o -c /root/JsonExplorerSpark/ReCG_TopDown/Cost.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ReCG.dir/Cost.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/Cost.cpp.o -c /root/VLDB2024_ReCG/ReCG_TopDown/Cost.cpp
 
 CMakeFiles/ReCG.dir/Cost.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReCG.dir/Cost.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/ReCG_TopDown/Cost.cpp > CMakeFiles/ReCG.dir/Cost.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/ReCG_TopDown/Cost.cpp > CMakeFiles/ReCG.dir/Cost.cpp.i
 
 CMakeFiles/ReCG.dir/Cost.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReCG.dir/Cost.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/ReCG_TopDown/Cost.cpp -o CMakeFiles/ReCG.dir/Cost.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/ReCG_TopDown/Cost.cpp -o CMakeFiles/ReCG.dir/Cost.cpp.s
 
 CMakeFiles/ReCG.dir/InstanceClusterMerge.cpp.o: CMakeFiles/ReCG.dir/flags.make
 CMakeFiles/ReCG.dir/InstanceClusterMerge.cpp.o: ../InstanceClusterMerge.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/ReCG.dir/InstanceClusterMerge.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/InstanceClusterMerge.cpp.o -c /root/JsonExplorerSpark/ReCG_TopDown/InstanceClusterMerge.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/ReCG.dir/InstanceClusterMerge.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/InstanceClusterMerge.cpp.o -c /root/VLDB2024_ReCG/ReCG_TopDown/InstanceClusterMerge.cpp
 
 CMakeFiles/ReCG.dir/InstanceClusterMerge.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReCG.dir/InstanceClusterMerge.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/ReCG_TopDown/InstanceClusterMerge.cpp > CMakeFiles/ReCG.dir/InstanceClusterMerge.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/ReCG_TopDown/InstanceClusterMerge.cpp > CMakeFiles/ReCG.dir/InstanceClusterMerge.cpp.i
 
 CMakeFiles/ReCG.dir/InstanceClusterMerge.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReCG.dir/InstanceClusterMerge.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/ReCG_TopDown/InstanceClusterMerge.cpp -o CMakeFiles/ReCG.dir/InstanceClusterMerge.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/ReCG_TopDown/InstanceClusterMerge.cpp -o CMakeFiles/ReCG.dir/InstanceClusterMerge.cpp.s
 
 CMakeFiles/ReCG.dir/InstanceCluster.cpp.o: CMakeFiles/ReCG.dir/flags.make
 CMakeFiles/ReCG.dir/InstanceCluster.cpp.o: ../InstanceCluster.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/ReCG.dir/InstanceCluster.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/InstanceCluster.cpp.o -c /root/JsonExplorerSpark/ReCG_TopDown/InstanceCluster.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/ReCG.dir/InstanceCluster.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/InstanceCluster.cpp.o -c /root/VLDB2024_ReCG/ReCG_TopDown/InstanceCluster.cpp
 
 CMakeFiles/ReCG.dir/InstanceCluster.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReCG.dir/InstanceCluster.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/ReCG_TopDown/InstanceCluster.cpp > CMakeFiles/ReCG.dir/InstanceCluster.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/ReCG_TopDown/InstanceCluster.cpp > CMakeFiles/ReCG.dir/InstanceCluster.cpp.i
 
 CMakeFiles/ReCG.dir/InstanceCluster.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReCG.dir/InstanceCluster.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/ReCG_TopDown/InstanceCluster.cpp -o CMakeFiles/ReCG.dir/InstanceCluster.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/ReCG_TopDown/InstanceCluster.cpp -o CMakeFiles/ReCG.dir/InstanceCluster.cpp.s
 
 CMakeFiles/ReCG.dir/Initiator.cpp.o: CMakeFiles/ReCG.dir/flags.make
 CMakeFiles/ReCG.dir/Initiator.cpp.o: ../Initiator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/ReCG.dir/Initiator.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/Initiator.cpp.o -c /root/JsonExplorerSpark/ReCG_TopDown/Initiator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/ReCG.dir/Initiator.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/Initiator.cpp.o -c /root/VLDB2024_ReCG/ReCG_TopDown/Initiator.cpp
 
 CMakeFiles/ReCG.dir/Initiator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReCG.dir/Initiator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/ReCG_TopDown/Initiator.cpp > CMakeFiles/ReCG.dir/Initiator.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/ReCG_TopDown/Initiator.cpp > CMakeFiles/ReCG.dir/Initiator.cpp.i
 
 CMakeFiles/ReCG.dir/Initiator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReCG.dir/Initiator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/ReCG_TopDown/Initiator.cpp -o CMakeFiles/ReCG.dir/Initiator.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/ReCG_TopDown/Initiator.cpp -o CMakeFiles/ReCG.dir/Initiator.cpp.s
 
 CMakeFiles/ReCG.dir/Schema.cpp.o: CMakeFiles/ReCG.dir/flags.make
 CMakeFiles/ReCG.dir/Schema.cpp.o: ../Schema.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/ReCG.dir/Schema.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/Schema.cpp.o -c /root/JsonExplorerSpark/ReCG_TopDown/Schema.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/ReCG.dir/Schema.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/Schema.cpp.o -c /root/VLDB2024_ReCG/ReCG_TopDown/Schema.cpp
 
 CMakeFiles/ReCG.dir/Schema.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReCG.dir/Schema.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/ReCG_TopDown/Schema.cpp > CMakeFiles/ReCG.dir/Schema.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/ReCG_TopDown/Schema.cpp > CMakeFiles/ReCG.dir/Schema.cpp.i
 
 CMakeFiles/ReCG.dir/Schema.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReCG.dir/Schema.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/ReCG_TopDown/Schema.cpp -o CMakeFiles/ReCG.dir/Schema.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/ReCG_TopDown/Schema.cpp -o CMakeFiles/ReCG.dir/Schema.cpp.s
 
 CMakeFiles/ReCG.dir/Instance.cpp.o: CMakeFiles/ReCG.dir/flags.make
 CMakeFiles/ReCG.dir/Instance.cpp.o: ../Instance.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/ReCG.dir/Instance.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/Instance.cpp.o -c /root/JsonExplorerSpark/ReCG_TopDown/Instance.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/ReCG.dir/Instance.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/Instance.cpp.o -c /root/VLDB2024_ReCG/ReCG_TopDown/Instance.cpp
 
 CMakeFiles/ReCG.dir/Instance.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReCG.dir/Instance.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/ReCG_TopDown/Instance.cpp > CMakeFiles/ReCG.dir/Instance.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/ReCG_TopDown/Instance.cpp > CMakeFiles/ReCG.dir/Instance.cpp.i
 
 CMakeFiles/ReCG.dir/Instance.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReCG.dir/Instance.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/ReCG_TopDown/Instance.cpp -o CMakeFiles/ReCG.dir/Instance.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/ReCG_TopDown/Instance.cpp -o CMakeFiles/ReCG.dir/Instance.cpp.s
 
 CMakeFiles/ReCG.dir/EdgeLabelledTree.cpp.o: CMakeFiles/ReCG.dir/flags.make
 CMakeFiles/ReCG.dir/EdgeLabelledTree.cpp.o: ../EdgeLabelledTree.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/ReCG.dir/EdgeLabelledTree.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/EdgeLabelledTree.cpp.o -c /root/JsonExplorerSpark/ReCG_TopDown/EdgeLabelledTree.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/ReCG.dir/EdgeLabelledTree.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/EdgeLabelledTree.cpp.o -c /root/VLDB2024_ReCG/ReCG_TopDown/EdgeLabelledTree.cpp
 
 CMakeFiles/ReCG.dir/EdgeLabelledTree.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReCG.dir/EdgeLabelledTree.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/ReCG_TopDown/EdgeLabelledTree.cpp > CMakeFiles/ReCG.dir/EdgeLabelledTree.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/ReCG_TopDown/EdgeLabelledTree.cpp > CMakeFiles/ReCG.dir/EdgeLabelledTree.cpp.i
 
 CMakeFiles/ReCG.dir/EdgeLabelledTree.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReCG.dir/EdgeLabelledTree.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/ReCG_TopDown/EdgeLabelledTree.cpp -o CMakeFiles/ReCG.dir/EdgeLabelledTree.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/ReCG_TopDown/EdgeLabelledTree.cpp -o CMakeFiles/ReCG.dir/EdgeLabelledTree.cpp.s
 
 CMakeFiles/ReCG.dir/utils.cpp.o: CMakeFiles/ReCG.dir/flags.make
 CMakeFiles/ReCG.dir/utils.cpp.o: ../utils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/ReCG.dir/utils.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/utils.cpp.o -c /root/JsonExplorerSpark/ReCG_TopDown/utils.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/ReCG.dir/utils.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/utils.cpp.o -c /root/VLDB2024_ReCG/ReCG_TopDown/utils.cpp
 
 CMakeFiles/ReCG.dir/utils.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReCG.dir/utils.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/ReCG_TopDown/utils.cpp > CMakeFiles/ReCG.dir/utils.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/ReCG_TopDown/utils.cpp > CMakeFiles/ReCG.dir/utils.cpp.i
 
 CMakeFiles/ReCG.dir/utils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReCG.dir/utils.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/ReCG_TopDown/utils.cpp -o CMakeFiles/ReCG.dir/utils.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/ReCG_TopDown/utils.cpp -o CMakeFiles/ReCG.dir/utils.cpp.s
 
 CMakeFiles/ReCG.dir/simdjson.cpp.o: CMakeFiles/ReCG.dir/flags.make
 CMakeFiles/ReCG.dir/simdjson.cpp.o: ../simdjson.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/ReCG.dir/simdjson.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/simdjson.cpp.o -c /root/JsonExplorerSpark/ReCG_TopDown/simdjson.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/ReCG.dir/simdjson.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ReCG.dir/simdjson.cpp.o -c /root/VLDB2024_ReCG/ReCG_TopDown/simdjson.cpp
 
 CMakeFiles/ReCG.dir/simdjson.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReCG.dir/simdjson.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/ReCG_TopDown/simdjson.cpp > CMakeFiles/ReCG.dir/simdjson.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/ReCG_TopDown/simdjson.cpp > CMakeFiles/ReCG.dir/simdjson.cpp.i
 
 CMakeFiles/ReCG.dir/simdjson.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReCG.dir/simdjson.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/ReCG_TopDown/simdjson.cpp -o CMakeFiles/ReCG.dir/simdjson.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/ReCG_TopDown/simdjson.cpp -o CMakeFiles/ReCG.dir/simdjson.cpp.s
 
 CMakeFiles/ReCG.dir/roaring.c.o: CMakeFiles/ReCG.dir/flags.make
 CMakeFiles/ReCG.dir/roaring.c.o: ../roaring.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/ReCG.dir/roaring.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ReCG.dir/roaring.c.o   -c /root/JsonExplorerSpark/ReCG_TopDown/roaring.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/ReCG.dir/roaring.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ReCG.dir/roaring.c.o   -c /root/VLDB2024_ReCG/ReCG_TopDown/roaring.c
 
 CMakeFiles/ReCG.dir/roaring.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ReCG.dir/roaring.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /root/JsonExplorerSpark/ReCG_TopDown/roaring.c > CMakeFiles/ReCG.dir/roaring.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /root/VLDB2024_ReCG/ReCG_TopDown/roaring.c > CMakeFiles/ReCG.dir/roaring.c.i
 
 CMakeFiles/ReCG.dir/roaring.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ReCG.dir/roaring.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /root/JsonExplorerSpark/ReCG_TopDown/roaring.c -o CMakeFiles/ReCG.dir/roaring.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /root/VLDB2024_ReCG/ReCG_TopDown/roaring.c -o CMakeFiles/ReCG.dir/roaring.c.s
 
 # Object files for target ReCG
 ReCG_OBJECTS = \
@@ -380,7 +380,7 @@ ReCG: CMakeFiles/ReCG.dir/simdjson.cpp.o
 ReCG: CMakeFiles/ReCG.dir/roaring.c.o
 ReCG: CMakeFiles/ReCG.dir/build.make
 ReCG: CMakeFiles/ReCG.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/root/JsonExplorerSpark/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Linking CXX executable ReCG"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/root/VLDB2024_ReCG/ReCG_TopDown/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Linking CXX executable ReCG"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ReCG.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -393,6 +393,6 @@ CMakeFiles/ReCG.dir/clean:
 .PHONY : CMakeFiles/ReCG.dir/clean
 
 CMakeFiles/ReCG.dir/depend:
-	cd /root/JsonExplorerSpark/ReCG_TopDown/build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/JsonExplorerSpark/ReCG_TopDown /root/JsonExplorerSpark/ReCG_TopDown /root/JsonExplorerSpark/ReCG_TopDown/build-debug /root/JsonExplorerSpark/ReCG_TopDown/build-debug /root/JsonExplorerSpark/ReCG_TopDown/build-debug/CMakeFiles/ReCG.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/VLDB2024_ReCG/ReCG_TopDown/build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/VLDB2024_ReCG/ReCG_TopDown /root/VLDB2024_ReCG/ReCG_TopDown /root/VLDB2024_ReCG/ReCG_TopDown/build-debug /root/VLDB2024_ReCG/ReCG_TopDown/build-debug /root/VLDB2024_ReCG/ReCG_TopDown/build-debug/CMakeFiles/ReCG.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ReCG.dir/depend
 

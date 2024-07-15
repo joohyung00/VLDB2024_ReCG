@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/JsonExplorerSpark/ReCG_TopDown
+CMAKE_SOURCE_DIR = /root/VLDB2024_ReCG/ReCG_TopDown
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/JsonExplorerSpark/ReCG_TopDown/build-debug
+CMAKE_BINARY_DIR = /root/VLDB2024_ReCG/ReCG_TopDown/build-debug
 
 # Utility rule file for ContinuousSubmit.
 
@@ -71,6 +71,6 @@ CMakeFiles/ContinuousSubmit.dir/clean:
 .PHONY : CMakeFiles/ContinuousSubmit.dir/clean
 
 CMakeFiles/ContinuousSubmit.dir/depend:
-	cd /root/JsonExplorerSpark/ReCG_TopDown/build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/JsonExplorerSpark/ReCG_TopDown /root/JsonExplorerSpark/ReCG_TopDown /root/JsonExplorerSpark/ReCG_TopDown/build-debug /root/JsonExplorerSpark/ReCG_TopDown/build-debug /root/JsonExplorerSpark/ReCG_TopDown/build-debug/CMakeFiles/ContinuousSubmit.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/VLDB2024_ReCG/ReCG_TopDown/build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/VLDB2024_ReCG/ReCG_TopDown /root/VLDB2024_ReCG/ReCG_TopDown /root/VLDB2024_ReCG/ReCG_TopDown/build-debug /root/VLDB2024_ReCG/ReCG_TopDown/build-debug /root/VLDB2024_ReCG/ReCG_TopDown/build-debug/CMakeFiles/ContinuousSubmit.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ContinuousSubmit.dir/depend
 

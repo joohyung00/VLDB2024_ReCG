@@ -1,12 +1,8 @@
 
-
 def isRunnableExperiment(target_algorithm, dataset_name, train_percent):
     return  not (target_algorithm in ["jxplain"] and dataset_name in ["1_NewYorkTimes", "6_Wikidata", "31_RedDiscordBot", "43_Ecosystem", "44_Plagiarize"])
             
             
-
-
-
 possible_algorithms = set( ["ReCG", "ReCG(TopDown)", "ReCG(KSE)", "jxplain", "kreduce", "lreduce", "klettke", "frozza", "groundtruth"] )
 possible_algorithms_list = ["ReCG", "ReCG(TopDown)", "ReCG(KSE)", "jxplain", "kreduce", "lreduce", "klettke", "frozza", "groundtruth"]
 
@@ -104,98 +100,73 @@ dataset_id_to_fullname = {
     "44": "44_Plagiarize"
 }
 
-# "/root/JsonExplorerSpark/Dataset/1_NewYorkTimes/new_york_times_positive.jsonl",
-
 dataset_id_to_positive_dataset_path = {
-    "1":  "/root/JsonExplorerSpark/Dataset/1_NewYorkTimes/new_york_times_positive.jsonl",
-    "3":  "/root/JsonExplorerSpark/Dataset/3_Twitter/twitter_positive.jsonl",
-    "4":  "/root/JsonExplorerSpark/Dataset/4_Github/merged_positive.jsonl",
-    "5":  "/root/JsonExplorerSpark/Dataset/5_Pharmaceutical/pharmaceutical_positive.jsonl",
-    "6":  "/root/JsonExplorerSpark/Dataset/6_Wikidata/wikidata_positive.jsonl",
-    "7":  "/root/JsonExplorerSpark/Dataset/7_Yelp/merged_positive.jsonl",
-    "8":  "/root/JsonExplorerSpark/Dataset/8_VK/vk_positive.jsonl",
-    "12": "/root/JsonExplorerSpark/Dataset/12_Iceberg/iceberg_positive.jsonl",
-    "13": "/root/JsonExplorerSpark/Dataset/13_Ember/ember_positive.jsonl",
-    "21": "/root/JsonExplorerSpark/Dataset/21_ETH/merged_positive.jsonl",
-    "22": "/root/JsonExplorerSpark/Dataset/22_GeoJSON/merged_positive.jsonl",
-    "23": "/root/JsonExplorerSpark/Dataset/23_MoviesInThailand/merged_positive.jsonl",
-    "31": "/root/JsonExplorerSpark/Dataset/31_RedDiscordBot/red_discordbot_positive____.jsonl",
-    "32": "/root/JsonExplorerSpark/Dataset/32_Adonisrc/adonisrc_positive____.jsonl",
-    "33": "/root/JsonExplorerSpark/Dataset/33_HelmChart/helmchart_positive____.jsonl",
-    "34": "/root/JsonExplorerSpark/Dataset/34_Dolittle/merged_positive.jsonl",
-    "35": "/root/JsonExplorerSpark/Dataset/35_Drupal/merged_positive.jsonl",
-    "41": "/root/JsonExplorerSpark/Dataset/41_DeinConfig/deinconfig_positive.jsonl",              
-    "43": "/root/JsonExplorerSpark/Dataset/43_Ecosystem/ecosystem_positive.jsonl",                
-    "44": "/root/JsonExplorerSpark/Dataset/44_Plagiarize/plagiarize_positive.jsonl"
+    "1":  "/root/VLDB2024_ReCG/Dataset/1_NewYorkTimes/new_york_times_positive.jsonl",
+    "3":  "/root/VLDB2024_ReCG/Dataset/3_Twitter/twitter_positive.jsonl",
+    "4":  "/root/VLDB2024_ReCG/Dataset/4_Github/merged_positive.jsonl",
+    "5":  "/root/VLDB2024_ReCG/Dataset/5_Pharmaceutical/pharmaceutical_positive.jsonl",
+    "6":  "/root/VLDB2024_ReCG/Dataset/6_Wikidata/wikidata_positive.jsonl",
+    "7":  "/root/VLDB2024_ReCG/Dataset/7_Yelp/merged_positive.jsonl",
+    "8":  "/root/VLDB2024_ReCG/Dataset/8_VK/vk_positive.jsonl",
+    "12": "/root/VLDB2024_ReCG/Dataset/12_Iceberg/iceberg_positive.jsonl",
+    "13": "/root/VLDB2024_ReCG/Dataset/13_Ember/ember_positive.jsonl",
+    "21": "/root/VLDB2024_ReCG/Dataset/21_ETH/merged_positive.jsonl",
+    "22": "/root/VLDB2024_ReCG/Dataset/22_GeoJSON/merged_positive.jsonl",
+    "23": "/root/VLDB2024_ReCG/Dataset/23_MoviesInThailand/merged_positive.jsonl",
+    "31": "/root/VLDB2024_ReCG/Dataset/31_RedDiscordBot/red_discordbot_positive____.jsonl",
+    "32": "/root/VLDB2024_ReCG/Dataset/32_Adonisrc/adonisrc_positive____.jsonl",
+    "33": "/root/VLDB2024_ReCG/Dataset/33_HelmChart/helmchart_positive____.jsonl",
+    "34": "/root/VLDB2024_ReCG/Dataset/34_Dolittle/merged_positive.jsonl",
+    "35": "/root/VLDB2024_ReCG/Dataset/35_Drupal/merged_positive.jsonl",
+    "41": "/root/VLDB2024_ReCG/Dataset/41_DeinConfig/deinconfig_positive.jsonl",              
+    "43": "/root/VLDB2024_ReCG/Dataset/43_Ecosystem/ecosystem_positive.jsonl",                
+    "44": "/root/VLDB2024_ReCG/Dataset/44_Plagiarize/plagiarize_positive.jsonl"
 }
 
 dataset_id_to_negative_dataset_path = {
-    "1":  "/root/JsonExplorerSpark/Dataset/1_NewYorkTimes/new_york_times_negative.jsonl",
-    "3":  "/root/JsonExplorerSpark/Dataset/3_Twitter/twitter_negative.jsonl",
-    "4":  "/root/JsonExplorerSpark/Dataset/4_Github/merged_negative.jsonl",
-    "5":  "/root/JsonExplorerSpark/Dataset/5_Pharmaceutical/pharmaceutical_negative.jsonl",
-    "6":  "/root/JsonExplorerSpark/Dataset/6_Wikidata/wikidata_negative.jsonl",
-    "7":  "/root/JsonExplorerSpark/Dataset/7_Yelp/merged_negative.jsonl",
-    "8":  "/root/JsonExplorerSpark/Dataset/8_VK/vk_negative.jsonl",
-    "12": "/root/JsonExplorerSpark/Dataset/12_Iceberg/iceberg_negative.jsonl",
-    "13": "/root/JsonExplorerSpark/Dataset/13_Ember/ember_negative.jsonl",
-    "21": "/root/JsonExplorerSpark/Dataset/21_ETH/merged_negative.jsonl",
-    "22": "/root/JsonExplorerSpark/Dataset/22_GeoJSON/merged_negative.jsonl",
-    "23": "/root/JsonExplorerSpark/Dataset/23_MoviesInThailand/merged_negative.jsonl",
-    "31": "/root/JsonExplorerSpark/Dataset/31_RedDiscordBot/red_discordbot_negative____.jsonl",
-    "32": "/root/JsonExplorerSpark/Dataset/32_Adonisrc/adonisrc_negative____.jsonl",
-    "33": "/root/JsonExplorerSpark/Dataset/33_HelmChart/helmchart_negative____.jsonl",
-    "34": "/root/JsonExplorerSpark/Dataset/34_Dolittle/merged_negative.jsonl",
-    "35": "/root/JsonExplorerSpark/Dataset/35_Drupal/merged_negative.jsonl",
-    "41": "/root/JsonExplorerSpark/Dataset/41_DeinConfig/deinconfig_negative.jsonl",              
-    "43": "/root/JsonExplorerSpark/Dataset/43_Ecosystem/ecosystem_negative.jsonl",                
-    "44": "/root/JsonExplorerSpark/Dataset/44_Plagiarize/plagiarize_negative.jsonl"
-}
-
-dataset_id_to_negative2_dataset_path = {
-    "1":  "/root/JsonExplorerSpark/Dataset/1_NewYorkTimes/new_york_times_negative_2.jsonl",
-    "3":  "/root/JsonExplorerSpark/Dataset/3_Twitter/twitter_negative_2.jsonl",
-    "4":  "/root/JsonExplorerSpark/Dataset/4_Github/merged_negative_2.jsonl",
-    "5":  "/root/JsonExplorerSpark/Dataset/5_Pharmaceutical/pharmaceutical_negative_2.jsonl",
-    "6":  "/root/JsonExplorerSpark/Dataset/6_Wikidata/wikidata_negative_2.jsonl",
-    "7":  "/root/JsonExplorerSpark/Dataset/7_Yelp/merged_negative_2.jsonl",
-    "8":  "/root/JsonExplorerSpark/Dataset/8_VK/vk_negative_2.jsonl",
-    "12": "/root/JsonExplorerSpark/Dataset/12_Iceberg/iceberg_negative_2.jsonl",
-    "13": "/root/JsonExplorerSpark/Dataset/13_Ember/ember_negative_2.jsonl",
-    "21": "/root/JsonExplorerSpark/Dataset/21_ETH/merged_negative_2.jsonl",
-    "22": "/root/JsonExplorerSpark/Dataset/22_GeoJSON/merged_negative_2.jsonl",
-    "23": "/root/JsonExplorerSpark/Dataset/23_MoviesInThailand/merged_negative_2.jsonl",
-    "31": "/root/JsonExplorerSpark/Dataset/31_RedDiscordBot/red_discordbot_negative_2.jsonl",
-    "32": "/root/JsonExplorerSpark/Dataset/32_Adonisrc/adonisrc_negative_2.jsonl",
-    "33": "/root/JsonExplorerSpark/Dataset/33_HelmChart/helmchart_negative_2.jsonl",
-    "34": "/root/JsonExplorerSpark/Dataset/34_Dolittle/merged_negative_2.jsonl",
-    "35": "/root/JsonExplorerSpark/Dataset/35_Drupal/merged_negative_2.jsonl",
-    "41": "/root/JsonExplorerSpark/Dataset/41_DeinConfig/deinconfig_negative_2.jsonl",
-    "43": "/root/JsonExplorerSpark/Dataset/43_Ecosystem/ecosystem_negative_2.jsonl",
-    "44": "/root/JsonExplorerSpark/Dataset/44_Plagiarize/plagiarize_negative_2.jsonl",
+    "1":  "/root/VLDB2024_ReCG/Dataset/1_NewYorkTimes/new_york_times_negative.jsonl",
+    "3":  "/root/VLDB2024_ReCG/Dataset/3_Twitter/twitter_negative.jsonl",
+    "4":  "/root/VLDB2024_ReCG/Dataset/4_Github/merged_negative.jsonl",
+    "5":  "/root/VLDB2024_ReCG/Dataset/5_Pharmaceutical/pharmaceutical_negative.jsonl",
+    "6":  "/root/VLDB2024_ReCG/Dataset/6_Wikidata/wikidata_negative.jsonl",
+    "7":  "/root/VLDB2024_ReCG/Dataset/7_Yelp/merged_negative.jsonl",
+    "8":  "/root/VLDB2024_ReCG/Dataset/8_VK/vk_negative.jsonl",
+    "12": "/root/VLDB2024_ReCG/Dataset/12_Iceberg/iceberg_negative.jsonl",
+    "13": "/root/VLDB2024_ReCG/Dataset/13_Ember/ember_negative.jsonl",
+    "21": "/root/VLDB2024_ReCG/Dataset/21_ETH/merged_negative.jsonl",
+    "22": "/root/VLDB2024_ReCG/Dataset/22_GeoJSON/merged_negative.jsonl",
+    "23": "/root/VLDB2024_ReCG/Dataset/23_MoviesInThailand/merged_negative.jsonl",
+    "31": "/root/VLDB2024_ReCG/Dataset/31_RedDiscordBot/red_discordbot_negative____.jsonl",
+    "32": "/root/VLDB2024_ReCG/Dataset/32_Adonisrc/adonisrc_negative____.jsonl",
+    "33": "/root/VLDB2024_ReCG/Dataset/33_HelmChart/helmchart_negative____.jsonl",
+    "34": "/root/VLDB2024_ReCG/Dataset/34_Dolittle/merged_negative.jsonl",
+    "35": "/root/VLDB2024_ReCG/Dataset/35_Drupal/merged_negative.jsonl",
+    "41": "/root/VLDB2024_ReCG/Dataset/41_DeinConfig/deinconfig_negative.jsonl",              
+    "43": "/root/VLDB2024_ReCG/Dataset/43_Ecosystem/ecosystem_negative.jsonl",                
+    "44": "/root/VLDB2024_ReCG/Dataset/44_Plagiarize/plagiarize_negative.jsonl"
 }
 
 schemaname_to_gtpath = \
 {
-    "1_NewYorkTimes"        : "/root/JsonExplorerSpark/Dataset/1_NewYorkTimes/new_york_times.json",
-    "3_Twitter"             : "/root/JsonExplorerSpark/Dataset/3_Twitter/twitter_old.json",
-    "4_Github"              : "/root/JsonExplorerSpark/Dataset/4_Github/merged.json",
-    "5_Pharmaceutical"      : "/root/JsonExplorerSpark/Dataset/5_Pharmaceutical/pharmaceutical.json",
-    "6_Wikidata"            : "/root/JsonExplorerSpark/Dataset/6_Wikidata/wikidata.json",
-    "7_Yelp"                : "/root/JsonExplorerSpark/Dataset/7_Yelp/merged.json",
-    "8_VK"                  : "/root/JsonExplorerSpark/Dataset/8_VK/vk.json",
-    "9_OpenWeather"         : "/root/JsonExplorerSpark/Dataset/9_OpenWeather/open_weather.json",
-    "12_Iceberg"            : "/root/JsonExplorerSpark/Dataset/12_Iceberg/iceberg.json",
-    "13_Ember"              : "/root/JsonExplorerSpark/Dataset/13_Ember/ember.json",
-    "21_ETH"                : "/root/JsonExplorerSpark/Dataset/21_ETH/merged.json",
-    "22_GeoJSON"            : "/root/JsonExplorerSpark/Dataset/22_GeoJSON/merged.json",
-    "23_MoviesInThailand"   : "/root/JsonExplorerSpark/Dataset/23_MoviesInThailand/merged.json",
-    "31_RedDiscordBot"      : "/root/JsonExplorerSpark/Dataset/31_RedDiscordBot/red_discordbot.json",
-    "32_Adonisrc"           : "/root/JsonExplorerSpark/Dataset/32_Adonisrc/adonisrc.json",
-    "33_HelmChart"          : "/root/JsonExplorerSpark/Dataset/33_HelmChart/helmchart_.json",
-    "34_Dolittle"           : "/root/JsonExplorerSpark/Dataset/34_Dolittle/merged.json",
-    "35_Drupal"             : "/root/JsonExplorerSpark/Dataset/35_Drupal/merged.json",
-    "41_DeinConfig"         : "/root/JsonExplorerSpark/Dataset/41_DeinConfig/deinconfig_tree.json",
-    "43_Ecosystem"          : "/root/JsonExplorerSpark/Dataset/43_Ecosystem/ecosystem_tree.json",
-    "44_Plagiarize"         : "/root/JsonExplorerSpark/Dataset/44_Plagiarize/plagiarize.json"
+    "1_NewYorkTimes"        : "/root/VLDB2024_ReCG/Dataset/1_NewYorkTimes/new_york_times.json",
+    "3_Twitter"             : "/root/VLDB2024_ReCG/Dataset/3_Twitter/twitter_old.json",
+    "4_Github"              : "/root/VLDB2024_ReCG/Dataset/4_Github/merged.json",
+    "5_Pharmaceutical"      : "/root/VLDB2024_ReCG/Dataset/5_Pharmaceutical/pharmaceutical.json",
+    "6_Wikidata"            : "/root/VLDB2024_ReCG/Dataset/6_Wikidata/wikidata.json",
+    "7_Yelp"                : "/root/VLDB2024_ReCG/Dataset/7_Yelp/merged.json",
+    "8_VK"                  : "/root/VLDB2024_ReCG/Dataset/8_VK/vk.json",
+    "9_OpenWeather"         : "/root/VLDB2024_ReCG/Dataset/9_OpenWeather/open_weather.json",
+    "12_Iceberg"            : "/root/VLDB2024_ReCG/Dataset/12_Iceberg/iceberg.json",
+    "13_Ember"              : "/root/VLDB2024_ReCG/Dataset/13_Ember/ember.json",
+    "21_ETH"                : "/root/VLDB2024_ReCG/Dataset/21_ETH/merged.json",
+    "22_GeoJSON"            : "/root/VLDB2024_ReCG/Dataset/22_GeoJSON/merged.json",
+    "23_MoviesInThailand"   : "/root/VLDB2024_ReCG/Dataset/23_MoviesInThailand/merged.json",
+    "31_RedDiscordBot"      : "/root/VLDB2024_ReCG/Dataset/31_RedDiscordBot/red_discordbot.json",
+    "32_Adonisrc"           : "/root/VLDB2024_ReCG/Dataset/32_Adonisrc/adonisrc.json",
+    "33_HelmChart"          : "/root/VLDB2024_ReCG/Dataset/33_HelmChart/helmchart_.json",
+    "34_Dolittle"           : "/root/VLDB2024_ReCG/Dataset/34_Dolittle/merged.json",
+    "35_Drupal"             : "/root/VLDB2024_ReCG/Dataset/35_Drupal/merged.json",
+    "41_DeinConfig"         : "/root/VLDB2024_ReCG/Dataset/41_DeinConfig/deinconfig_tree.json",
+    "43_Ecosystem"          : "/root/VLDB2024_ReCG/Dataset/43_Ecosystem/ecosystem_tree.json",
+    "44_Plagiarize"         : "/root/VLDB2024_ReCG/Dataset/44_Plagiarize/plagiarize.json"
 }

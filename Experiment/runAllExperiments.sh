@@ -15,7 +15,6 @@ python3 run_param_exp.py
 cd ..
 
 
-
 echo ""
 echo ""
 echo "[[{{((<< END >>))}}]]"

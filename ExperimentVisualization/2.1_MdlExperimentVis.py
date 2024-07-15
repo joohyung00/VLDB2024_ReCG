@@ -11,7 +11,7 @@ from matplotlib import ticker as mticker
 
 from pltUtils import dataset_nums, dataset_to_name
 
-sys.path.insert(1, "/root/JsonExplorerSpark/Experiment/utils")
+sys.path.insert(1, "/root/VLDB2024_ReCG/Experiment/utils")
 from dataset_metadata import num_to_name
 from aggregateExpResults import *
 

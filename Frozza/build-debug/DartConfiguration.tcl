@@ -4,8 +4,8 @@
 
 
 # Configuration directories and files
-SourceDirectory: /root/JsonExplorerSpark/Frozza
-BuildDirectory: /root/JsonExplorerSpark/Frozza/build-debug
+SourceDirectory: /root/VLDB2024_ReCG/Frozza
+BuildDirectory: /root/VLDB2024_ReCG/Frozza/build-debug
 
 # Where to place the cost data store
 CostDataFile: 
@@ -36,7 +36,7 @@ ScpCommand: /usr/bin/scp
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/usr/bin/cmake" "/root/JsonExplorerSpark/Frozza"
+ConfigureCommand: "/usr/bin/cmake" "/root/VLDB2024_ReCG/Frozza"
 MakeCommand: /usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}" -- -i
 DefaultCTestConfigurationType: Release
 

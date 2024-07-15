@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/root/JsonExplorerSpark/Frozza/EdgeLabelledTree.hpp
+/root/VLDB2024_ReCG/Frozza/EdgeLabelledTree.hpp
 iostream
 -
 string
@@ -26,25 +26,25 @@ stack
 algorithm
 -
 utils.hpp
-/root/JsonExplorerSpark/Frozza/utils.hpp
+/root/VLDB2024_ReCG/Frozza/utils.hpp
 
-/root/JsonExplorerSpark/Frozza/Instance.hpp
+/root/VLDB2024_ReCG/Frozza/Instance.hpp
 Schema.hpp
-/root/JsonExplorerSpark/Frozza/Schema.hpp
+/root/VLDB2024_ReCG/Frozza/Schema.hpp
 
-/root/JsonExplorerSpark/Frozza/RSUSConstructor.cpp
+/root/VLDB2024_ReCG/Frozza/RSUSConstructor.cpp
 RSUSConstructor.hpp
-/root/JsonExplorerSpark/Frozza/RSUSConstructor.hpp
+/root/VLDB2024_ReCG/Frozza/RSUSConstructor.hpp
 
-/root/JsonExplorerSpark/Frozza/RSUSConstructor.hpp
+/root/VLDB2024_ReCG/Frozza/RSUSConstructor.hpp
 Instance.hpp
-/root/JsonExplorerSpark/Frozza/Instance.hpp
+/root/VLDB2024_ReCG/Frozza/Instance.hpp
 
-/root/JsonExplorerSpark/Frozza/Schema.hpp
+/root/VLDB2024_ReCG/Frozza/Schema.hpp
 EdgeLabelledTree.hpp
-/root/JsonExplorerSpark/Frozza/EdgeLabelledTree.hpp
+/root/VLDB2024_ReCG/Frozza/EdgeLabelledTree.hpp
 
-/root/JsonExplorerSpark/Frozza/roaring.h
+/root/VLDB2024_ReCG/Frozza/roaring.h
 stdbool.h
 -
 stdint.h
@@ -128,7 +128,7 @@ stddef.h
 stddef.h
 -
 
-/root/JsonExplorerSpark/Frozza/utils.hpp
+/root/VLDB2024_ReCG/Frozza/utils.hpp
 string
 -
 cstdint
@@ -156,5 +156,5 @@ cassert
 stdexcept
 -
 roaring.h
-/root/JsonExplorerSpark/Frozza/roaring.h
+/root/VLDB2024_ReCG/Frozza/roaring.h
 

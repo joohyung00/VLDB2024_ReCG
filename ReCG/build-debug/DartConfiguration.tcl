@@ -4,8 +4,8 @@
 
 
 # Configuration directories and files
-SourceDirectory: /root/JsonExplorerSpark/ReCG
-BuildDirectory: /root/JsonExplorerSpark/ReCG/build-debug
+SourceDirectory: /root/VLDB2024_ReCG/ReCG
+BuildDirectory: /root/VLDB2024_ReCG/ReCG/build-debug
 
 # Where to place the cost data store
 CostDataFile: 
@@ -36,7 +36,7 @@ ScpCommand: /usr/bin/scp
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/usr/bin/cmake" "/root/JsonExplorerSpark/ReCG"
+ConfigureCommand: "/usr/bin/cmake" "/root/VLDB2024_ReCG/ReCG"
 MakeCommand: /usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}" -- -i
 DefaultCTestConfigurationType: Release
 

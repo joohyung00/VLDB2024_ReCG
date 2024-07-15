@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/root/JsonExplorerSpark/ReCG_TopDown/roaring.c
+/root/VLDB2024_ReCG/ReCG_TopDown/roaring.c
 roaring.h
-/root/JsonExplorerSpark/ReCG_TopDown/roaring.h
+/root/VLDB2024_ReCG/ReCG_TopDown/roaring.h
 dmalloc.h
-/root/JsonExplorerSpark/ReCG_TopDown/dmalloc.h
+/root/VLDB2024_ReCG/ReCG_TopDown/dmalloc.h
 roaring.h
-/root/JsonExplorerSpark/ReCG_TopDown/roaring.h
+/root/VLDB2024_ReCG/ReCG_TopDown/roaring.h
 stdbool.h
 -
 type_traits
@@ -154,7 +154,7 @@ string.h
 inttypes.h
 -
 
-/root/JsonExplorerSpark/ReCG_TopDown/roaring.h
+/root/VLDB2024_ReCG/ReCG_TopDown/roaring.h
 stdbool.h
 -
 stdint.h

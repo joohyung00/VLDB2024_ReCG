@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/root/JsonExplorerSpark/Klettke/EdgeLabelledTree.hpp
+/root/VLDB2024_ReCG/Klettke/EdgeLabelledTree.hpp
 iostream
 -
 string
@@ -26,25 +26,25 @@ stack
 algorithm
 -
 utils.hpp
-/root/JsonExplorerSpark/Klettke/utils.hpp
+/root/VLDB2024_ReCG/Klettke/utils.hpp
 
-/root/JsonExplorerSpark/Klettke/Instance.hpp
+/root/VLDB2024_ReCG/Klettke/Instance.hpp
 Schema.hpp
-/root/JsonExplorerSpark/Klettke/Schema.hpp
+/root/VLDB2024_ReCG/Klettke/Schema.hpp
 
-/root/JsonExplorerSpark/Klettke/ReducedSGConstructor.cpp
+/root/VLDB2024_ReCG/Klettke/ReducedSGConstructor.cpp
 ReducedSGConstructor.hpp
-/root/JsonExplorerSpark/Klettke/ReducedSGConstructor.hpp
+/root/VLDB2024_ReCG/Klettke/ReducedSGConstructor.hpp
 
-/root/JsonExplorerSpark/Klettke/ReducedSGConstructor.hpp
+/root/VLDB2024_ReCG/Klettke/ReducedSGConstructor.hpp
 Instance.hpp
-/root/JsonExplorerSpark/Klettke/Instance.hpp
+/root/VLDB2024_ReCG/Klettke/Instance.hpp
 
-/root/JsonExplorerSpark/Klettke/Schema.hpp
+/root/VLDB2024_ReCG/Klettke/Schema.hpp
 EdgeLabelledTree.hpp
-/root/JsonExplorerSpark/Klettke/EdgeLabelledTree.hpp
+/root/VLDB2024_ReCG/Klettke/EdgeLabelledTree.hpp
 
-/root/JsonExplorerSpark/Klettke/roaring.h
+/root/VLDB2024_ReCG/Klettke/roaring.h
 stdbool.h
 -
 stdint.h
@@ -128,7 +128,7 @@ stddef.h
 stddef.h
 -
 
-/root/JsonExplorerSpark/Klettke/utils.hpp
+/root/VLDB2024_ReCG/Klettke/utils.hpp
 string
 -
 cstdint
@@ -156,5 +156,5 @@ cassert
 stdexcept
 -
 roaring.h
-/root/JsonExplorerSpark/Klettke/roaring.h
+/root/VLDB2024_ReCG/Klettke/roaring.h
 

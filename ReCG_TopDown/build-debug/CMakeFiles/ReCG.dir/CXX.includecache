@@ -6,47 +6,47 @@
 
 #IncludeRegexTransform: 
 
-/root/JsonExplorerSpark/ReCG_TopDown/ArgParser.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/ArgParser.hpp
 utils.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/utils.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/utils.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/Clustering.cpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Clustering.cpp
 Clustering.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/Clustering.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Clustering.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/Clustering.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Clustering.hpp
 InstanceCluster.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/InstanceCluster.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/InstanceCluster.hpp
 Distance.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/Distance.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Distance.hpp
 Schema.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/Schema.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Schema.hpp
 utils.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/utils.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/utils.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/Cost.cpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Cost.cpp
 Cost.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/Cost.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Cost.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/Cost.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Cost.hpp
 InstanceCluster.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/InstanceCluster.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/InstanceCluster.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/Distance.cpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Distance.cpp
 Distance.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/Distance.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Distance.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/Distance.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Distance.hpp
 InstanceCluster.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/InstanceCluster.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/InstanceCluster.hpp
 Cost.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/Cost.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Cost.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/EdgeLabelledTree.cpp
+/root/VLDB2024_ReCG/ReCG_TopDown/EdgeLabelledTree.cpp
 EdgeLabelledTree.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/EdgeLabelledTree.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/EdgeLabelledTree.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/EdgeLabelledTree.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/EdgeLabelledTree.hpp
 iostream
 -
 string
@@ -66,13 +66,13 @@ stack
 algorithm
 -
 utils.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/utils.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/utils.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/Initiator.cpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Initiator.cpp
 Initiator.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/Initiator.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Initiator.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/Initiator.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Initiator.hpp
 vector
 -
 unordered_map
@@ -82,21 +82,21 @@ fstream
 iostream
 -
 Schema.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/Schema.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Schema.hpp
 Instance.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/Instance.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Instance.hpp
 EdgeLabelledTree.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/EdgeLabelledTree.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/EdgeLabelledTree.hpp
 utils.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/utils.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/utils.hpp
 simdjson.h
-/root/JsonExplorerSpark/ReCG_TopDown/simdjson.h
+/root/VLDB2024_ReCG/ReCG_TopDown/simdjson.h
 
-/root/JsonExplorerSpark/ReCG_TopDown/Instance.cpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Instance.cpp
 Instance.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/Instance.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Instance.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/Instance.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Instance.hpp
 string
 -
 vector
@@ -104,35 +104,35 @@ vector
 unordered_set
 -
 Schema.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/Schema.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Schema.hpp
 EdgeLabelledTree.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/EdgeLabelledTree.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/EdgeLabelledTree.hpp
 utils.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/utils.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/utils.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/InstanceCluster.cpp
+/root/VLDB2024_ReCG/ReCG_TopDown/InstanceCluster.cpp
 InstanceCluster.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/InstanceCluster.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/InstanceCluster.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/InstanceCluster.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/InstanceCluster.hpp
 Schema.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/Schema.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Schema.hpp
 Instance.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/Instance.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Instance.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/InstanceClusterMerge.cpp
+/root/VLDB2024_ReCG/ReCG_TopDown/InstanceClusterMerge.cpp
 InstanceClusterMerge.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/InstanceClusterMerge.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/InstanceClusterMerge.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/InstanceClusterMerge.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/InstanceClusterMerge.hpp
 InstanceCluster.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/InstanceCluster.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/InstanceCluster.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/ReCG.cpp
+/root/VLDB2024_ReCG/ReCG_TopDown/ReCG.cpp
 ReCG.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/ReCG.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/ReCG.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/ReCG.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/ReCG.hpp
 string
 -
 fstream
@@ -140,85 +140,85 @@ fstream
 chrono
 -
 Search.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/Search.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Search.hpp
 StateNode.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/StateNode.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/StateNode.hpp
 Initiator.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/Initiator.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Initiator.hpp
 Schema.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/Schema.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Schema.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/Schema.cpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Schema.cpp
 Schema.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/Schema.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Schema.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/Schema.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Schema.hpp
 EdgeLabelledTree.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/EdgeLabelledTree.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/EdgeLabelledTree.hpp
 utils.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/utils.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/utils.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/SchemaNodeDeriver.cpp
+/root/VLDB2024_ReCG/ReCG_TopDown/SchemaNodeDeriver.cpp
 SchemaNodeDeriver.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/SchemaNodeDeriver.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/SchemaNodeDeriver.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/SchemaNodeDeriver.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/SchemaNodeDeriver.hpp
 Cost.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/Cost.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Cost.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/Search.cpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Search.cpp
 Search.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/Search.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Search.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/Search.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Search.hpp
 StateNode.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/StateNode.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/StateNode.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/StateNode.cpp
+/root/VLDB2024_ReCG/ReCG_TopDown/StateNode.cpp
 StateNode.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/StateNode.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/StateNode.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/StateNode.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/StateNode.hpp
 TopDownSchemaGenerator.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/TopDownSchemaGenerator.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/TopDownSchemaGenerator.hpp
 utils.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/utils.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/utils.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/TopDownSchemaGenerator.cpp
+/root/VLDB2024_ReCG/ReCG_TopDown/TopDownSchemaGenerator.cpp
 TopDownSchemaGenerator.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/TopDownSchemaGenerator.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/TopDownSchemaGenerator.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/TopDownSchemaGenerator.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/TopDownSchemaGenerator.hpp
 SchemaNodeDeriver.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/SchemaNodeDeriver.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/SchemaNodeDeriver.hpp
 InstanceClusterMerge.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/InstanceClusterMerge.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/InstanceClusterMerge.hpp
 Clustering.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/Clustering.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Clustering.hpp
 Distance.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/Distance.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/Distance.hpp
 thread
 -
 
-/root/JsonExplorerSpark/ReCG_TopDown/TopDownSchemaGenerator_Array.cpp
+/root/VLDB2024_ReCG/ReCG_TopDown/TopDownSchemaGenerator_Array.cpp
 TopDownSchemaGenerator.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/TopDownSchemaGenerator.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/TopDownSchemaGenerator.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/TopDownSchemaGenerator_Merge.cpp
+/root/VLDB2024_ReCG/ReCG_TopDown/TopDownSchemaGenerator_Merge.cpp
 TopDownSchemaGenerator.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/TopDownSchemaGenerator.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/TopDownSchemaGenerator.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/TopDownSchemaGenerator_Object.cpp
+/root/VLDB2024_ReCG/ReCG_TopDown/TopDownSchemaGenerator_Object.cpp
 TopDownSchemaGenerator.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/TopDownSchemaGenerator.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/TopDownSchemaGenerator.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/main.cpp
+/root/VLDB2024_ReCG/ReCG_TopDown/main.cpp
 ReCG.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/ReCG.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/ReCG.hpp
 ArgParser.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/ArgParser.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/ArgParser.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/roaring.h
+/root/VLDB2024_ReCG/ReCG_TopDown/roaring.h
 stdbool.h
 -
 stdint.h
@@ -302,9 +302,9 @@ stddef.h
 stddef.h
 -
 
-/root/JsonExplorerSpark/ReCG_TopDown/simdjson.cpp
+/root/VLDB2024_ReCG/ReCG_TopDown/simdjson.cpp
 simdjson.h
-/root/JsonExplorerSpark/ReCG_TopDown/simdjson.h
+/root/VLDB2024_ReCG/ReCG_TopDown/simdjson.h
 cstring
 -
 cstdint
@@ -320,9 +320,9 @@ cstdint
 initializer_list
 -
 
-/root/JsonExplorerSpark/ReCG_TopDown/simdjson.h
+/root/VLDB2024_ReCG/ReCG_TopDown/simdjson.h
 simdjson.h
-/root/JsonExplorerSpark/ReCG_TopDown/simdjson.h
+/root/VLDB2024_ReCG/ReCG_TopDown/simdjson.h
 cassert
 -
 cstddef
@@ -572,11 +572,11 @@ limits
 stdexcept
 -
 
-/root/JsonExplorerSpark/ReCG_TopDown/utils.cpp
+/root/VLDB2024_ReCG/ReCG_TopDown/utils.cpp
 utils.hpp
-/root/JsonExplorerSpark/ReCG_TopDown/utils.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/utils.hpp
 
-/root/JsonExplorerSpark/ReCG_TopDown/utils.hpp
+/root/VLDB2024_ReCG/ReCG_TopDown/utils.hpp
 string
 -
 cstdint
@@ -604,5 +604,5 @@ cassert
 stdexcept
 -
 roaring.h
-/root/JsonExplorerSpark/ReCG_TopDown/roaring.h
+/root/VLDB2024_ReCG/ReCG_TopDown/roaring.h
 

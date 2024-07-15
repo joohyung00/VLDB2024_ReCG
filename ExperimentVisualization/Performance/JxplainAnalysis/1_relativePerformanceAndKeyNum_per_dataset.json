@@ -1,0 +1,62 @@
+{
+    "3": {
+        "relative performance": 1.5212659034396505,
+        "num of distinct keys": 117
+    },
+    "4": {
+        "relative performance": 1.8493727455848596,
+        "num of distinct keys": 247
+    },
+    "5": {
+        "relative performance": 4.637711815694479,
+        "num of distinct keys": 1602
+    },
+    "7": {
+        "relative performance": 3.933428469496967,
+        "num of distinct keys": 84
+    },
+    "8": {
+        "relative performance": 1.4585664581284448,
+        "num of distinct keys": 102
+    },
+    "12": {
+        "relative performance": 23.08973129220838,
+        "num of distinct keys": 11386
+    },
+    "13": {
+        "relative performance": 1.8937302969083836,
+        "num of distinct keys": 3979
+    },
+    "21": {
+        "relative performance": 0.7221331998670718,
+        "num of distinct keys": 54
+    },
+    "22": {
+        "relative performance": 5.122729879564138,
+        "num of distinct keys": 25
+    },
+    "23": {
+        "relative performance": 1.7649345736781639,
+        "num of distinct keys": 59
+    },
+    "32": {
+        "relative performance": 3.4824480568149707,
+        "num of distinct keys": 7352
+    },
+    "33": {
+        "relative performance": 3.3526905866618235,
+        "num of distinct keys": 4218
+    },
+    "34": {
+        "relative performance": 26.138915496387693,
+        "num of distinct keys": 43377
+    },
+    "35": {
+        "relative performance": 50.05447205455828,
+        "num of distinct keys": 31225
+    },
+    "41": {
+        "relative performance": 5.782524748999508,
+        "num of distinct keys": 7197
+    }
+}

@@ -1,13 +1,37 @@
 # Some files
 
-__MACOSX
-__pycache__
-.metals
-.bloop
-.vscode
+**/__MACOSX
+**/__pycache__
+**/.metals
+**/.bloop
+**/.vscode
 
 # Too big - dataset
-Dataset
+Dataset/1_NewYorkTimes
+Dataset/3_Twitter
+Dataset/4_Github
+Dataset/5_Pharmaceutical
+Dataset/6_Wikidata
+Dataset/7_Yelp
+Dataset/8_VK
+Dataset/12_Iceberg
+Dataset/13_Ember
+Dataset/21_ETH
+Dataset/22_GeoJSON
+Dataset/23_MoviesInThailand
+Dataset/31_RedDiscordBot
+Dataset/32_Adonisrc
+Dataset/33_HelmChart
+Dataset/34_Dolittle
+Dataset/35_Drupal
+Dataset/41_DeinConfig
+Dataset/43_Ecosystem
+Dataset/44_Plagiarize
+
+# Compilable
+target
+target_KREDUCE
+
 
 # Language-related
 Python-3.8.0
@@ -21,6 +45,7 @@ project
 node_modules
 package-lock.json
 package.json
+
 
 
 

@@ -4,7 +4,7 @@ import os
 import random
 import sys
 
-sys.path.insert(1, '/root/JsonExplorerSpark/Experiment')
+sys.path.insert(1, '/root/VLDB2024_ReCG/Experiment')
 from load_json import load_dataset, load_schema, count_lines
 
 

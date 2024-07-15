@@ -4,8 +4,8 @@
 
 
 # Configuration directories and files
-SourceDirectory: /root/JsonExplorerSpark/Klettke
-BuildDirectory: /root/JsonExplorerSpark/Klettke/build-debug
+SourceDirectory: /root/VLDB2024_ReCG/Klettke
+BuildDirectory: /root/VLDB2024_ReCG/Klettke/build-debug
 
 # Where to place the cost data store
 CostDataFile: 
@@ -36,7 +36,7 @@ ScpCommand: /usr/bin/scp
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/usr/bin/cmake" "/root/JsonExplorerSpark/Klettke"
+ConfigureCommand: "/usr/bin/cmake" "/root/VLDB2024_ReCG/Klettke"
 MakeCommand: /usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}" -- -i
 DefaultCTestConfigurationType: Release
 

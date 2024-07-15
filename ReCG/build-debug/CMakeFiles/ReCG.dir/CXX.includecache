@@ -6,75 +6,75 @@
 
 #IncludeRegexTransform: 
 
-/root/JsonExplorerSpark/ReCG/ArgParser.hpp
+/root/VLDB2024_ReCG/ReCG/ArgParser.hpp
 utils.hpp
-/root/JsonExplorerSpark/ReCG/utils.hpp
+/root/VLDB2024_ReCG/ReCG/utils.hpp
 
-/root/JsonExplorerSpark/ReCG/BottomUpSchemaGenerator.cpp
+/root/VLDB2024_ReCG/ReCG/BottomUpSchemaGenerator.cpp
 BottomUpSchemaGenerator.hpp
-/root/JsonExplorerSpark/ReCG/BottomUpSchemaGenerator.hpp
+/root/VLDB2024_ReCG/ReCG/BottomUpSchemaGenerator.hpp
 
-/root/JsonExplorerSpark/ReCG/BottomUpSchemaGenerator.hpp
+/root/VLDB2024_ReCG/ReCG/BottomUpSchemaGenerator.hpp
 SchemaNodeDeriver.hpp
-/root/JsonExplorerSpark/ReCG/SchemaNodeDeriver.hpp
+/root/VLDB2024_ReCG/ReCG/SchemaNodeDeriver.hpp
 InstanceClusterMerge.hpp
-/root/JsonExplorerSpark/ReCG/InstanceClusterMerge.hpp
+/root/VLDB2024_ReCG/ReCG/InstanceClusterMerge.hpp
 Clustering.hpp
-/root/JsonExplorerSpark/ReCG/Clustering.hpp
+/root/VLDB2024_ReCG/ReCG/Clustering.hpp
 Distance.hpp
-/root/JsonExplorerSpark/ReCG/Distance.hpp
+/root/VLDB2024_ReCG/ReCG/Distance.hpp
 thread
 -
 
-/root/JsonExplorerSpark/ReCG/BottomUpSchemaGenerator_Array.cpp
+/root/VLDB2024_ReCG/ReCG/BottomUpSchemaGenerator_Array.cpp
 BottomUpSchemaGenerator.hpp
-/root/JsonExplorerSpark/ReCG/BottomUpSchemaGenerator.hpp
+/root/VLDB2024_ReCG/ReCG/BottomUpSchemaGenerator.hpp
 
-/root/JsonExplorerSpark/ReCG/BottomUpSchemaGenerator_Merge.cpp
+/root/VLDB2024_ReCG/ReCG/BottomUpSchemaGenerator_Merge.cpp
 BottomUpSchemaGenerator.hpp
-/root/JsonExplorerSpark/ReCG/BottomUpSchemaGenerator.hpp
+/root/VLDB2024_ReCG/ReCG/BottomUpSchemaGenerator.hpp
 
-/root/JsonExplorerSpark/ReCG/BottomUpSchemaGenerator_Object.cpp
+/root/VLDB2024_ReCG/ReCG/BottomUpSchemaGenerator_Object.cpp
 BottomUpSchemaGenerator.hpp
-/root/JsonExplorerSpark/ReCG/BottomUpSchemaGenerator.hpp
+/root/VLDB2024_ReCG/ReCG/BottomUpSchemaGenerator.hpp
 
-/root/JsonExplorerSpark/ReCG/Clustering.cpp
+/root/VLDB2024_ReCG/ReCG/Clustering.cpp
 Clustering.hpp
-/root/JsonExplorerSpark/ReCG/Clustering.hpp
+/root/VLDB2024_ReCG/ReCG/Clustering.hpp
 
-/root/JsonExplorerSpark/ReCG/Clustering.hpp
+/root/VLDB2024_ReCG/ReCG/Clustering.hpp
 InstanceCluster.hpp
-/root/JsonExplorerSpark/ReCG/InstanceCluster.hpp
+/root/VLDB2024_ReCG/ReCG/InstanceCluster.hpp
 Distance.hpp
-/root/JsonExplorerSpark/ReCG/Distance.hpp
+/root/VLDB2024_ReCG/ReCG/Distance.hpp
 Schema.hpp
-/root/JsonExplorerSpark/ReCG/Schema.hpp
+/root/VLDB2024_ReCG/ReCG/Schema.hpp
 utils.hpp
-/root/JsonExplorerSpark/ReCG/utils.hpp
+/root/VLDB2024_ReCG/ReCG/utils.hpp
 
-/root/JsonExplorerSpark/ReCG/Cost.cpp
+/root/VLDB2024_ReCG/ReCG/Cost.cpp
 Cost.hpp
-/root/JsonExplorerSpark/ReCG/Cost.hpp
+/root/VLDB2024_ReCG/ReCG/Cost.hpp
 
-/root/JsonExplorerSpark/ReCG/Cost.hpp
+/root/VLDB2024_ReCG/ReCG/Cost.hpp
 InstanceCluster.hpp
-/root/JsonExplorerSpark/ReCG/InstanceCluster.hpp
+/root/VLDB2024_ReCG/ReCG/InstanceCluster.hpp
 
-/root/JsonExplorerSpark/ReCG/Distance.cpp
+/root/VLDB2024_ReCG/ReCG/Distance.cpp
 Distance.hpp
-/root/JsonExplorerSpark/ReCG/Distance.hpp
+/root/VLDB2024_ReCG/ReCG/Distance.hpp
 
-/root/JsonExplorerSpark/ReCG/Distance.hpp
+/root/VLDB2024_ReCG/ReCG/Distance.hpp
 InstanceCluster.hpp
-/root/JsonExplorerSpark/ReCG/InstanceCluster.hpp
+/root/VLDB2024_ReCG/ReCG/InstanceCluster.hpp
 Cost.hpp
-/root/JsonExplorerSpark/ReCG/Cost.hpp
+/root/VLDB2024_ReCG/ReCG/Cost.hpp
 
-/root/JsonExplorerSpark/ReCG/EdgeLabelledTree.cpp
+/root/VLDB2024_ReCG/ReCG/EdgeLabelledTree.cpp
 EdgeLabelledTree.hpp
-/root/JsonExplorerSpark/ReCG/EdgeLabelledTree.hpp
+/root/VLDB2024_ReCG/ReCG/EdgeLabelledTree.hpp
 
-/root/JsonExplorerSpark/ReCG/EdgeLabelledTree.hpp
+/root/VLDB2024_ReCG/ReCG/EdgeLabelledTree.hpp
 iostream
 -
 string
@@ -94,13 +94,13 @@ stack
 algorithm
 -
 utils.hpp
-/root/JsonExplorerSpark/ReCG/utils.hpp
+/root/VLDB2024_ReCG/ReCG/utils.hpp
 
-/root/JsonExplorerSpark/ReCG/Initiator.cpp
+/root/VLDB2024_ReCG/ReCG/Initiator.cpp
 Initiator.hpp
-/root/JsonExplorerSpark/ReCG/Initiator.hpp
+/root/VLDB2024_ReCG/ReCG/Initiator.hpp
 
-/root/JsonExplorerSpark/ReCG/Initiator.hpp
+/root/VLDB2024_ReCG/ReCG/Initiator.hpp
 vector
 -
 unordered_map
@@ -110,21 +110,21 @@ fstream
 iostream
 -
 Schema.hpp
-/root/JsonExplorerSpark/ReCG/Schema.hpp
+/root/VLDB2024_ReCG/ReCG/Schema.hpp
 Instance.hpp
-/root/JsonExplorerSpark/ReCG/Instance.hpp
+/root/VLDB2024_ReCG/ReCG/Instance.hpp
 EdgeLabelledTree.hpp
-/root/JsonExplorerSpark/ReCG/EdgeLabelledTree.hpp
+/root/VLDB2024_ReCG/ReCG/EdgeLabelledTree.hpp
 utils.hpp
-/root/JsonExplorerSpark/ReCG/utils.hpp
+/root/VLDB2024_ReCG/ReCG/utils.hpp
 simdjson.h
-/root/JsonExplorerSpark/ReCG/simdjson.h
+/root/VLDB2024_ReCG/ReCG/simdjson.h
 
-/root/JsonExplorerSpark/ReCG/Instance.cpp
+/root/VLDB2024_ReCG/ReCG/Instance.cpp
 Instance.hpp
-/root/JsonExplorerSpark/ReCG/Instance.hpp
+/root/VLDB2024_ReCG/ReCG/Instance.hpp
 
-/root/JsonExplorerSpark/ReCG/Instance.hpp
+/root/VLDB2024_ReCG/ReCG/Instance.hpp
 string
 -
 vector
@@ -132,35 +132,35 @@ vector
 unordered_set
 -
 Schema.hpp
-/root/JsonExplorerSpark/ReCG/Schema.hpp
+/root/VLDB2024_ReCG/ReCG/Schema.hpp
 EdgeLabelledTree.hpp
-/root/JsonExplorerSpark/ReCG/EdgeLabelledTree.hpp
+/root/VLDB2024_ReCG/ReCG/EdgeLabelledTree.hpp
 utils.hpp
-/root/JsonExplorerSpark/ReCG/utils.hpp
+/root/VLDB2024_ReCG/ReCG/utils.hpp
 
-/root/JsonExplorerSpark/ReCG/InstanceCluster.cpp
+/root/VLDB2024_ReCG/ReCG/InstanceCluster.cpp
 InstanceCluster.hpp
-/root/JsonExplorerSpark/ReCG/InstanceCluster.hpp
+/root/VLDB2024_ReCG/ReCG/InstanceCluster.hpp
 
-/root/JsonExplorerSpark/ReCG/InstanceCluster.hpp
+/root/VLDB2024_ReCG/ReCG/InstanceCluster.hpp
 Schema.hpp
-/root/JsonExplorerSpark/ReCG/Schema.hpp
+/root/VLDB2024_ReCG/ReCG/Schema.hpp
 Instance.hpp
-/root/JsonExplorerSpark/ReCG/Instance.hpp
+/root/VLDB2024_ReCG/ReCG/Instance.hpp
 
-/root/JsonExplorerSpark/ReCG/InstanceClusterMerge.cpp
+/root/VLDB2024_ReCG/ReCG/InstanceClusterMerge.cpp
 InstanceClusterMerge.hpp
-/root/JsonExplorerSpark/ReCG/InstanceClusterMerge.hpp
+/root/VLDB2024_ReCG/ReCG/InstanceClusterMerge.hpp
 
-/root/JsonExplorerSpark/ReCG/InstanceClusterMerge.hpp
+/root/VLDB2024_ReCG/ReCG/InstanceClusterMerge.hpp
 InstanceCluster.hpp
-/root/JsonExplorerSpark/ReCG/InstanceCluster.hpp
+/root/VLDB2024_ReCG/ReCG/InstanceCluster.hpp
 
-/root/JsonExplorerSpark/ReCG/ReCG.cpp
+/root/VLDB2024_ReCG/ReCG/ReCG.cpp
 ReCG.hpp
-/root/JsonExplorerSpark/ReCG/ReCG.hpp
+/root/VLDB2024_ReCG/ReCG/ReCG.hpp
 
-/root/JsonExplorerSpark/ReCG/ReCG.hpp
+/root/VLDB2024_ReCG/ReCG/ReCG.hpp
 string
 -
 fstream
@@ -168,57 +168,57 @@ fstream
 chrono
 -
 Search.hpp
-/root/JsonExplorerSpark/ReCG/Search.hpp
+/root/VLDB2024_ReCG/ReCG/Search.hpp
 StateNode.hpp
-/root/JsonExplorerSpark/ReCG/StateNode.hpp
+/root/VLDB2024_ReCG/ReCG/StateNode.hpp
 Initiator.hpp
-/root/JsonExplorerSpark/ReCG/Initiator.hpp
+/root/VLDB2024_ReCG/ReCG/Initiator.hpp
 Schema.hpp
-/root/JsonExplorerSpark/ReCG/Schema.hpp
+/root/VLDB2024_ReCG/ReCG/Schema.hpp
 
-/root/JsonExplorerSpark/ReCG/Schema.cpp
+/root/VLDB2024_ReCG/ReCG/Schema.cpp
 Schema.hpp
-/root/JsonExplorerSpark/ReCG/Schema.hpp
+/root/VLDB2024_ReCG/ReCG/Schema.hpp
 
-/root/JsonExplorerSpark/ReCG/Schema.hpp
+/root/VLDB2024_ReCG/ReCG/Schema.hpp
 EdgeLabelledTree.hpp
-/root/JsonExplorerSpark/ReCG/EdgeLabelledTree.hpp
+/root/VLDB2024_ReCG/ReCG/EdgeLabelledTree.hpp
 utils.hpp
-/root/JsonExplorerSpark/ReCG/utils.hpp
+/root/VLDB2024_ReCG/ReCG/utils.hpp
 
-/root/JsonExplorerSpark/ReCG/SchemaNodeDeriver.cpp
+/root/VLDB2024_ReCG/ReCG/SchemaNodeDeriver.cpp
 SchemaNodeDeriver.hpp
-/root/JsonExplorerSpark/ReCG/SchemaNodeDeriver.hpp
+/root/VLDB2024_ReCG/ReCG/SchemaNodeDeriver.hpp
 
-/root/JsonExplorerSpark/ReCG/SchemaNodeDeriver.hpp
+/root/VLDB2024_ReCG/ReCG/SchemaNodeDeriver.hpp
 Cost.hpp
-/root/JsonExplorerSpark/ReCG/Cost.hpp
+/root/VLDB2024_ReCG/ReCG/Cost.hpp
 
-/root/JsonExplorerSpark/ReCG/Search.cpp
+/root/VLDB2024_ReCG/ReCG/Search.cpp
 Search.hpp
-/root/JsonExplorerSpark/ReCG/Search.hpp
+/root/VLDB2024_ReCG/ReCG/Search.hpp
 
-/root/JsonExplorerSpark/ReCG/Search.hpp
+/root/VLDB2024_ReCG/ReCG/Search.hpp
 StateNode.hpp
-/root/JsonExplorerSpark/ReCG/StateNode.hpp
+/root/VLDB2024_ReCG/ReCG/StateNode.hpp
 
-/root/JsonExplorerSpark/ReCG/StateNode.cpp
+/root/VLDB2024_ReCG/ReCG/StateNode.cpp
 StateNode.hpp
-/root/JsonExplorerSpark/ReCG/StateNode.hpp
+/root/VLDB2024_ReCG/ReCG/StateNode.hpp
 
-/root/JsonExplorerSpark/ReCG/StateNode.hpp
+/root/VLDB2024_ReCG/ReCG/StateNode.hpp
 BottomUpSchemaGenerator.hpp
-/root/JsonExplorerSpark/ReCG/BottomUpSchemaGenerator.hpp
+/root/VLDB2024_ReCG/ReCG/BottomUpSchemaGenerator.hpp
 utils.hpp
-/root/JsonExplorerSpark/ReCG/utils.hpp
+/root/VLDB2024_ReCG/ReCG/utils.hpp
 
-/root/JsonExplorerSpark/ReCG/main.cpp
+/root/VLDB2024_ReCG/ReCG/main.cpp
 ReCG.hpp
-/root/JsonExplorerSpark/ReCG/ReCG.hpp
+/root/VLDB2024_ReCG/ReCG/ReCG.hpp
 ArgParser.hpp
-/root/JsonExplorerSpark/ReCG/ArgParser.hpp
+/root/VLDB2024_ReCG/ReCG/ArgParser.hpp
 
-/root/JsonExplorerSpark/ReCG/roaring.h
+/root/VLDB2024_ReCG/ReCG/roaring.h
 stdbool.h
 -
 stdint.h
@@ -302,9 +302,9 @@ stddef.h
 stddef.h
 -
 
-/root/JsonExplorerSpark/ReCG/simdjson.h
+/root/VLDB2024_ReCG/ReCG/simdjson.h
 simdjson.h
-/root/JsonExplorerSpark/ReCG/simdjson.h
+/root/VLDB2024_ReCG/ReCG/simdjson.h
 cassert
 -
 cstddef
@@ -554,11 +554,11 @@ limits
 stdexcept
 -
 
-/root/JsonExplorerSpark/ReCG/utils.cpp
+/root/VLDB2024_ReCG/ReCG/utils.cpp
 utils.hpp
-/root/JsonExplorerSpark/ReCG/utils.hpp
+/root/VLDB2024_ReCG/ReCG/utils.hpp
 
-/root/JsonExplorerSpark/ReCG/utils.hpp
+/root/VLDB2024_ReCG/ReCG/utils.hpp
 string
 -
 cstdint
@@ -586,5 +586,5 @@ cassert
 stdexcept
 -
 roaring.h
-/root/JsonExplorerSpark/ReCG/roaring.h
+/root/VLDB2024_ReCG/ReCG/roaring.h
 

@@ -13,15 +13,18 @@
 
 
 You can run every experiments with a single line.
+The anticipated runtime of the whole experiment process is over 4 full days, so we recomment you to run the process using `tmux`!
 
 ```bash
+tmux new-session -t experiment
+tmux attach -t experiment
+# Inside tmux
 ./runAllExperiments.sh
 ```
 
 If you want a more fine-grained manner of running the experiments or more details about 
 
 ## Description of Each Experiment
-
 
 ### (A) Accuracy Comparison (Section 5.2)
 
@@ -75,3 +78,14 @@ python3 run_param_exp.py
 cd ..
 
 ```
+
+
+### (E) Impact of Design Factors to Accuracy (Section 5.6)
+
+Run accuracy experiment for two different versions of `ReCG`
+
+- ReCG with top-down approach
+- ReCG that is guided with Key-Space Entropy introduced by Jxplain 
+
+This experiment is acutally included in (A) Accuracy Comparison.
+The two algorithms are run alongside `ReCG` and other competitors, so you do not have to run any additional codes.

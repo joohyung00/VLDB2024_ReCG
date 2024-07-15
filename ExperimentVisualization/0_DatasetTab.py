@@ -17,13 +17,12 @@ from copy import deepcopy
 datasets = \
 {
     "1":  ("1_NewYorkTimes/new_york_times.json",     "1_NewYorkTimes/new_york_times_positive.jsonl"         ),
-    "3":  ("3_Twitter/twitter_old.json",             "3_Twitter/twitter_positive_10000.jsonl"               ),
+    "3":  ("3_Twitter/twitter_old.json",             "3_Twitter/twitter_positive.jsonl"                     ),
     "4":  ("4_Github/merged.json",                   "4_Github/merged_positive.jsonl"                       ),
     "5":  ("5_Pharmaceutical/pharmaceutical.json",   "5_Pharmaceutical/pharmaceutical_positive.jsonl"       ),
     "6":  ("6_Wikidata/wikidata.json",               "6_Wikidata/wikidata_positive.jsonl"                   ),
     "7":  ("7_Yelp/merged.json",                     "7_Yelp/merged_positive.jsonl"                         ),
     "8":  ("8_VK/vk.json",                           "8_VK/vk_positive.jsonl"                               ),
-    "9":  ("9_OpenWeather/open_weather.json",        "9_OpenWeather/open_weather_positive.jsonl"            ),
     "12": ("12_Iceberg/iceberg.json",                "12_Iceberg/iceberg_positive.jsonl"                    ),
     "13": ("13_Ember/ember.json",                    "13_Ember/ember_positive.jsonl"                        ),
     "21": ("21_ETH/merged.json",                     "21_ETH/merged_positive.jsonl"                         ),
@@ -31,7 +30,7 @@ datasets = \
     "23": ("23_MoviesInThailand/merged.json",        "23_MoviesInThailand/merged_positive.jsonl"            ),
     "31": ("31_RedDiscordBot/red_discordbot.json",   "31_RedDiscordBot/red_discordbot_positive____.jsonl"   ),
     "32": ("32_Adonisrc/adonisrc.json",              "32_Adonisrc/adonisrc_positive____.jsonl"              ),
-    "33": ("33_HelmChart/helmchart.json",            "33_HelmChart/helmchart_positive____.jsonl"            ),
+    "33": ("33_HelmChart/helmchart_.json",           "33_HelmChart/helmchart_positive____.jsonl"            ),
     "34": ("34_Dolittle/merged.json",                "34_Dolittle/merged_positive.jsonl"                    ),
     "35": ("35_Drupal/merged.json",                  "35_Drupal/merged_positive.jsonl"                      ),
     "41": ("41_DeinConfig/deinconfig_tree.json",     "41_DeinConfig/deinconfig_positive.jsonl"              ),
@@ -47,7 +46,6 @@ dataset_to_name = {
     "6": "Wikidata",
     "7": "Yelp",
     "8": "VK",
-    "9": "OpenWeather",
     "12": "Iceberg",
     "13": "Ember",
     "21": "ETH",
@@ -76,8 +74,8 @@ def main(argv):
     if(args.mode == "dataset"):
         datasetInfo(args.num)
     elif(args.mode == "all"):
-        for num in ["1", "3", "4", "5", "6", "7", "8", "9", "12", "13", "21"
-                    "22", "23",
+        for num in ["1", "3", "4", "5", "6", "7", "8", "12", "13", 
+                    "21", "22", "23",
                     "31", "32", "33", "34", "35",
                     "41", "43", "44"]:
             datasetInfo(num)
@@ -90,7 +88,7 @@ def main(argv):
 def datasetInfo(num):
     schema_path, dataset_path = datasets[num]
     # print(dataset_path)
-    directory = "/mnt/SchemaDataset/"
+    directory = "/root/VLDB2024_ReCG/Dataset/"
     schema_path = directory + schema_path
     dataset_path = directory + dataset_path
     

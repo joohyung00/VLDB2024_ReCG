@@ -4,14 +4,14 @@
 
 
 # Configuration directories and files
-SourceDirectory: /root/JsonExplorerSpark/ReCG_TopDown
-BuildDirectory: /root/JsonExplorerSpark/ReCG_TopDown/build-debug
+SourceDirectory: /root/VLDB2024_ReCG/ReCG_TopDown
+BuildDirectory: /root/VLDB2024_ReCG/ReCG_TopDown/build-debug
 
 # Where to place the cost data store
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: 09cfc5619979
+Site: 075e605688ab
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
 BuildName: Linux-c++
@@ -36,7 +36,7 @@ ScpCommand: /usr/bin/scp
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/usr/bin/cmake" "/root/JsonExplorerSpark/ReCG_TopDown"
+ConfigureCommand: "/usr/bin/cmake" "/root/VLDB2024_ReCG/ReCG_TopDown"
 MakeCommand: /usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}" -- -i
 DefaultCTestConfigurationType: Release
 

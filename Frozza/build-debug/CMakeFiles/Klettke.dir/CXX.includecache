@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/root/JsonExplorerSpark/Klettke/ArgParser.hpp
+/root/VLDB2024_ReCG/Klettke/ArgParser.hpp
 utils.hpp
-/root/JsonExplorerSpark/Klettke/utils.hpp
+/root/VLDB2024_ReCG/Klettke/utils.hpp
 
-/root/JsonExplorerSpark/Klettke/EdgeLabelledTree.hpp
+/root/VLDB2024_ReCG/Klettke/EdgeLabelledTree.hpp
 iostream
 -
 string
@@ -30,27 +30,27 @@ stack
 algorithm
 -
 utils.hpp
-/root/JsonExplorerSpark/Klettke/utils.hpp
+/root/VLDB2024_ReCG/Klettke/utils.hpp
 
-/root/JsonExplorerSpark/Klettke/Initiator.hpp
+/root/VLDB2024_ReCG/Klettke/Initiator.hpp
 fstream
 -
 iostream
 -
 Instance.hpp
-/root/JsonExplorerSpark/Klettke/Instance.hpp
+/root/VLDB2024_ReCG/Klettke/Instance.hpp
 simdjson.h
-/root/JsonExplorerSpark/Klettke/simdjson.h
+/root/VLDB2024_ReCG/Klettke/simdjson.h
 
-/root/JsonExplorerSpark/Klettke/Instance.hpp
+/root/VLDB2024_ReCG/Klettke/Instance.hpp
 Schema.hpp
-/root/JsonExplorerSpark/Klettke/Schema.hpp
+/root/VLDB2024_ReCG/Klettke/Schema.hpp
 
-/root/JsonExplorerSpark/Klettke/Klettke.cpp
+/root/VLDB2024_ReCG/Klettke/Klettke.cpp
 Klettke.hpp
-/root/JsonExplorerSpark/Klettke/Klettke.hpp
+/root/VLDB2024_ReCG/Klettke/Klettke.hpp
 
-/root/JsonExplorerSpark/Klettke/Klettke.hpp
+/root/VLDB2024_ReCG/Klettke/Klettke.hpp
 string
 -
 fstream
@@ -58,33 +58,33 @@ fstream
 chrono
 -
 Initiator.hpp
-/root/JsonExplorerSpark/Klettke/Initiator.hpp
+/root/VLDB2024_ReCG/Klettke/Initiator.hpp
 ReducedSGConstructor.hpp
-/root/JsonExplorerSpark/Klettke/ReducedSGConstructor.hpp
+/root/VLDB2024_ReCG/Klettke/ReducedSGConstructor.hpp
 Schema.hpp
-/root/JsonExplorerSpark/Klettke/Schema.hpp
+/root/VLDB2024_ReCG/Klettke/Schema.hpp
 utils.hpp
-/root/JsonExplorerSpark/Klettke/utils.hpp
+/root/VLDB2024_ReCG/Klettke/utils.hpp
 
-/root/JsonExplorerSpark/Klettke/ReducedSGConstructor.cpp
+/root/VLDB2024_ReCG/Klettke/ReducedSGConstructor.cpp
 ReducedSGConstructor.hpp
-/root/JsonExplorerSpark/Klettke/ReducedSGConstructor.hpp
+/root/VLDB2024_ReCG/Klettke/ReducedSGConstructor.hpp
 
-/root/JsonExplorerSpark/Klettke/ReducedSGConstructor.hpp
+/root/VLDB2024_ReCG/Klettke/ReducedSGConstructor.hpp
 Instance.hpp
-/root/JsonExplorerSpark/Klettke/Instance.hpp
+/root/VLDB2024_ReCG/Klettke/Instance.hpp
 
-/root/JsonExplorerSpark/Klettke/Schema.hpp
+/root/VLDB2024_ReCG/Klettke/Schema.hpp
 EdgeLabelledTree.hpp
-/root/JsonExplorerSpark/Klettke/EdgeLabelledTree.hpp
+/root/VLDB2024_ReCG/Klettke/EdgeLabelledTree.hpp
 
-/root/JsonExplorerSpark/Klettke/main.cpp
+/root/VLDB2024_ReCG/Klettke/main.cpp
 Klettke.hpp
-/root/JsonExplorerSpark/Klettke/Klettke.hpp
+/root/VLDB2024_ReCG/Klettke/Klettke.hpp
 ArgParser.hpp
-/root/JsonExplorerSpark/Klettke/ArgParser.hpp
+/root/VLDB2024_ReCG/Klettke/ArgParser.hpp
 
-/root/JsonExplorerSpark/Klettke/roaring.h
+/root/VLDB2024_ReCG/Klettke/roaring.h
 stdbool.h
 -
 stdint.h
@@ -168,9 +168,9 @@ stddef.h
 stddef.h
 -
 
-/root/JsonExplorerSpark/Klettke/simdjson.h
+/root/VLDB2024_ReCG/Klettke/simdjson.h
 simdjson.h
-/root/JsonExplorerSpark/Klettke/simdjson.h
+/root/VLDB2024_ReCG/Klettke/simdjson.h
 cassert
 -
 cstddef
@@ -420,7 +420,7 @@ limits
 stdexcept
 -
 
-/root/JsonExplorerSpark/Klettke/utils.hpp
+/root/VLDB2024_ReCG/Klettke/utils.hpp
 string
 -
 cstdint
@@ -448,5 +448,5 @@ cassert
 stdexcept
 -
 roaring.h
-/root/JsonExplorerSpark/Klettke/roaring.h
+/root/VLDB2024_ReCG/Klettke/roaring.h
 

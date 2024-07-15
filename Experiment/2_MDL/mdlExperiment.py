@@ -12,7 +12,7 @@ from jsonschema import validate
 import jsonschema
 from jsonschema.exceptions import ValidationError
 
-sys.path.insert(1, '/root/JsonExplorerSpark/Experiment')
+sys.path.insert(1, '/root/VLDB2024_ReCG/Experiment')
 from load_json import load_dataset, load_schema, count_lines, unreference_schema
 
 from sklearn.metrics import recall_score, precision_score, f1_score
@@ -81,27 +81,27 @@ dataset_to_name = \
 
 schemaname_to_gtpath = \
 {
-    "1_NewYorkTimes"        : "/mnt/SchemaDataset/1_NewYorkTimes/new_york_times.json",
-    "3_Twitter"             : "/mnt/SchemaDataset/3_Twitter/twitter_old.json",
-    "4_Github"              : "/mnt/SchemaDataset/4_Github/merged.json",
-    "5_Pharmaceutical"      : "/mnt/SchemaDataset/5_Pharmaceutical/pharmaceutical.json",
-    "6_Wikidata"            : "/mnt/SchemaDataset/6_Wikidata/wikidata.json",
-    "7_Yelp"                : "/mnt/SchemaDataset/7_Yelp/merged.json",
-    "8_VK"                  : "/mnt/SchemaDataset/8_VK/vk.json",
-    "9_OpenWeather"         : "/mnt/SchemaDataset/9_OpenWeather/open_weather.json",
-    "12_Iceberg"            : "/mnt/SchemaDataset/12_Iceberg/iceberg.json",
-    "13_Ember"              : "/mnt/SchemaDataset/13_Ember/ember.json",
-    "21_ETH"                : "/mnt/SchemaDataset/21_ETH/merged.json",
-    "22_GeoJSON"            : "/mnt/SchemaDataset/22_GeoJSON/merged.json",
-    "23_MoviesInThailand"   : "/mnt/SchemaDataset/23_MoviesInThailand/merged.json",
-    "31_RedDiscordBot"      : "/mnt/SchemaDataset/31_RedDiscordBot/red_discordbot.json",
-    "32_Adonisrc"           : "/mnt/SchemaDataset/32_Adonisrc/adonisrc.json",
-    "33_HelmChart"          : "/mnt/SchemaDataset/33_HelmChart/helmchart_.json",
-    "34_Dolittle"           : "/mnt/SchemaDataset/34_Dolittle/merged.json",
-    "35_Drupal"             : "/mnt/SchemaDataset/35_Drupal/merged.json",
-    "41_DeinConfig"         : "/mnt/SchemaDataset/41_DeinConfig/deinconfig_tree.json",
-    "43_Ecosystem"          : "/mnt/SchemaDataset/43_Ecosystem/ecosystem_tree.json",
-    "44_Plagiarize"         : "/mnt/SchemaDataset/44_Plagiarize/plagiarize.json"
+    "1_NewYorkTimes"        : "/root/VLDB2024_ReCG/Dataset/1_NewYorkTimes/new_york_times.json",
+    "3_Twitter"             : "/root/VLDB2024_ReCG/Dataset/3_Twitter/twitter_old.json",
+    "4_Github"              : "/root/VLDB2024_ReCG/Dataset/4_Github/merged.json",
+    "5_Pharmaceutical"      : "/root/VLDB2024_ReCG/Dataset/5_Pharmaceutical/pharmaceutical.json",
+    "6_Wikidata"            : "/root/VLDB2024_ReCG/Dataset/6_Wikidata/wikidata.json",
+    "7_Yelp"                : "/root/VLDB2024_ReCG/Dataset/7_Yelp/merged.json",
+    "8_VK"                  : "/root/VLDB2024_ReCG/Dataset/8_VK/vk.json",
+    "9_OpenWeather"         : "/root/VLDB2024_ReCG/Dataset/9_OpenWeather/open_weather.json",
+    "12_Iceberg"            : "/root/VLDB2024_ReCG/Dataset/12_Iceberg/iceberg.json",
+    "13_Ember"              : "/root/VLDB2024_ReCG/Dataset/13_Ember/ember.json",
+    "21_ETH"                : "/root/VLDB2024_ReCG/Dataset/21_ETH/merged.json",
+    "22_GeoJSON"            : "/root/VLDB2024_ReCG/Dataset/22_GeoJSON/merged.json",
+    "23_MoviesInThailand"   : "/root/VLDB2024_ReCG/Dataset/23_MoviesInThailand/merged.json",
+    "31_RedDiscordBot"      : "/root/VLDB2024_ReCG/Dataset/31_RedDiscordBot/red_discordbot.json",
+    "32_Adonisrc"           : "/root/VLDB2024_ReCG/Dataset/32_Adonisrc/adonisrc.json",
+    "33_HelmChart"          : "/root/VLDB2024_ReCG/Dataset/33_HelmChart/helmchart_.json",
+    "34_Dolittle"           : "/root/VLDB2024_ReCG/Dataset/34_Dolittle/merged.json",
+    "35_Drupal"             : "/root/VLDB2024_ReCG/Dataset/35_Drupal/merged.json",
+    "41_DeinConfig"         : "/root/VLDB2024_ReCG/Dataset/41_DeinConfig/deinconfig_tree.json",
+    "43_Ecosystem"          : "/root/VLDB2024_ReCG/Dataset/43_Ecosystem/ecosystem_tree.json",
+    "44_Plagiarize"         : "/root/VLDB2024_ReCG/Dataset/44_Plagiarize/plagiarize.json"
 }
 
 

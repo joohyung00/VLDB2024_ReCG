@@ -1,8 +1,3 @@
-### Example Usage
-# ./experiment_accuracy.sh klettke 7_Yelp /mnt/SchemaDataset/7_Yelp/merged_positive.jsonl /mnt/SchemaDataset/7_Yelp/merged_negative.jsonl 10 10 1
-# ./experiment_accuracy.sh klettke 6_Wikidata /mnt/SchemaDataset/6_Wikidata/wikidata_positive.jsonl /mnt/SchemaDataset/6_Wikidata/wikidata_negative.jsonl 1 10 1
-
-
 algorithm=$1
 dataset_name=$2
 positive=$3
@@ -11,7 +6,6 @@ train_perc=$5
 test_perc=$6
 experiment_num=$7
 run_mode=$8
-operation_num=$9
 
 ## Default Parameters for ReCG
 beam_width="3"
@@ -52,25 +46,25 @@ python3 ../split_dataset.py --mode recall_precision --test_num $experiment_num -
 if [ $algorithm = "ReCG" ]
 then
     echo ${experiment_description}" Running ReCG"
-    /root/JsonExplorerSpark/ReCG/build/ReCG --in_path $train_path --out_path $discovered_schema --search_alg kbeam --beam_width $beam_width --epsilon $epsilon --min_pts_perc $min_pts_perc --sample_size $sample_size
+    /root/VLDB2024_ReCG/ReCG/build/ReCG --in_path $train_path --out_path $discovered_schema --search_alg kbeam --beam_width $beam_width --epsilon $epsilon --min_pts_perc $min_pts_perc --sample_size $sample_size
 fi
 
 if [ $algorithm = "ReCG(TopDown)" ]
 then
     echo ${experiment_description}" Running ReCG"
-    /root/JsonExplorerSpark/ReCG_TopDown/build/ReCG_TopDown --in_path $train_path --out_path $discovered_schema --search_alg kbeam --beam_width $beam_width --epsilon $epsilon --min_pts_perc $min_pts_perc --sample_size $sample_size
+    /root/VLDB2024_ReCG/ReCG_TopDown/build/ReCG_TopDown --in_path $train_path --out_path $discovered_schema --search_alg kbeam --beam_width $beam_width --epsilon $epsilon --min_pts_perc $min_pts_perc --sample_size $sample_size
 fi
 
 if [ $algorithm = "ReCG(KSE)" ]
 then
     echo ${experiment_description}" Running ReCG"
-    /root/JsonExplorerSpark/ReCG/build/ReCG --in_path $train_path --out_path $discovered_schema --search_alg kbeam --beam_width $beam_width --epsilon $epsilon --min_pts_perc $min_pts_perc --sample_size $sample_size --cost_model kse
+    /root/VLDB2024_ReCG/ReCG/build/ReCG --in_path $train_path --out_path $discovered_schema --search_alg kbeam --beam_width $beam_width --epsilon $epsilon --min_pts_perc $min_pts_perc --sample_size $sample_size --cost_model kse
 fi
 
 if [ $algorithm = "jxplain" ]
 then
     echo ${experiment_description}" Running JXPlain"
-    java -jar /root/JsonExplorerSpark/target/scala-2.11/JsonExtractor.jar $train_path train 100 val 0 kse 1.0 log $discovered_schema
+    java -jar /root/VLDB2024_ReCG/target/scala-2.11/JsonExtractor.jar $train_path train 100 val 0 kse 1.0 log $discovered_schema
 
     echo ${experiment_description}" Correcting JXPlain"
     python3 ../jxplain_translator.py --in_path $discovered_schema --out_path $discovered_schema
@@ -79,13 +73,13 @@ fi
 if [ $algorithm = "jxplainII" ]
 then
     echo ${experiment_description}" Running JXPlain II"
-    python3 /root/JsonExplorerSpark/JXPlain/main.py --data_path $train_path --train_ratio 100 --kse 1.0 --log $discovered_schema --te "type_entropy"
+    python3 /root/VLDB2024_ReCG/JXPlain/main.py --data_path $train_path --train_ratio 100 --kse 1.0 --log $discovered_schema --te "type_entropy"
 fi
 
 if [ $algorithm = "kreduce" ]
 then
     echo ${experiment_description}" Running KReduce"
-    scala /root/JsonExplorerSpark/target_KREDUCE/scala-2.11/jsonSchemaInferenceLight-assembly-1.0.jar $train_path k -J-Xms2g -J-Xmx512g -J-Xss1g
+    scala /root/VLDB2024_ReCG/target_KREDUCE/scala-2.11/jsonSchemaInferenceLight-assembly-1.0.jar $train_path k -J-Xms2g -J-Xmx512g -J-Xss1g
     
     echo ${experiment_description}" Translating KReduce"
     python3 ../kreduce_translator.py --in_path hello.txt --out_path $discovered_schema
@@ -95,7 +89,7 @@ fi
 if [ $algorithm = "lreduce" ]
 then
     echo ${experiment_description}" Running LReduce"
-    scala /root/JsonExplorerSpark/target_KREDUCE/scala-2.11/jsonSchemaInferenceLight-assembly-1.0.jar $train_path l -J-Xms2g -J-Xmx512g -J-Xss1g
+    scala /root/VLDB2024_ReCG/target_KREDUCE/scala-2.11/jsonSchemaInferenceLight-assembly-1.0.jar $train_path l -J-Xms2g -J-Xmx512g -J-Xss1g
     
     echo ${experiment_description}" Translating LReduce"
     python3 ../kreduce_translator.py --in_path hello.txt --out_path $discovered_schema
@@ -105,13 +99,13 @@ fi
 if [ $algorithm = "klettke" ]
 then
     echo ${experiment_description}" Running Klettke"
-    /root/JsonExplorerSpark/Klettke/build/Klettke --in_path $train_path --out_path $discovered_schema
+    /root/VLDB2024_ReCG/Klettke/build/Klettke --in_path $train_path --out_path $discovered_schema
 fi
 
 if [ $algorithm = "frozza" ]
 then
     echo ${experiment_description}" Running Frozza"
-    /root/JsonExplorerSpark/Frozza/build/Frozza --in_path $train_path --out_path $discovered_schema
+    /root/VLDB2024_ReCG/Frozza/build/Frozza --in_path $train_path --out_path $discovered_schema
 fi
 
 
@@ -123,7 +117,7 @@ fi
 if [ $run_mode = "real" ]
 then 
     echo ${experiment_description}" Calculating Experiment Results"
-    python3 recall_precision.py --algo $algorithm --dataset $dataset_name --train_perc $train_perc --exp_num $experiment_num --schema_path $discovered_schema --test_path $test_path --operation_num $operation_num 
+    python3 recall_precision.py --algo $algorithm --dataset $dataset_name --train_perc $train_perc --exp_num $experiment_num --schema_path $discovered_schema --test_path $test_path
 fi
 
 

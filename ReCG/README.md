@@ -12,9 +12,9 @@ In addition, `ReCG` adopts MDL (Minimum Description Length) principles systemati
 
 ## Build
 
-Simply build `ReCG` with the following line:
+Simply compile `ReCG` with the following line:
 ```bash
-./make.sh
+./compile.sh
 ```
 
 This compiles both the release mode and the debug mode of `ReCG`.
@@ -23,7 +23,7 @@ This compiles both the release mode and the debug mode of `ReCG`.
 
 You can run `ReCG` in release mode with the following command:
 ```bash
-./root/jsdReCG/ReCG/build/ReCG
+./root/VLDB2024_ReCG/ReCG/build/ReCG
     --in_path [pathToInputFile (.jsonl)]
     --out_path [pathToOutputSchema (.json)]
     --search_alg kbeam
@@ -38,7 +38,7 @@ You can run `ReCG` in release mode with the following command:
 
 You may also run it in the debugging mode with the following command:
 ```bash
-./root/jsdReCG/ReCG/build-debug/ReCG
+./root/VLDB2024_ReCG/ReCG/build-debug/ReCG
     --in_path [pathToInputFile (.jsonl)]
     --out_path [pathToOutputSchema (.json)]
     --search_alg kbeam
@@ -54,7 +54,7 @@ You may also run it in the debugging mode with the following command:
 Example code: try out this one!
 
 ```bash
-./root/jsdReCG/ReCG/build/ReCG
+./root/VLDB2024_ReCG/ReCG/build/ReCG
     --in_path test_data/ckg_node_Amino_acid_sequence.jsonl \
     --out_path something.json \
     --search_alg kbeam \
@@ -66,7 +66,6 @@ Example code: try out this one!
 ```
 
 ## Explanation About Implementation
-
 
 - `ReCG.hpp`, `ReCG.cpp`
 

@@ -1,23 +1,21 @@
 import sys
 
-sys.path.insert(1, "/root/JsonExplorerSpark/Experiment")
+sys.path.insert(1, "/root/VLDB2024_ReCG/Experiment")
 from utils.dataset_metadata import dataset_ids, dataset_id_to_fullname, dataset_id_to_positive_dataset_path
 from load_json import load_dataset
 import json
 from tqdm import tqdm
 import numpy as np
 
-sys.path.insert(1, "/root/JsonExplorerSpark/ExperimentVisualization")
+sys.path.insert(1, "/root/VLDB2024_ReCG/ExperimentVisualization")
 from aggregateExpResults import getRuntimeForAlgPercDataset, getMemoryForAlgPercDataset
 
 
 
-KEYNUM_FILE = "1_distinctKeyNum_per_dataset.json"
-
-RELATIVE_PERFORMANCE_PER_DATASET = "1_relativePerformance_per_dataset.json"
-
-KEYNUM_N_RELRUNTIME_PER_DATASET = "1_relativePerformanceAndKeyNum_per_dataset.json"
-KEYNUM_N_PERFORMANCE_PER_DATASET = "1_PerformanceAndKeyNum_per_dataset.json"
+KEYNUM_FILE                         = "Performance/JxplainAnalysis/1_distinctKeyNum_per_dataset.json"
+RELATIVE_PERFORMANCE_PER_DATASET    = "Performance/JxplainAnalysis/1_relativePerformance_per_dataset.json"
+KEYNUM_N_RELRUNTIME_PER_DATASET     = "Performance/JxplainAnalysis/1_relativePerformanceAndKeyNum_per_dataset.json"
+KEYNUM_N_PERFORMANCE_PER_DATASET    = "Performance/JxplainAnalysis/1_PerformanceAndKeyNum_per_dataset.json"
 
 def main():
     
@@ -59,10 +57,12 @@ def aggregateRelativityAndKeyNum(keynum_file, relativity_file, out_file):
     relativity_and_keynum_per_dataset = {}
     
     for data_name in keynum_per_dataset:
-        if data_name not in relativity_per_dataset: continue
+        data_fullname = dataset_id_to_fullname[data_name]
+        
+        if data_fullname not in relativity_per_dataset: continue
         
         relativity_and_keynum_per_dataset[data_name] = {
-            "relative performance": relativity_per_dataset[data_name],
+            "relative performance": relativity_per_dataset[data_fullname],
             "num of distinct keys": keynum_per_dataset[data_name]
         }
     
@@ -77,15 +77,17 @@ def aggregatePerformanceAndKeyNum(keynum_file, out_file):
     performance_and_keynum_per_dataset = {}
     
     for data_name in keynum_per_dataset:
-        if data_name in ["1_NewYorkTimes", "31_RedDiscordBot", "6_Wikidata", "43_Ecosystem", "44_Plagiarize"]:
+        if data_name in ["1", "31", "6", "43", "44"]:
             continue
+        
+        data_fullname = dataset_id_to_fullname[data_name]
         
         performance_and_keynum_per_dataset[data_name] = {
             "num of distinct keys": keynum_per_dataset[data_name],
-            "relative performance": getRuntimeForAlgPercDataset("jxplain", 100, data_name)
+            "relative performance": getRuntimeForAlgPercDataset("jxplain", 100, data_fullname)
         }
         
-        print(getRuntimeForAlgPercDataset("ReCG", 100, data_name))
+        print(getRuntimeForAlgPercDataset("ReCG", 100, data_fullname))
         
     with open(out_file, "w") as file:
         json.dump(performance_and_keynum_per_dataset, file, indent = 4)

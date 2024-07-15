@@ -1,9 +1,9 @@
 import sys
-sys.path.insert(1, '/root/JsonExplorerSpark/Experiment')
+sys.path.insert(1, '/root/VLDB2024_ReCG/Experiment')
 from load_json import load_dataset, load_schema, count_lines, unreference_schema
-sys.path.insert(2, "/root/JsonExplorerSpark/Experiment/utils")
+sys.path.insert(2, "/root/VLDB2024_ReCG/Experiment/utils")
 from dataset_metadata import dataset_ids, dataset_id_to_fullname, dataset_id_to_positive_dataset_path, dataset_id_to_negative_dataset_path, possible_algorithms
-sys.path.insert(3, "/root/JsonExplorerSpark/ExperimentVisualization")
+sys.path.insert(3, "/root/VLDB2024_ReCG/ExperimentVisualization")
 from aggregateExpResults import getResultForPercParamDatasetExpnum
 
 from itertools import product
@@ -358,25 +358,3 @@ if __name__ == "__main__":
     main()
 
 
-
-# #  #Script                 #Exp_type   #Dataset name          #Positive path                                                           #Negative path                                                             #Train% #Test%  #Beamsize #Samplesize  #Epsilon   #ExpNum
-# ./experiment_param.sh     Accuracy     1_NewYorkTimes          /mnt/SchemaDataset/1_NewYorkTimes/new_york_times_positive.jsonl          /mnt/SchemaDataset/1_NewYorkTimes/new_york_times_negative.jsonl            10      10      1         12           0.5       1
-# ./experiment_param.sh     Accuracy     3_Twitter               /mnt/SchemaDataset/3_Twitter/twitter_positive_10000.jsonl                /mnt/SchemaDataset/3_Twitter/twitter_negative_10000.jsonl                  10      10      1         12           0.5       1
-# ./experiment_param.sh     Accuracy     4_Github                /mnt/SchemaDataset/4_Github/merged_positive.jsonl                        /mnt/SchemaDataset/4_Github/merged_negative.jsonl                          10      10      1         12           0.5       1
-# ./experiment_param.sh     Accuracy     5_Pharmaceutical        /mnt/SchemaDataset/5_Pharmaceutical/pharmaceutical_positive.jsonl        /mnt/SchemaDataset/5_Pharmaceutical/pharmaceutical_negative.jsonl          10      10      1         12           0.5       1
-# ./experiment_param.sh     Accuracy     6_Wikidata              /mnt/SchemaDataset/6_Wikidata/wikidata_positive.jsonl                    /mnt/SchemaDataset/6_Wikidata/wikidata_negative.jsonl                      10      10      1         12           0.5       1
-# ./experiment_param.sh     Accuracy     7_Yelp                  /mnt/SchemaDataset/7_Yelp/merged_positive.jsonl                          /mnt/SchemaDataset/7_Yelp/merged_negative.jsonl                            10      10      1         12           0.5       1
-# ./experiment_param.sh     Accuracy     8_VK                    /mnt/SchemaDataset/8_VK/vk_positive.jsonl                                /mnt/SchemaDataset/8_VK/vk_negative.jsonl                                  10      10      1         12           0.5       1
-# ./experiment_param.sh     Accuracy     12_Iceberg              /mnt/SchemaDataset/12_Iceberg/iceberg_positive.jsonl                     /mnt/SchemaDataset/12_Iceberg/iceberg_negative.jsonl                       10      10      1         12           0.5       1
-# ./experiment_param.sh     Accuracy     13_Ember                /mnt/SchemaDataset/13_Ember/ember_positive.jsonl                         /mnt/SchemaDataset/13_Ember/ember_negative.jsonl                           10      10      1         12           0.5       1
-# ./experiment_param.sh     Accuracy     21_ETH                  /mnt/SchemaDataset/21_ETH/merged_positive.jsonl                          /mnt/SchemaDataset/21_ETH/merged_negative.jsonl                            10      10      1         12           0.5       1
-# ./experiment_param.sh     Accuracy     22_GeoJSON              /mnt/SchemaDataset/22_GeoJSON/merged_positive.jsonl                      /mnt/SchemaDataset/22_GeoJSON/merged_negative.jsonl                        10      10      1         12           0.5       1
-# ./experiment_param.sh     Accuracy     23_MoviesInThailand     /mnt/SchemaDataset/23_MoviesInThailand/merged_positive.jsonl             /mnt/SchemaDataset/23_MoviesInThailand/merged_negative.jsonl               10      10      1         12           0.5       1
-# ./experiment_param.sh     Accuracy     31_RedDiscordBot        /mnt/SchemaDataset/31_RedDiscordBot/red_discordbot_positive____.jsonl    /mnt/SchemaDataset/31_RedDiscordBot/red_discordbot_negative____.jsonl      10      10      1         12           0.5       1
-# ./experiment_param.sh     Accuracy     32_Adonisrc             /mnt/SchemaDataset/32_Adonisrc/adonisrc_positive____.jsonl               /mnt/SchemaDataset/32_Adonisrc/adonisrc_negative____.jsonl                 10      10      1         12           0.5       1
-# ./experiment_param.sh     Accuracy     33_HelmChart            /mnt/SchemaDataset/33_HelmChart/helmchart_positive____.jsonl             /mnt/SchemaDataset/33_HelmChart/helmchart_negative____.jsonl               10      10      1         12           0.5       1
-# ./experiment_param.sh     Accuracy     34_Dolittle             /mnt/SchemaDataset/34_Dolittle/merged_positive.jsonl                     /mnt/SchemaDataset/34_Dolittle/merged_negative.jsonl                       10      10      1         12           0.5       1
-# ./experiment_param.sh     Accuracy     35_Drupal               /mnt/SchemaDataset/35_Drupal/merged_positive.jsonl                       /mnt/SchemaDataset/35_Drupal/merged_negative.jsonl                         10      10      1         12           0.5       1
-# ./experiment_param.sh     Accuracy     41_DeinConfig           /mnt/SchemaDataset/41_DeinConfig/deinconfig_positive.jsonl               /mnt/SchemaDataset/41_DeinConfig/deinconfig_negative.jsonl                 10      10      1         12           0.5       1
-# ./experiment_param.sh     Accuracy     43_Ecosystem            /mnt/SchemaDataset/43_Ecosystem/ecosystem_positive.jsonl                 /mnt/SchemaDataset/43_Ecosystem/ecosystem_negative.jsonl                   10      10      1         12           0.5       1
-# ./experiment_param.sh     Accuracy     44_Plagiarize           /mnt/SchemaDataset/44_Plagiarize/plagiarize_positive.jsonl               /mnt/SchemaDataset/44_Plagiarize/plagiarize_negative.jsonl                 10      10      1         12           0.5       1

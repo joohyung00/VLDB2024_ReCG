@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/JsonExplorerSpark/Klettke
+CMAKE_SOURCE_DIR = /root/VLDB2024_ReCG/Klettke
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/JsonExplorerSpark/Klettke/build-debug
+CMAKE_BINARY_DIR = /root/VLDB2024_ReCG/Klettke/build-debug
 
 # Utility rule file for ExperimentalTest.
 
@@ -71,6 +71,6 @@ CMakeFiles/ExperimentalTest.dir/clean:
 .PHONY : CMakeFiles/ExperimentalTest.dir/clean
 
 CMakeFiles/ExperimentalTest.dir/depend:
-	cd /root/JsonExplorerSpark/Klettke/build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/JsonExplorerSpark/Klettke /root/JsonExplorerSpark/Klettke /root/JsonExplorerSpark/Klettke/build-debug /root/JsonExplorerSpark/Klettke/build-debug /root/JsonExplorerSpark/Klettke/build-debug/CMakeFiles/ExperimentalTest.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/VLDB2024_ReCG/Klettke/build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/VLDB2024_ReCG/Klettke /root/VLDB2024_ReCG/Klettke /root/VLDB2024_ReCG/Klettke/build-debug /root/VLDB2024_ReCG/Klettke/build-debug /root/VLDB2024_ReCG/Klettke/build-debug/CMakeFiles/ExperimentalTest.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ExperimentalTest.dir/depend
 

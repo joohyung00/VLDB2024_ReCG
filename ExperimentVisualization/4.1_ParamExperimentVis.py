@@ -6,7 +6,7 @@ import matplotlib
 import argparse
 import sys
 from pltUtils import dataset_nums, dataset_to_name
-sys.path.insert(1, "/root/JsonExplorerSpark/Experiment/utils")
+sys.path.insert(1, "/root/VLDB2024_ReCG/Experiment/utils")
 from dataset_metadata import num_to_name
 from aggregateExpResults import PARAM_EXP, getResultForPercParamDataset, getResultForPercParam
 
@@ -14,7 +14,7 @@ from aggregateExpResults import PARAM_EXP, getResultForPercParamDataset, getResu
 
 PARAM_EXP = {
     "exp_type": "Parameter",
-    "result_path": "/root/JsonExplorerSpark/Experiment/exp4_param.txt",
+    "result_path": "/root/VLDB2024_ReCG/Experiment/exp4_param.txt",
     "train_percs" : [10, 40, 50, 60, 80, 90, 100],
     
     "param_name_to_values": {
@@ -36,7 +36,7 @@ PARAM_EXP = {
 }  
 
 
-FILENAME = "/root/JsonExplorerSpark/Experiment/exp_param.txt"
+FILENAME = "/root/VLDB2024_ReCG/Experiment/exp_param.txt"
 
 FIG_WIDTH = 6
 FIG_HEIGHT = 2.5
@@ -289,9 +289,9 @@ def main(argv):
         plt.bar(x_bar_start + bar_width,      recalls,    bar_width,  color = "gray",  edgecolor = "black", label = "Recall")
         plt.bar(x_bar_start + bar_width * 2,  precisions, bar_width,  color = "white", edgecolor = "black", label = "Precision")
     
-    print(recalls)
-    print(precisions)
-    print(f1s)
+    # print(recalls)
+    # print(precisions)
+    # print(f1s)
     
     
     # 4. Ticks and Labels
@@ -346,8 +346,8 @@ def main(argv):
         
         _, _, _, _, src, drc, _ = getResultForPercParam(argExpToParamName(args.exp), acc_train_perc, param_val, cvd)
         
-        print("SRC: ", src)
-        print("DRC: ", drc)
+        # print("SRC: ", src)
+        # print("DRC: ", drc)
         
         srcs.append(src)
         drcs.append(drc)

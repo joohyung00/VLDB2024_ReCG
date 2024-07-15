@@ -1,7 +1,7 @@
 import sys
-sys.path.insert(1, '/root/JsonExplorerSpark/Experiment')
+sys.path.insert(1, '/root/VLDB2024_ReCG/Experiment')
 from load_json import load_dataset, load_schema, count_lines, unreference_schema
-sys.path.insert(2, "/root/JsonExplorerSpark/Experiment/utils")
+sys.path.insert(2, "/root/VLDB2024_ReCG/Experiment/utils")
 from dataset_metadata import dataset_ids, dataset_id_to_fullname, dataset_id_to_positive_dataset_path, dataset_id_to_negative_dataset_path, possible_algorithms, isRunnableExperiment
 
 from itertools import product
@@ -107,7 +107,6 @@ def runSingleExperimentSet(exp_config):
             "10",
             exp_num
         ]
-        # ./experiment_performance.sh ReCG 7_Yelp /mnt/SchemaDataset/7_Yelp/merged_positive.jsonl  /mnt/SchemaDataset/7_Yelp/merged_negative.jsonl 10 10 1
         
         if isRunnableExperiment(target_algorithm, dataset_name, train_percent):
             try:

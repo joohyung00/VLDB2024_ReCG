@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/JsonExplorerSpark/Frozza
+CMAKE_SOURCE_DIR = /root/VLDB2024_ReCG/Frozza
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/JsonExplorerSpark/Frozza/build-debug
+CMAKE_BINARY_DIR = /root/VLDB2024_ReCG/Frozza/build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Frozza.dir/depend.make
@@ -59,159 +59,159 @@ include CMakeFiles/Frozza.dir/flags.make
 
 CMakeFiles/Frozza.dir/main.cpp.o: CMakeFiles/Frozza.dir/flags.make
 CMakeFiles/Frozza.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/Frozza/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Frozza.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Frozza.dir/main.cpp.o -c /root/JsonExplorerSpark/Frozza/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/Frozza/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Frozza.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Frozza.dir/main.cpp.o -c /root/VLDB2024_ReCG/Frozza/main.cpp
 
 CMakeFiles/Frozza.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Frozza.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/Frozza/main.cpp > CMakeFiles/Frozza.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/Frozza/main.cpp > CMakeFiles/Frozza.dir/main.cpp.i
 
 CMakeFiles/Frozza.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Frozza.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/Frozza/main.cpp -o CMakeFiles/Frozza.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/Frozza/main.cpp -o CMakeFiles/Frozza.dir/main.cpp.s
 
 CMakeFiles/Frozza.dir/Darwin.cpp.o: CMakeFiles/Frozza.dir/flags.make
 CMakeFiles/Frozza.dir/Darwin.cpp.o: ../Darwin.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/Frozza/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Frozza.dir/Darwin.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Frozza.dir/Darwin.cpp.o -c /root/JsonExplorerSpark/Frozza/Darwin.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/Frozza/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Frozza.dir/Darwin.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Frozza.dir/Darwin.cpp.o -c /root/VLDB2024_ReCG/Frozza/Darwin.cpp
 
 CMakeFiles/Frozza.dir/Darwin.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Frozza.dir/Darwin.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/Frozza/Darwin.cpp > CMakeFiles/Frozza.dir/Darwin.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/Frozza/Darwin.cpp > CMakeFiles/Frozza.dir/Darwin.cpp.i
 
 CMakeFiles/Frozza.dir/Darwin.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Frozza.dir/Darwin.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/Frozza/Darwin.cpp -o CMakeFiles/Frozza.dir/Darwin.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/Frozza/Darwin.cpp -o CMakeFiles/Frozza.dir/Darwin.cpp.s
 
 CMakeFiles/Frozza.dir/Initiator.cpp.o: CMakeFiles/Frozza.dir/flags.make
 CMakeFiles/Frozza.dir/Initiator.cpp.o: ../Initiator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/Frozza/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Frozza.dir/Initiator.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Frozza.dir/Initiator.cpp.o -c /root/JsonExplorerSpark/Frozza/Initiator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/Frozza/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Frozza.dir/Initiator.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Frozza.dir/Initiator.cpp.o -c /root/VLDB2024_ReCG/Frozza/Initiator.cpp
 
 CMakeFiles/Frozza.dir/Initiator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Frozza.dir/Initiator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/Frozza/Initiator.cpp > CMakeFiles/Frozza.dir/Initiator.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/Frozza/Initiator.cpp > CMakeFiles/Frozza.dir/Initiator.cpp.i
 
 CMakeFiles/Frozza.dir/Initiator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Frozza.dir/Initiator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/Frozza/Initiator.cpp -o CMakeFiles/Frozza.dir/Initiator.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/Frozza/Initiator.cpp -o CMakeFiles/Frozza.dir/Initiator.cpp.s
 
 CMakeFiles/Frozza.dir/RSUSConstructor.cpp.o: CMakeFiles/Frozza.dir/flags.make
 CMakeFiles/Frozza.dir/RSUSConstructor.cpp.o: ../RSUSConstructor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/Frozza/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Frozza.dir/RSUSConstructor.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Frozza.dir/RSUSConstructor.cpp.o -c /root/JsonExplorerSpark/Frozza/RSUSConstructor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/Frozza/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Frozza.dir/RSUSConstructor.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Frozza.dir/RSUSConstructor.cpp.o -c /root/VLDB2024_ReCG/Frozza/RSUSConstructor.cpp
 
 CMakeFiles/Frozza.dir/RSUSConstructor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Frozza.dir/RSUSConstructor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/Frozza/RSUSConstructor.cpp > CMakeFiles/Frozza.dir/RSUSConstructor.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/Frozza/RSUSConstructor.cpp > CMakeFiles/Frozza.dir/RSUSConstructor.cpp.i
 
 CMakeFiles/Frozza.dir/RSUSConstructor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Frozza.dir/RSUSConstructor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/Frozza/RSUSConstructor.cpp -o CMakeFiles/Frozza.dir/RSUSConstructor.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/Frozza/RSUSConstructor.cpp -o CMakeFiles/Frozza.dir/RSUSConstructor.cpp.s
 
 CMakeFiles/Frozza.dir/RawSchemaAggregator.cpp.o: CMakeFiles/Frozza.dir/flags.make
 CMakeFiles/Frozza.dir/RawSchemaAggregator.cpp.o: ../RawSchemaAggregator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/Frozza/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Frozza.dir/RawSchemaAggregator.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Frozza.dir/RawSchemaAggregator.cpp.o -c /root/JsonExplorerSpark/Frozza/RawSchemaAggregator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/Frozza/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Frozza.dir/RawSchemaAggregator.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Frozza.dir/RawSchemaAggregator.cpp.o -c /root/VLDB2024_ReCG/Frozza/RawSchemaAggregator.cpp
 
 CMakeFiles/Frozza.dir/RawSchemaAggregator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Frozza.dir/RawSchemaAggregator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/Frozza/RawSchemaAggregator.cpp > CMakeFiles/Frozza.dir/RawSchemaAggregator.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/Frozza/RawSchemaAggregator.cpp > CMakeFiles/Frozza.dir/RawSchemaAggregator.cpp.i
 
 CMakeFiles/Frozza.dir/RawSchemaAggregator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Frozza.dir/RawSchemaAggregator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/Frozza/RawSchemaAggregator.cpp -o CMakeFiles/Frozza.dir/RawSchemaAggregator.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/Frozza/RawSchemaAggregator.cpp -o CMakeFiles/Frozza.dir/RawSchemaAggregator.cpp.s
 
 CMakeFiles/Frozza.dir/RawSchemaConstructor.cpp.o: CMakeFiles/Frozza.dir/flags.make
 CMakeFiles/Frozza.dir/RawSchemaConstructor.cpp.o: ../RawSchemaConstructor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/Frozza/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Frozza.dir/RawSchemaConstructor.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Frozza.dir/RawSchemaConstructor.cpp.o -c /root/JsonExplorerSpark/Frozza/RawSchemaConstructor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/Frozza/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Frozza.dir/RawSchemaConstructor.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Frozza.dir/RawSchemaConstructor.cpp.o -c /root/VLDB2024_ReCG/Frozza/RawSchemaConstructor.cpp
 
 CMakeFiles/Frozza.dir/RawSchemaConstructor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Frozza.dir/RawSchemaConstructor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/Frozza/RawSchemaConstructor.cpp > CMakeFiles/Frozza.dir/RawSchemaConstructor.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/Frozza/RawSchemaConstructor.cpp > CMakeFiles/Frozza.dir/RawSchemaConstructor.cpp.i
 
 CMakeFiles/Frozza.dir/RawSchemaConstructor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Frozza.dir/RawSchemaConstructor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/Frozza/RawSchemaConstructor.cpp -o CMakeFiles/Frozza.dir/RawSchemaConstructor.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/Frozza/RawSchemaConstructor.cpp -o CMakeFiles/Frozza.dir/RawSchemaConstructor.cpp.s
 
 CMakeFiles/Frozza.dir/Instance.cpp.o: CMakeFiles/Frozza.dir/flags.make
 CMakeFiles/Frozza.dir/Instance.cpp.o: ../Instance.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/Frozza/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Frozza.dir/Instance.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Frozza.dir/Instance.cpp.o -c /root/JsonExplorerSpark/Frozza/Instance.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/Frozza/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Frozza.dir/Instance.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Frozza.dir/Instance.cpp.o -c /root/VLDB2024_ReCG/Frozza/Instance.cpp
 
 CMakeFiles/Frozza.dir/Instance.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Frozza.dir/Instance.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/Frozza/Instance.cpp > CMakeFiles/Frozza.dir/Instance.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/Frozza/Instance.cpp > CMakeFiles/Frozza.dir/Instance.cpp.i
 
 CMakeFiles/Frozza.dir/Instance.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Frozza.dir/Instance.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/Frozza/Instance.cpp -o CMakeFiles/Frozza.dir/Instance.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/Frozza/Instance.cpp -o CMakeFiles/Frozza.dir/Instance.cpp.s
 
 CMakeFiles/Frozza.dir/Schema.cpp.o: CMakeFiles/Frozza.dir/flags.make
 CMakeFiles/Frozza.dir/Schema.cpp.o: ../Schema.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/Frozza/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Frozza.dir/Schema.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Frozza.dir/Schema.cpp.o -c /root/JsonExplorerSpark/Frozza/Schema.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/Frozza/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Frozza.dir/Schema.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Frozza.dir/Schema.cpp.o -c /root/VLDB2024_ReCG/Frozza/Schema.cpp
 
 CMakeFiles/Frozza.dir/Schema.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Frozza.dir/Schema.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/Frozza/Schema.cpp > CMakeFiles/Frozza.dir/Schema.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/Frozza/Schema.cpp > CMakeFiles/Frozza.dir/Schema.cpp.i
 
 CMakeFiles/Frozza.dir/Schema.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Frozza.dir/Schema.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/Frozza/Schema.cpp -o CMakeFiles/Frozza.dir/Schema.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/Frozza/Schema.cpp -o CMakeFiles/Frozza.dir/Schema.cpp.s
 
 CMakeFiles/Frozza.dir/EdgeLabelledTree.cpp.o: CMakeFiles/Frozza.dir/flags.make
 CMakeFiles/Frozza.dir/EdgeLabelledTree.cpp.o: ../EdgeLabelledTree.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/Frozza/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Frozza.dir/EdgeLabelledTree.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Frozza.dir/EdgeLabelledTree.cpp.o -c /root/JsonExplorerSpark/Frozza/EdgeLabelledTree.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/Frozza/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Frozza.dir/EdgeLabelledTree.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Frozza.dir/EdgeLabelledTree.cpp.o -c /root/VLDB2024_ReCG/Frozza/EdgeLabelledTree.cpp
 
 CMakeFiles/Frozza.dir/EdgeLabelledTree.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Frozza.dir/EdgeLabelledTree.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/Frozza/EdgeLabelledTree.cpp > CMakeFiles/Frozza.dir/EdgeLabelledTree.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/Frozza/EdgeLabelledTree.cpp > CMakeFiles/Frozza.dir/EdgeLabelledTree.cpp.i
 
 CMakeFiles/Frozza.dir/EdgeLabelledTree.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Frozza.dir/EdgeLabelledTree.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/Frozza/EdgeLabelledTree.cpp -o CMakeFiles/Frozza.dir/EdgeLabelledTree.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/Frozza/EdgeLabelledTree.cpp -o CMakeFiles/Frozza.dir/EdgeLabelledTree.cpp.s
 
 CMakeFiles/Frozza.dir/utils.cpp.o: CMakeFiles/Frozza.dir/flags.make
 CMakeFiles/Frozza.dir/utils.cpp.o: ../utils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/Frozza/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Frozza.dir/utils.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Frozza.dir/utils.cpp.o -c /root/JsonExplorerSpark/Frozza/utils.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/Frozza/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Frozza.dir/utils.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Frozza.dir/utils.cpp.o -c /root/VLDB2024_ReCG/Frozza/utils.cpp
 
 CMakeFiles/Frozza.dir/utils.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Frozza.dir/utils.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/Frozza/utils.cpp > CMakeFiles/Frozza.dir/utils.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/Frozza/utils.cpp > CMakeFiles/Frozza.dir/utils.cpp.i
 
 CMakeFiles/Frozza.dir/utils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Frozza.dir/utils.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/Frozza/utils.cpp -o CMakeFiles/Frozza.dir/utils.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/Frozza/utils.cpp -o CMakeFiles/Frozza.dir/utils.cpp.s
 
 CMakeFiles/Frozza.dir/simdjson.cpp.o: CMakeFiles/Frozza.dir/flags.make
 CMakeFiles/Frozza.dir/simdjson.cpp.o: ../simdjson.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/Frozza/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Frozza.dir/simdjson.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Frozza.dir/simdjson.cpp.o -c /root/JsonExplorerSpark/Frozza/simdjson.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/Frozza/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Frozza.dir/simdjson.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Frozza.dir/simdjson.cpp.o -c /root/VLDB2024_ReCG/Frozza/simdjson.cpp
 
 CMakeFiles/Frozza.dir/simdjson.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Frozza.dir/simdjson.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/JsonExplorerSpark/Frozza/simdjson.cpp > CMakeFiles/Frozza.dir/simdjson.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/VLDB2024_ReCG/Frozza/simdjson.cpp > CMakeFiles/Frozza.dir/simdjson.cpp.i
 
 CMakeFiles/Frozza.dir/simdjson.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Frozza.dir/simdjson.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/JsonExplorerSpark/Frozza/simdjson.cpp -o CMakeFiles/Frozza.dir/simdjson.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/VLDB2024_ReCG/Frozza/simdjson.cpp -o CMakeFiles/Frozza.dir/simdjson.cpp.s
 
 CMakeFiles/Frozza.dir/roaring.c.o: CMakeFiles/Frozza.dir/flags.make
 CMakeFiles/Frozza.dir/roaring.c.o: ../roaring.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/JsonExplorerSpark/Frozza/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/Frozza.dir/roaring.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Frozza.dir/roaring.c.o   -c /root/JsonExplorerSpark/Frozza/roaring.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/VLDB2024_ReCG/Frozza/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/Frozza.dir/roaring.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Frozza.dir/roaring.c.o   -c /root/VLDB2024_ReCG/Frozza/roaring.c
 
 CMakeFiles/Frozza.dir/roaring.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Frozza.dir/roaring.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /root/JsonExplorerSpark/Frozza/roaring.c > CMakeFiles/Frozza.dir/roaring.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /root/VLDB2024_ReCG/Frozza/roaring.c > CMakeFiles/Frozza.dir/roaring.c.i
 
 CMakeFiles/Frozza.dir/roaring.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Frozza.dir/roaring.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /root/JsonExplorerSpark/Frozza/roaring.c -o CMakeFiles/Frozza.dir/roaring.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /root/VLDB2024_ReCG/Frozza/roaring.c -o CMakeFiles/Frozza.dir/roaring.c.s
 
 # Object files for target Frozza
 Frozza_OBJECTS = \
@@ -245,7 +245,7 @@ Frozza: CMakeFiles/Frozza.dir/simdjson.cpp.o
 Frozza: CMakeFiles/Frozza.dir/roaring.c.o
 Frozza: CMakeFiles/Frozza.dir/build.make
 Frozza: CMakeFiles/Frozza.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/root/JsonExplorerSpark/Frozza/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable Frozza"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/root/VLDB2024_ReCG/Frozza/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable Frozza"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Frozza.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -258,6 +258,6 @@ CMakeFiles/Frozza.dir/clean:
 .PHONY : CMakeFiles/Frozza.dir/clean
 
 CMakeFiles/Frozza.dir/depend:
-	cd /root/JsonExplorerSpark/Frozza/build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/JsonExplorerSpark/Frozza /root/JsonExplorerSpark/Frozza /root/JsonExplorerSpark/Frozza/build-debug /root/JsonExplorerSpark/Frozza/build-debug /root/JsonExplorerSpark/Frozza/build-debug/CMakeFiles/Frozza.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/VLDB2024_ReCG/Frozza/build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/VLDB2024_ReCG/Frozza /root/VLDB2024_ReCG/Frozza /root/VLDB2024_ReCG/Frozza/build-debug /root/VLDB2024_ReCG/Frozza/build-debug /root/VLDB2024_ReCG/Frozza/build-debug/CMakeFiles/Frozza.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Frozza.dir/depend
 

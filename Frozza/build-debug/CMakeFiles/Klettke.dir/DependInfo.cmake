@@ -5,7 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/root/JsonExplorerSpark/Klettke/roaring.c" "/root/JsonExplorerSpark/Klettke/build-debug/CMakeFiles/Klettke.dir/roaring.c.o"
+  "/root/VLDB2024_ReCG/Klettke/roaring.c" "/root/VLDB2024_ReCG/Klettke/build-debug/CMakeFiles/Klettke.dir/roaring.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -13,15 +13,15 @@ set(CMAKE_C_COMPILER_ID "GNU")
 set(CMAKE_C_TARGET_INCLUDE_PATH
   )
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/root/JsonExplorerSpark/Klettke/EdgeLabelledTree.cpp" "/root/JsonExplorerSpark/Klettke/build-debug/CMakeFiles/Klettke.dir/EdgeLabelledTree.cpp.o"
-  "/root/JsonExplorerSpark/Klettke/Initiator.cpp" "/root/JsonExplorerSpark/Klettke/build-debug/CMakeFiles/Klettke.dir/Initiator.cpp.o"
-  "/root/JsonExplorerSpark/Klettke/Instance.cpp" "/root/JsonExplorerSpark/Klettke/build-debug/CMakeFiles/Klettke.dir/Instance.cpp.o"
-  "/root/JsonExplorerSpark/Klettke/Klettke.cpp" "/root/JsonExplorerSpark/Klettke/build-debug/CMakeFiles/Klettke.dir/Klettke.cpp.o"
-  "/root/JsonExplorerSpark/Klettke/ReducedSGConstructor.cpp" "/root/JsonExplorerSpark/Klettke/build-debug/CMakeFiles/Klettke.dir/ReducedSGConstructor.cpp.o"
-  "/root/JsonExplorerSpark/Klettke/Schema.cpp" "/root/JsonExplorerSpark/Klettke/build-debug/CMakeFiles/Klettke.dir/Schema.cpp.o"
-  "/root/JsonExplorerSpark/Klettke/main.cpp" "/root/JsonExplorerSpark/Klettke/build-debug/CMakeFiles/Klettke.dir/main.cpp.o"
-  "/root/JsonExplorerSpark/Klettke/simdjson.cpp" "/root/JsonExplorerSpark/Klettke/build-debug/CMakeFiles/Klettke.dir/simdjson.cpp.o"
-  "/root/JsonExplorerSpark/Klettke/utils.cpp" "/root/JsonExplorerSpark/Klettke/build-debug/CMakeFiles/Klettke.dir/utils.cpp.o"
+  "/root/VLDB2024_ReCG/Klettke/EdgeLabelledTree.cpp" "/root/VLDB2024_ReCG/Klettke/build-debug/CMakeFiles/Klettke.dir/EdgeLabelledTree.cpp.o"
+  "/root/VLDB2024_ReCG/Klettke/Initiator.cpp" "/root/VLDB2024_ReCG/Klettke/build-debug/CMakeFiles/Klettke.dir/Initiator.cpp.o"
+  "/root/VLDB2024_ReCG/Klettke/Instance.cpp" "/root/VLDB2024_ReCG/Klettke/build-debug/CMakeFiles/Klettke.dir/Instance.cpp.o"
+  "/root/VLDB2024_ReCG/Klettke/Klettke.cpp" "/root/VLDB2024_ReCG/Klettke/build-debug/CMakeFiles/Klettke.dir/Klettke.cpp.o"
+  "/root/VLDB2024_ReCG/Klettke/ReducedSGConstructor.cpp" "/root/VLDB2024_ReCG/Klettke/build-debug/CMakeFiles/Klettke.dir/ReducedSGConstructor.cpp.o"
+  "/root/VLDB2024_ReCG/Klettke/Schema.cpp" "/root/VLDB2024_ReCG/Klettke/build-debug/CMakeFiles/Klettke.dir/Schema.cpp.o"
+  "/root/VLDB2024_ReCG/Klettke/main.cpp" "/root/VLDB2024_ReCG/Klettke/build-debug/CMakeFiles/Klettke.dir/main.cpp.o"
+  "/root/VLDB2024_ReCG/Klettke/simdjson.cpp" "/root/VLDB2024_ReCG/Klettke/build-debug/CMakeFiles/Klettke.dir/simdjson.cpp.o"
+  "/root/VLDB2024_ReCG/Klettke/utils.cpp" "/root/VLDB2024_ReCG/Klettke/build-debug/CMakeFiles/Klettke.dir/utils.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

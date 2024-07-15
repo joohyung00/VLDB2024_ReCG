@@ -4,9 +4,9 @@ import csv
 import statistics
 
 import sys
-sys.path.insert(1, '/root/JsonExplorerSpark/Experiment')
+sys.path.insert(1, '/root/VLDB2024_ReCG/Experiment')
 from load_json import load_dataset, load_schema, count_lines, unreference_schema
-sys.path.insert(2, "/root/JsonExplorerSpark/Experiment/utils")
+sys.path.insert(2, "/root/VLDB2024_ReCG/Experiment/utils")
 from dataset_metadata import dataset_ids, dataset_fullnames, possible_algorithms_list
 
 from itertools import product
@@ -29,15 +29,15 @@ RESULTS = {}
 
 
 ACC_EXP = {
-    "result_path": "/root/JsonExplorerSpark/Experiment/exp1_accuracy.txt", # HERE
-    # "result_path": "/root/JsonExplorerSpark/Experiment/exp1_accuracy_2.txt", # HERE
+    "result_path": "/root/VLDB2024_ReCG/Experiment/exp1_accuracy.txt", # HERE
+    # "result_path": "/root/VLDB2024_ReCG/Experiment/exp1_accuracy_2.txt", # HERE
     "algorithms": ["ReCG", "ReCG(TopDown)", "ReCG(KSE)", "jxplain", "kreduce", "lreduce", "klettke", "frozza"],
     "train_percs" : [1, 10, 50, 90],
     "dataset_names" : dataset_fullnames,
     "exp_nums": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 }
 ACC2_EXP = {
-    "result_path": "/root/JsonExplorerSpark/Experiment/exp1_accuracy_2.txt",
+    "result_path": "/root/VLDB2024_ReCG/Experiment/exp1_accuracy_2.txt",
     "algorithms": ["ReCG"],
     "train_percs" : [1, 10, 50, 90],
     "dataset_names" : dataset_fullnames,
@@ -45,7 +45,7 @@ ACC2_EXP = {
 }
 MDL_EXP = {
     "exp_type": "MDL",
-    "result_path": "/root/JsonExplorerSpark/Experiment/exp2_mdl.txt",
+    "result_path": "/root/VLDB2024_ReCG/Experiment/exp2_mdl.txt",
     "algorithms": ["ReCG", "jxplain", "kreduce", "lreduce", "klettke", "frozza", "groundtruth"],
     "train_percs" : [10],
     "dataset_names" : dataset_fullnames,
@@ -53,7 +53,7 @@ MDL_EXP = {
 }
 PERF_EXP = {
     "exp_type": "Performance",
-    "result_path": "/root/JsonExplorerSpark/Experiment/exp3_runtime.txt",
+    "result_path": "/root/VLDB2024_ReCG/Experiment/exp3_runtime.txt",
     "algorithms": ["ReCG", "jxplain", "kreduce", "lreduce", "klettke", "frozza"],
     "train_percs" : [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
     "dataset_names": dataset_fullnames,
@@ -61,7 +61,7 @@ PERF_EXP = {
 }    
 MEMORY_EXP = {
     "exp_type": "MemoryUsage",
-    "result_path": "/root/JsonExplorerSpark/Experiment/exp3_memory.txt",
+    "result_path": "/root/VLDB2024_ReCG/Experiment/exp3_memory.txt",
     "algorithms": ["ReCG", "jxplain", "kreduce", "lreduce", "klettke", "frozza"],
     "train_percs" : [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
     "dataset_names": dataset_fullnames,
@@ -69,7 +69,7 @@ MEMORY_EXP = {
 }
 PARAM_EXP = {
     "exp_type": "Parameter",
-    "result_path": "/root/JsonExplorerSpark/Experiment/exp4_param.txt",
+    "result_path": "/root/VLDB2024_ReCG/Experiment/exp4_param.txt",
     "train_percs" : [10, 40, 50, 60, 80, 90, 100],
     
     "param_name_to_values": {
@@ -97,7 +97,7 @@ PARAM_EXP = {
 
 WEIGHTEDMDL_EXP = {
     "exp_type": "WeightedMDL",
-    "result_path": "/root/JsonExplorerSpark/Experiment/exp6_weightedmdl.txt",
+    "result_path": "/root/VLDB2024_ReCG/Experiment/exp6_weightedmdl.txt",
     "train_percs" : [10, 50, 90],
     "mdl_weights": [(0.01, 0.99), (0.1, 0.9), (0.3, 0.7), (0.5,0.5), (0.7, 0.3), (0.9, 0.1), (0.99, 0.01)],
     "dataset_names": dataset_fullnames,
@@ -105,7 +105,7 @@ WEIGHTEDMDL_EXP = {
 }
 PARAM_FOR_BEAM_SEARCH_EXP = {
     "exp_type": "Parameter",
-    "result_path": "/root/JsonExplorerSpark/Experiment/exp4_param_beamsearch.txt",
+    "result_path": "/root/VLDB2024_ReCG/Experiment/exp4_param_beamsearch.txt",
     "train_percs" : [10],
     
     "param_name_to_values": {
@@ -887,6 +887,7 @@ def getRuntimeForAlgPercDataset(algorithm, train_perc, dataset_name):
     alg_idx = algorithms.index(algorithm)
     train_perc_idx = train_percs.index(train_perc)
     data_idx = dataset_ids.index(dataset_name)
+
     
     target_idx = (alg_idx, train_perc_idx, data_idx)
     

@@ -34,9 +34,9 @@ import argparse
 
 import statistics 
 # import negative_sample
-sys.path.insert(1, "/root/JsonExplorerSpark/Experiment/utils")
+sys.path.insert(1, "/root/VLDB2024_ReCG/Experiment/utils")
 from dataset_metadata import dataset_fullnames, dataset_ids, num_to_name
-sys.path.insert(2, "/root/JsonExplorerSpark/ExperimentVisualization")
+sys.path.insert(2, "/root/VLDB2024_ReCG/ExperimentVisualization")
 from aggregateExpResults import getAccForAlgPercDataset
 
 

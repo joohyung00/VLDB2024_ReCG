@@ -13,8 +13,6 @@ sample_size=${11}
 src_weight=${12}
 drc_weight=${13}
 
-# ./experiment_param.sh Accuracy 6_Wikidata /mnt/SchemaDataset/6_Wikidata/wikidata_positive.jsonl  /mnt/SchemaDataset/6_Wikidata/wikidata_negative.jsonl  10 10 1 3 0.5 1 1000
-
 
 
 
@@ -52,18 +50,18 @@ echo ${i}." Running ReCG"
 if [ $exp_type = "Performance" ]
 then
     echo Performance,$dataset_name,$train_perc,$experiment_num,$beam_width,$epsilon,$min_pts_perc,$sample_size,$src_weight,$drc_weight,\
-    `/root/JsonExplorerSpark/ReCG/build/ReCG --in_path $train_path --out_path $discovered_schema --search_alg kbeam --beam_width $beam_width --epsilon $epsilon --min_pts_perc $min_pts_perc --sample_size $sample_size --src_weight $src_weight --drc_weight $drc_weight  | grep "TOTAL ELAPSED TIME" | grep -o "[0-9]\+"` >> ../exp4_param.txt
+    `/root/VLDB2024_ReCG/ReCG/build/ReCG --in_path $train_path --out_path $discovered_schema --search_alg kbeam --beam_width $beam_width --epsilon $epsilon --min_pts_perc $min_pts_perc --sample_size $sample_size --src_weight $src_weight --drc_weight $drc_weight  | grep "TOTAL ELAPSED TIME" | grep -o "[0-9]\+"` >> ../exp4_param.txt
     exit
 fi
 
 if [ $exp_type = "Accuracy" ]
 then
-     /root/JsonExplorerSpark/ReCG/build/ReCG --in_path $train_path --out_path $discovered_schema --search_alg kbeam --beam_width $beam_width --epsilon $epsilon --min_pts_perc $min_pts_perc --sample_size $sample_size --src_weight $src_weight --drc_weight $drc_weight
+     /root/VLDB2024_ReCG/ReCG/build/ReCG --in_path $train_path --out_path $discovered_schema --search_alg kbeam --beam_width $beam_width --epsilon $epsilon --min_pts_perc $min_pts_perc --sample_size $sample_size --src_weight $src_weight --drc_weight $drc_weight
 fi
 
 # if [ $exp_type = "MDL" ]
 # then
-#      /root/JsonExplorerSpark/ReCG/build/ReCG --in_path $train_path --out_path $discovered_schema --search_alg kbeam --beam_width $beam_width --epsilon $epsilon --min_pts_perc $min_pts_perc --sample_size $sample_size --src_weight $src_weight --drc_weight $drc_weight
+#      /root/VLDB2024_ReCG/ReCG/build/ReCG --in_path $train_path --out_path $discovered_schema --search_alg kbeam --beam_width $beam_width --epsilon $epsilon --min_pts_perc $min_pts_perc --sample_size $sample_size --src_weight $src_weight --drc_weight $drc_weight
 # fi
 
 

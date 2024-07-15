@@ -38,13 +38,13 @@ fi
 if [ $algorithm = "ReCG" ]
 then
     echo ${experiment_num}." Running ReCG"
-    /root/JsonExplorerSpark/ReCG/build/ReCG --in_path $train_path --out_path $discovered_schema --search_alg kbeam --beam_width $beam_width --epsilon $epsilon --min_pts_perc $min_pts_perc --sample_size $sample_size
+    /root/VLDB2024_ReCG/ReCG/build/ReCG --in_path $train_path --out_path $discovered_schema --search_alg kbeam --beam_width $beam_width --epsilon $epsilon --min_pts_perc $min_pts_perc --sample_size $sample_size
 fi
 
 if [ $algorithm = "jxplain" ]
 then
     echo ${i}." Running JXPlain"
-    java -jar /root/JsonExplorerSpark/target/scala-2.11/JsonExtractor.jar $train_path train 100 val 0 kse 1.0 log mdl_temp.txt
+    java -jar /root/VLDB2024_ReCG/target/scala-2.11/JsonExtractor.jar $train_path train 100 val 0 kse 1.0 log mdl_temp.txt
 
     echo ${i}." Translating JXPlain"
     python3 ../jxplain_translator.py --in_path mdl_temp.txt --out_path $discovered_schema
@@ -54,7 +54,7 @@ fi
 if [ $algorithm = "kreduce" ]
 then
     echo ${experiment_num}." Running KReduce"
-    scala /root/JsonExplorerSpark/target_KREDUCE/scala-2.11/jsonSchemaInferenceLight-assembly-1.0.jar $train_path k -J-Xms2g -J-Xmx512g -J-Xss1g
+    scala /root/VLDB2024_ReCG/target_KREDUCE/scala-2.11/jsonSchemaInferenceLight-assembly-1.0.jar $train_path k -J-Xms2g -J-Xmx512g -J-Xss1g
     
     echo ${experiment_num}." Translating KReduce"
     python3 ../kreduce_translator.py --in_path hello.txt --out_path $discovered_schema
@@ -64,7 +64,7 @@ fi
 if [ $algorithm = "lreduce" ]
 then
     echo ${experiment_num}." Running LReduce"
-    scala /root/JsonExplorerSpark/target_KREDUCE/scala-2.11/jsonSchemaInferenceLight-assembly-1.0.jar $train_path l -J-Xms2g -J-Xmx512g -J-Xss1g
+    scala /root/VLDB2024_ReCG/target_KREDUCE/scala-2.11/jsonSchemaInferenceLight-assembly-1.0.jar $train_path l -J-Xms2g -J-Xmx512g -J-Xss1g
     
     echo ${experiment_num}." Translating LReduce"
     python3 ../kreduce_translator.py --in_path hello.txt --out_path $discovered_schema
@@ -74,13 +74,13 @@ fi
 if [ $algorithm = "klettke" ]
 then
     echo ${experiment_num}." Running Klettke"
-    /root/JsonExplorerSpark/Klettke/build/Klettke --in_path $train_path --out_path $discovered_schema
+    /root/VLDB2024_ReCG/Klettke/build/Klettke --in_path $train_path --out_path $discovered_schema
 fi
 
 if [ $algorithm = "frozza" ]
 then
     echo ${experiment_description}" Running Frozza"
-    /root/JsonExplorerSpark/Frozza/build/Frozza --in_path $train_path --out_path $discovered_schema
+    /root/VLDB2024_ReCG/Frozza/build/Frozza --in_path $train_path --out_path $discovered_schema
 fi
 
 

@@ -68,10 +68,18 @@
         <li><a href="#create-docker-container">Create Docker Container</a></li>
       </ul>
     </li>
-    <li><a href="#quick-reproduction">Quick Reproduction</a></li>
+    <li><a href="#single-command-reproduction">Single-Command Reproduction</a></li>
     <li><a href="#explanation-about-directories">Explanation About Directories</a></li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li>
+      <a href="#quick-overview">Quick Overview</a>
+      <ul>
+        <li><a href="#1-build-or-compile-algorithms">1. Build or Compile Algorithms</a></li>
+        <li><a href="#2-run-experiments">2. Run Experiments</a></li>
+        <li><a href="#3-visualize-experiment-results">3. Visualize Experiment Results</a></li>
+        <li><a href="#a-run-recg">(A) Run ReCG </a></li>
+      </ul>
+    </li>
+
   </ol>
 </details>
 
@@ -80,12 +88,20 @@
 <!-- ABOUT THE PROJECT -->
 ## About ReCG
 
-`ReCG` is an algorithm that discovers a JSON schema from a bag of JSON documents.
+We introduce ReCG, our novel algorithm for JSON schema discovery. ReCG is designed to address the limitations of traditional top-down methods by operating in a bottom-up manner. Here are the key features of ReCG:
 
-`ReCG` processes JSON documents in a bottom-up manner, which is devised to solve the problems top-down algorithms that perform poorly in real-life datasets.
-It builds up schemas from leaf elements upward in the JSON document tree and, thus, can make more informed decisions of the schema node types.
+- Utilizing a bottom-up approach for JSON schema discovery, which builds tree-structured JSON schemas from leaf elements upwards, ensuring more informed decisions about what type of schema node to derive
+- Implementing a repetitive cluster-and-generalize framework that systematically explores candidate schema sets
+- Applying the Minimum Description Length (MDL) principle to select the most concise and precise schemas, balancing generality and specificity
 
-In addition, `ReCG` adopts MDL (Minimum Description Length) principles systematically while building up the schemas to choose among candidate schemas the most concise yet accurate one with well-balanced generality.
+
+
+<p align = "center">
+<img src="images/StateExample.png" alt="drawing" width="800"/>
+</p>
+
+Evaluations show ReCG improves recall and precision by up to 47%, resulting in a 46% better F1 score and over twice the speed compared to state-of-the-art techniques.
+
 
 `ReCG` is implemented with ![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white).
 
@@ -130,30 +146,30 @@ Please download from docker cloud.
 
 1. Download our image from docker cloud
     ```bash
-    docker pull joohyungyun/vldb-recg-revision:1.0
+    docker pull joohyungyun/vldb2024-recg:1.0
     ```
 
 ### Create Docker Container
 
-Create a docker container named `recg-image` (this may change!) using the downloaded image.
+Create a docker container using the downloaded image.
 
 1. Docker run
     ```bash
-    docker run -itd --name vldb-recg-revision joohyungyun/vldb-recg-revision:1.0 /bin/bash
+    docker run -itd --name vldb2024-recg joohyungyun/vldb2024-recg:1.0 /bin/bash
     ```
 2. Docker start
     ```bash
-    docker start vldb-recg-revision
+    docker start vldb2024-recg
     ```
 3. Docker init
     ```bash
-    docker init vldb-recg-revision
+    docker init vldb2024-recg
     ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-## Quick Reproduction
+## Single-Command Reproduction
 
 The whole reproduction process can be easily done by typing a single line
 
@@ -163,7 +179,7 @@ The whole reproduction process can be easily done by typing a single line
 
 The anticipated runtime of the whole process is over 4 full days, so we recomment you to run the process using `tmux`!
 
-For detailed explanation or for a more fine-grained run, jump to <a href="#usage">Usage</a>
+For detailed explanation or for a more fine-grained run, jump to <a href="#quick-overview">Quick Overview</a>
 
 
 ## Explanation about Directories
@@ -171,35 +187,52 @@ For detailed explanation or for a more fine-grained run, jump to <a href="#usage
 - ReCG
 
 This directory contains the `C++` implementation of `ReCG`.
-Refer to `README.md` of this directory for more information.
+
+Refer to [README](ReCG/README.md) of this directory for more information.
 
 - Dataset
 
 This directory contains all 20 datasets used in the paper "ReCG: Bottom-Up JSON Schema Discovery Using a Repetitive Cluster-and-Generalize Framework".
+Due to their file sizes, the datasets are not uploaded on the github repository, but are within our docker image.
+Thus, the reproduction will not be successful if one just cloned our github repository.
+
+Refer to [README](Dataset/README.md) of this directory for more information.
 
 - Experiment
 
 This directory contains the `Python` implementations for the four experiments conducted in "ReCG: Bottom-Up JSON Schema Discovery Using a Repetitive Cluster-and-Generalize Framework".
-Refer to `README.md` of this directory for more information.
+
+Refer to [README](Experiment/README.md) of this directory for more information.
 
 - ExperimentVisualization
 
 This directory contains the `Python` implementations that visualize (either printing in consoles or drawing plots) experiments conducted in "ReCG: Bottom-Up JSON Schema Discovery Using a Repetitive Cluster-and-Generalize Framework".
-Refer to `README.md` of this directory for more information.
+
+Refer to [README](ExperimentVisualization/README.md) of this directory for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-## Usage
+## Quick Overview
 
-Please follow the instructions below to 
+We explain our code in a fine-grained manner.
+`./runAll.sh` file is comprised in three steps.
 
-### 1. Build Algorithms
+### 1. Build or Compile Algorithms
 
-(a) Build ReCG
+(a) Build C++ Implementations
 ```bash
 cd ReCG
-./make.sh
+./compile.sh
+cd ..
+cd ReCG_TopDown
+./compile.sh
+cd ..
+cd Frozza
+./compile.sh
+cd ..
+cd Klettke
+./compile.sh
 cd ..
 ```
 
@@ -236,6 +269,54 @@ cd ..
 
 For detailed explanation of each experiments, refer `README.md` of `ExperiementVisualizations` directory.
 
+
+### (A) Run ReCG
+
+If you only want to run `ReCG`, please follow refer below.
+
+You can run `ReCG` in release mode with the following command:
+```bash
+~/VLDB2024_ReCG/ReCG/build/ReCG
+    --in_path [pathToInputFile (.jsonl)]
+    --out_path [pathToOutputSchema (.json)]
+    --search_alg kbeam
+    --beam_width [int]
+    --epsilon [float | 0 < x && x <= 1]
+    --min_pts_perc [int | 0 < x && x <= 100]
+    --sample_size [int | x > 0]
+    --src_weight [float | 0 <= src_weight && src_weight <= 1.0 && src_weight + drc_weight == 1]
+    --drc_weight [float | 0 <= drc_weight && src_weight <= 1.0 && src_weight + drc_weight == 1]
+    --cost_model [{mdl, kse}]
+```
+
+You may also run it in the debugging mode with the following command:
+```bash
+~/VLDB2024_ReCG/ReCG/build-debug/ReCG
+    --in_path [pathToInputFile (.jsonl)]
+    --out_path [pathToOutputSchema (.json)]
+    --search_alg kbeam
+    --beam_width [int]
+    --epsilon [float | 0 < x && x <= 1]
+    --min_pts_perc [int | 0 < x && x <= 100]
+    --sample_size [int | x > 0]
+    --src_weight [float | 0 <= src_weight && src_weight <= 1.0 && src_weight + drc_weight == 1]
+    --drc_weight [float | 0 <= drc_weight && src_weight <= 1.0 && src_weight + drc_weight == 1]
+    --cost_model [{mdl, kse}]
+```
+
+Example code: try out this one!
+
+```bash
+~/VLDB2024_ReCG/ReCG/build/ReCG
+    --in_path ~/VLDB2024_ReCG/ReCG/test_data/ckg_node_Amino_acid_sequence.jsonl \
+    --out_path something.json \
+    --search_alg kbeam \
+    --beam_width 3 \
+    --sample_size 1000 \
+    --epsilon 0.5 \
+    --src_weight 0.5 \
+    --drc_weight 0.5
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

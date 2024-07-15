@@ -6,15 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/root/JsonExplorerSpark/ReCG/Cost.cpp
+/root/VLDB2024_ReCG/ReCG/Cost.cpp
 Cost.hpp
-/root/JsonExplorerSpark/ReCG/Cost.hpp
+/root/VLDB2024_ReCG/ReCG/Cost.hpp
 
-/root/JsonExplorerSpark/ReCG/Cost.hpp
+/root/VLDB2024_ReCG/ReCG/Cost.hpp
 InstanceCluster.hpp
-/root/JsonExplorerSpark/ReCG/InstanceCluster.hpp
+/root/VLDB2024_ReCG/ReCG/InstanceCluster.hpp
 
-/root/JsonExplorerSpark/ReCG/EdgeLabelledTree.hpp
+/root/VLDB2024_ReCG/ReCG/EdgeLabelledTree.hpp
 iostream
 -
 string
@@ -34,9 +34,9 @@ stack
 algorithm
 -
 utils.hpp
-/root/JsonExplorerSpark/ReCG/utils.hpp
+/root/VLDB2024_ReCG/ReCG/utils.hpp
 
-/root/JsonExplorerSpark/ReCG/Instance.hpp
+/root/VLDB2024_ReCG/ReCG/Instance.hpp
 string
 -
 vector
@@ -44,25 +44,25 @@ vector
 unordered_set
 -
 Schema.hpp
-/root/JsonExplorerSpark/ReCG/Schema.hpp
+/root/VLDB2024_ReCG/ReCG/Schema.hpp
 EdgeLabelledTree.hpp
-/root/JsonExplorerSpark/ReCG/EdgeLabelledTree.hpp
+/root/VLDB2024_ReCG/ReCG/EdgeLabelledTree.hpp
 utils.hpp
-/root/JsonExplorerSpark/ReCG/utils.hpp
+/root/VLDB2024_ReCG/ReCG/utils.hpp
 
-/root/JsonExplorerSpark/ReCG/InstanceCluster.hpp
+/root/VLDB2024_ReCG/ReCG/InstanceCluster.hpp
 Schema.hpp
-/root/JsonExplorerSpark/ReCG/Schema.hpp
+/root/VLDB2024_ReCG/ReCG/Schema.hpp
 Instance.hpp
-/root/JsonExplorerSpark/ReCG/Instance.hpp
+/root/VLDB2024_ReCG/ReCG/Instance.hpp
 
-/root/JsonExplorerSpark/ReCG/Schema.hpp
+/root/VLDB2024_ReCG/ReCG/Schema.hpp
 EdgeLabelledTree.hpp
-/root/JsonExplorerSpark/ReCG/EdgeLabelledTree.hpp
+/root/VLDB2024_ReCG/ReCG/EdgeLabelledTree.hpp
 utils.hpp
-/root/JsonExplorerSpark/ReCG/utils.hpp
+/root/VLDB2024_ReCG/ReCG/utils.hpp
 
-/root/JsonExplorerSpark/ReCG/roaring.h
+/root/VLDB2024_ReCG/ReCG/roaring.h
 stdbool.h
 -
 stdint.h
@@ -146,7 +146,7 @@ stddef.h
 stddef.h
 -
 
-/root/JsonExplorerSpark/ReCG/utils.hpp
+/root/VLDB2024_ReCG/ReCG/utils.hpp
 string
 -
 cstdint
@@ -174,5 +174,5 @@ cassert
 stdexcept
 -
 roaring.h
-/root/JsonExplorerSpark/ReCG/roaring.h
+/root/VLDB2024_ReCG/ReCG/roaring.h
 

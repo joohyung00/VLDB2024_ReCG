@@ -1,0 +1,62 @@
+{
+    "3": {
+        "num of distinct keys": 117,
+        "relative performance": 23132.9
+    },
+    "4": {
+        "num of distinct keys": 247,
+        "relative performance": 14296.5
+    },
+    "5": {
+        "num of distinct keys": 1602,
+        "relative performance": 2798.5
+    },
+    "7": {
+        "num of distinct keys": 84,
+        "relative performance": 1438.0
+    },
+    "8": {
+        "num of distinct keys": 102,
+        "relative performance": 2334.1
+    },
+    "12": {
+        "num of distinct keys": 11386,
+        "relative performance": 65236.0
+    },
+    "13": {
+        "num of distinct keys": 3979,
+        "relative performance": 13057.2
+    },
+    "21": {
+        "num of distinct keys": 54,
+        "relative performance": 6129.5
+    },
+    "22": {
+        "num of distinct keys": 25,
+        "relative performance": 2945.2
+    },
+    "23": {
+        "num of distinct keys": 59,
+        "relative performance": 3439.3
+    },
+    "32": {
+        "num of distinct keys": 7352,
+        "relative performance": 3966.5
+    },
+    "33": {
+        "num of distinct keys": 4218,
+        "relative performance": 2784.9
+    },
+    "34": {
+        "num of distinct keys": 43377,
+        "relative performance": 75657.0
+    },
+    "35": {
+        "num of distinct keys": 31225,
+        "relative performance": 172882.9
+    },
+    "41": {
+        "num of distinct keys": 7197,
+        "relative performance": 7088.7
+    }
+}

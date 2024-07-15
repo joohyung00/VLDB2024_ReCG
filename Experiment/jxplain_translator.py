@@ -3,7 +3,7 @@ import argparse
 
 import json
 
-sys.path.insert(1, '/root/JsonExplorerSpark/Experiment')
+sys.path.insert(1, '/root/VLDB2024_ReCG/Experiment')
 from load_json import load_dataset, load_schema
 
 def translate_jxplain__(filepath, output_path):

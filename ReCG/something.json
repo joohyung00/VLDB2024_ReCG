@@ -1,1 +1,0 @@
-{"anyOf": [{"type": "object", "properties": {"8": {"type": "number"}, "7": {"type": "number"}}, "required": ["8", "7"], "additionalProperties": false}, {"type": "object", "properties": {"b": {"type": "number"}, "a": {"type": "number"}}, "required": ["b", "a"], "additionalProperties": false}]}

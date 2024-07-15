@@ -5,9 +5,9 @@ import numpy as np
 from colorama import Fore, Style
 
 import sys
-sys.path.insert(1, '/root/JsonExplorerSpark/Experiment')
+sys.path.insert(1, '/root/VLDB2024_ReCG/Experiment')
 from load_json import load_dataset, load_schema, count_lines, unreference_schema
-sys.path.insert(2, "/root/JsonExplorerSpark/Experiment/utils")
+sys.path.insert(2, "/root/VLDB2024_ReCG/Experiment/utils")
 from dataset_metadata import dataset_fullnames
 
 from aggregateExpResults import getAccForAlg, getAccForAlgPerc, getAccForAlgPercDataset 

@@ -1,10 +1,9 @@
 import sys
-sys.path.insert(1, '/root/JsonExplorerSpark/Experiment')
+sys.path.insert(1, '/root/VLDB2024_ReCG/Experiment')
 from load_json import load_dataset, load_schema, count_lines, unreference_schema
-sys.path.insert(2, "/root/JsonExplorerSpark/Experiment/utils")
+sys.path.insert(2, "/root/VLDB2024_ReCG/Experiment/utils")
 from dataset_metadata import dataset_ids, dataset_id_to_fullname, dataset_id_to_positive_dataset_path, \
-    dataset_id_to_negative_dataset_path, possible_algorithms, isRunnableExperiment, \
-    dataset_id_to_negative2_dataset_path
+    dataset_id_to_negative_dataset_path, possible_algorithms, isRunnableExperiment
 
 from itertools import product
 import subprocess
@@ -15,7 +14,6 @@ import yaml
 
 
 POSSIBLE_RUNMODES = {"test", "real"}
-POSSIBLE_OPERATION_NUMS = [1, 2]
 
 
 def main():
@@ -90,9 +88,7 @@ def runSingleExperimentSet(exp_config):
         
         dataset_name = dataset_id_to_fullname[target_dataset_id]
         positive_dataset_path = dataset_id_to_positive_dataset_path[target_dataset_id]
-        if   exp_config["operation_num"] == 1: negative_dataset_path = dataset_id_to_negative_dataset_path[target_dataset_id]
-        elif exp_config["operation_num"] == 2: negative_dataset_path = dataset_id_to_negative2_dataset_path[target_dataset_id]
-        else: raise ValueError("Invalid operation number")
+        negative_dataset_path = dataset_id_to_negative_dataset_path[target_dataset_id]
         
         arglist = [
             "bash", 
@@ -105,7 +101,6 @@ def runSingleExperimentSet(exp_config):
             "10",
             exp_num,
             exp_config["run_mode"],
-            str(exp_config["operation_num"])
         ]
         
         print(arglist)
@@ -163,18 +158,7 @@ def readConfigFile():
             print("Error: exp_nums not found in config")
             return None
         parsed_config["exp_nums"] = stringifyElements(config_obj["exp_nums"])
-        
-        if "operation_num" in config_obj:
-            operation_num = config_obj["operation_num"]
-            if len(operation_num) > 1:
-                print("Error: Pick only one operation number")
-                return None
-            if operation_num[0] not in POSSIBLE_OPERATION_NUMS:
-                print("Error: operation_num must be a subset of possible operation numbers")
-                return None
-            parsed_config["operation_num"] = operation_num[0]
-        else:
-            parsed_config["operation_num"] = 1
+
         
         
         # 5. Check the run_mode
